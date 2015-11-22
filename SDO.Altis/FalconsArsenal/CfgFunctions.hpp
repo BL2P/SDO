@@ -7,6 +7,6 @@ class FalconsArsenal
 		class createLocalArsenal {};
 		class executeLocalArsenal {};
 		class updateLocalArsenal {};
-		class conditionalIndex {};
+		class conditionalIndex {}
 	};
 };

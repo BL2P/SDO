@@ -32,9 +32,10 @@ if !(headgear player in AllowedItems || headgear player == "") then
 
 {
 	if !(_x in AllowedItems || _x == "") then
-	{
-		//player removeWeapon _x;
-		player action ["DropWeapon", "GroundWeaponHolder" createVehicle position player, _x];
+	{	
+		player removeWeapon _x;
+		_weaphold = "GroundWeaponHolder" createVehicle position player;
+		_weaphold addWeaponCargoGlobal[_x, 1];
 		systemchat format ["Weapon removed %1 is not in your class", _x];
 	};
 } forEach weapons player;

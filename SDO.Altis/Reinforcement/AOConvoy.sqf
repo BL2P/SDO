@@ -73,7 +73,7 @@ while {!_giveup && PARAMS_ConvoyChance >= 1} do
 
 				_position = [[[getMarkerPos currentAO,18000]],["water","out"]] call BIS_fnc_randomPos;
 				_list = _position nearRoads _amount;
-				if(count _list >= 10) then
+				if(count _list >= 5) then
 				{
 					_road = _list call BIS_fnc_selectRandom;
 					_roadpos = getPos _road;
@@ -81,7 +81,7 @@ while {!_giveup && PARAMS_ConvoyChance >= 1} do
 				};
 												
 				if ((count _flatPos) == 3) then {
-					if ((_flatPos distance (getMarkerPos "respawn_west")) > 3000 && (_flatPos distance (getMarkerPos currentAO)) > 16000) then 
+					if ((_flatPos distance (getMarkerPos "respawn_west")) > 3000 && (_flatPos distance (getMarkerPos currentAO)) > 8000) then 
 					{
 						_nearUnits = 0;
 						{
@@ -120,16 +120,16 @@ while {!_giveup && PARAMS_ConvoyChance >= 1} do
 			
 			//--- create lead vehicle
 			//_Convoy_Vehicle = [getPos _road,0,(SDO_Heavy_Armour_vehicles call BIS_fnc_selectRandom),_ConvoyGroup] call BIS_fnc_spawnVehicle;
-			_Convoy_Vehicle = createVehicle [(SDO_Heavy_Armour_vehicles call BIS_fnc_selectRandom), _ConvoySafePos,[], 0, "NONE"];
+			_Convoy_Vehicle = createVehicle [(SDO_Heavy_Armour_vehicles call BIS_fnc_selectRandom),getPos _road,[], 0, "NONE"];
 			[_Convoy_Vehicle, _ConvoyGroup] call BIS_fnc_spawnCrew; 
 			
 			
-			(_Convoy_Vehicle select 0) setDir (getDir _road);
-			ConvoyVehicles set [count ConvoyVehicles, _Convoy_Vehicle select 0];
+			(_Convoy_Vehicle) setDir (getDir _road);
+			ConvoyVehicles set [count ConvoyVehicles, _Convoy_Vehicle];
 			
 			(vehicle (leader _ConvoyGroup)) spawn SDO_fnc_fuelMonitor;
 			if !(isNil "dep_fnc_vehicledamage") then {
-			[(_Convoy_Vehicle select 0)] spawn dep_fnc_vehicledamage;
+			[(_Convoy_Vehicle)] spawn dep_fnc_vehicledamage;
 			};
 			_usedroads = _usedroads + [_road];
 			sleep 0.5;
@@ -146,14 +146,14 @@ while {!_giveup && PARAMS_ConvoyChance >= 1} do
 					_road = _connectedRoad;
 					
 					//_Convoy_Vehicle = [getPos _connectedRoad,0,(SDO_Support_vehicles call BIS_fnc_selectRandom),_ConvoyGroup] call BIS_fnc_spawnVehicle;
-					_Convoy_Vehicle = createVehicle [(SDO_Support_vehicles call BIS_fnc_selectRandom), _ConvoySafePos,[], 0, "NONE"];
+					_Convoy_Vehicle = createVehicle [(SDO_Support_vehicles call BIS_fnc_selectRandom), getPos _connectedRoad,[], 0, "NONE"];
 					[_Convoy_Vehicle, _ConvoyGroup] call BIS_fnc_spawnCrew; 
 					
-					(_Convoy_Vehicle select 0) setDir _direction;
-					ConvoyVehicles set [count ConvoyVehicles, _Convoy_Vehicle select 0];
+					(_Convoy_Vehicle) setDir _direction;
+					ConvoyVehicles set [count ConvoyVehicles, _Convoy_Vehicle];
 					(vehicle (leader _ConvoyGroup)) spawn SDO_fnc_fuelMonitor;
 					if !(isNil "dep_fnc_vehicledamage") then {
-					[(_Convoy_Vehicle select 0)] spawn dep_fnc_vehicledamage;
+					[(_Convoy_Vehicle)] spawn dep_fnc_vehicledamage;
 					};
 					sleep 0.5;
 				};
@@ -166,19 +166,19 @@ while {!_giveup && PARAMS_ConvoyChance >= 1} do
 			{
 				_usedroads = _usedroads + [_connectedRoad];
 				_direction = [_road, _connectedRoad] call BIS_fnc_DirTo;
-				_Convoy_Vehicle = [getPos _connectedRoad,0,(SDO_AAA_Armour_vehicles call BIS_fnc_selectRandom),_ConvoyGroup] call BIS_fnc_spawnVehicle;
-				_Convoy_Vehicle = createVehicle [(SDO_AAA_Armour_vehicles call BIS_fnc_selectRandom), _ConvoySafePos,[], 0, "NONE"];
+				//_Convoy_Vehicle = [getPos _connectedRoad,0,(SDO_AAA_Armour_vehicles call BIS_fnc_selectRandom),_ConvoyGroup] call BIS_fnc_spawnVehicle;
+				_Convoy_Vehicle = createVehicle [(SDO_AAA_Armour_vehicles call BIS_fnc_selectRandom), getPos _connectedRoad,[], 0, "NONE"];
 				
 				[_Convoy_Vehicle, _ConvoyGroup] call BIS_fnc_spawnCrew; 
 				
 				
-				(_Convoy_Vehicle select 0) setDir _direction;
+				(_Convoy_Vehicle) setDir _direction;
 				_road = _connectedRoad;
-				ConvoyVehicles set [count ConvoyVehicles, _Convoy_Vehicle select 0];
+				ConvoyVehicles set [count ConvoyVehicles, _Convoy_Vehicle];
 				
 				(vehicle (leader _ConvoyGroup)) spawn SDO_fnc_fuelMonitor;
 				if !(isNil "dep_fnc_vehicledamage") then {
-					[(_Convoy_Vehicle select 0)] spawn dep_fnc_vehicledamage;
+					[(_Convoy_Vehicle)] spawn dep_fnc_vehicledamage;
 				};
 				sleep 0.5;
 			};
@@ -187,7 +187,7 @@ while {!_giveup && PARAMS_ConvoyChance >= 1} do
 			//---  create a chopper random chance
 			//--- bl1p made it never spawn for now
 			_randomChopper = random 10;
-			if (_randomChopper > 0) then 
+			if (_randomChopper > 2) then 
 			{
 				_ConvoySafePos = [getPos _road, 30,5] call SDO_fnc_randomPosbl1p;
 				//_Convoy_Vehicle = [_ConvoySafePos,0,[SDO_Air_Trans] call BIS_fnc_selectRandom,_ConvoyGroup] call BIS_fnc_spawnVehicle;

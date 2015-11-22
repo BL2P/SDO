@@ -1,4 +1,4 @@
-if (isServer) exitwith {diag_log "I was kicked from AmmoTruck_Arsenal.sqf";};
+
 diag_log "=============Reading AmmoTruck_Arsenal waiting for VA main================";
 
 if (isNil "PARAMS_ALLOW_3CB")  then  { waitUntil{!isNil "PARAMS_ALLOW_3CB"};};

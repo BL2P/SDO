@@ -305,7 +305,7 @@ if (DEBUG) then {
 
 			_targetStartText = format
 				[
-					"%1</br>%2 more targets to go",_targetStartText,_targetsLeft
+					"%1 - %2 more targets to go",_targetStartText,_targetsLeft
 				];
 
 

@@ -79,8 +79,8 @@ diag_log "////====****READING VA_3CB.SQF ****====////";
 				"UK3CB_BAF_L115A3_Mag",
 				"UK3CB_BAF_L128A1_Pellets",
 				"UK3CB_BAF_L128A1_Slugs",
-				"UK3CB_BAF_150Rnd_762x51_box",
-				"UK3CB_BAF_100Rnd_127x99_box",
+				"UK3CB_BAF_150Rnd_762x51_Box",
+				"UK3CB_BAF_100Rnd_127x99_Box",
 				"UK3CB_BAF_1Rnd_HEDP_Grenade_shell"
 			];
 

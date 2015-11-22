@@ -40,7 +40,7 @@ diag_log "////====****READING VA_GenAuse.SQF ****====////";
 				"10Rnd_338_Mag",
 				"130Rnd_338_Mag",
 				"30Rnd_45ACP_Mag_SMG_01",
-				"30Rnd_45ACP_Mag_SMG_01_tracer_green",
+				//"30Rnd_45ACP_Mag_SMG_01_tracer_green",
 				"11Rnd_45ACP_Mag",
 				"16Rnd_9x21_Mag",
 				"30Rnd_65x39_caseless_mag",

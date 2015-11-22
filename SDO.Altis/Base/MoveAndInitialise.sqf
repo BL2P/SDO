@@ -220,24 +220,22 @@ if (!(rndBase == StadBase) && !(rndBase == HillBase1) && !(rndBase == CapBase) &
 	};
 				waitUntil {serverTime > 10};
 				_HouseArray = [MedFac] call BIS_fnc_buildingPositions;
-				diag_log format ["_HouseArray = %1 ==================================",_HouseArray];
-				_SinglePos = _HouseArray call Bis_fnc_selectRandom;
-				diag_log format ["_SinglePos = %1 ==================================",_SinglePos];
 				NurseGladys setPos  (getPos Rescue_pad);
 				
 				_z = (count _HouseArray) - 1;
-				diag_log format ["_z = %1 ==================================",_z];
-					for "_y" from 3 to 9 do {
-						//_newpos = _HouseArray select _y;
-						_wp = (group NurseGladys) addWaypoint [MedFac, _y];
-						_wp setWaypointHousePosition _y;
-						_wp setWaypointTimeOut [0,5,10];
-						if (_y < 9) then {
+					 for "_y" from 0 to _z do {
+						_newpos = _HouseArray select _y;
+						_newpos set [2, ((_newpos select 2) + 0.2)];
+						_wp = (group NurseGladys) addWaypoint [_newpos, 0];
+						_wp setwaypointcombatmode "BLUE";
+						_wp setWaypointSpeed "LIMITED";
+						_wp setWaypointTimeOut [60,300,360];
+						
+						if (_y < _z) then {
 							_wp setWaypointType "MOVE";
 						} else {
-							_wp setWaypointType "CYCLE";
+						_wp setWaypointType "CYCLE";
 						};
 					};
-
 	MovedAndInitialised = true; 
 	PublicVariable "MovedAndInitialised";

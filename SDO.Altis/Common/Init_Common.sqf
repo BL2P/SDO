@@ -14,7 +14,7 @@ diag_log "==============Init_Common Start==============";
 	
 //--- Check if player is a SDO member or friend ran by player and server
 	_SDONFriends = execVM "core\SDO_N_Friends.sqf";
-	waitUntil{scriptDone _SDONFriends};
+	//waitUntil{scriptDone _SDONFriends};
 
 	
 //--- Outro by EightySix fucked up by BL1P.
