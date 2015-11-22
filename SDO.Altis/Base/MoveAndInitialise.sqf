@@ -218,24 +218,26 @@ if (!(rndBase == StadBase) && !(rndBase == HillBase1) && !(rndBase == CapBase) &
 				waitUntil {scriptDone _fac2};
 
 	};
-	
-				 _HouseArray = [MedFac] call BIS_fnc_buildingPositions;
-				 _SinglePos = _HouseArray call Bis_fnc_selectRandom;
-				NurseGladys setPos (getPos Respawn_pos_pad);
+				waitUntil {serverTime > 10};
+				_HouseArray = [MedFac] call BIS_fnc_buildingPositions;
+				diag_log format ["_HouseArray = %1 ==================================",_HouseArray];
+				_SinglePos = _HouseArray call Bis_fnc_selectRandom;
+				diag_log format ["_SinglePos = %1 ==================================",_SinglePos];
+				NurseGladys setPos  (getPos Rescue_pad);
 				
 				_z = (count _HouseArray) - 1;
-					for "_y" from 0 to _z do {
-						_newpos = _HouseArray select _y;
-						_wp = (group NurseGladys) addWaypoint [_newpos, _y];
-						_wp setWaypointBehaviour "SAFE";
-						_wp setWaypointSpeed "LIMITED";
-						_wp setWaypointFormation "COLUMN";
+				diag_log format ["_z = %1 ==================================",_z];
+					for "_y" from 3 to 9 do {
+						//_newpos = _HouseArray select _y;
+						_wp = (group NurseGladys) addWaypoint [MedFac, _y];
+						_wp setWaypointHousePosition _y;
 						_wp setWaypointTimeOut [0,5,10];
-						if (_y < _z) then {
+						if (_y < 9) then {
 							_wp setWaypointType "MOVE";
 						} else {
 							_wp setWaypointType "CYCLE";
 						};
 					};
+
 	MovedAndInitialised = true; 
 	PublicVariable "MovedAndInitialised";

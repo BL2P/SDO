@@ -410,7 +410,7 @@ class AO_UNITS
 		title = "% Chance Of Convoys Moving to AO";
 		values[] = {0,1,2,3,4,5,6,7,8,9,10};
 		texts[] = {0,10,20,30,40,50,60,70,80,90,100};
-		default = 0;
+		default = 3;
 	};
 	//def 0
 	class AirPatrol

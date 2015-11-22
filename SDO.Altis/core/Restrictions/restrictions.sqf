@@ -33,7 +33,8 @@ if !(headgear player in AllowedItems || headgear player == "") then
 {
 	if !(_x in AllowedItems || _x == "") then
 	{
-		player removeWeapon _x;	
+		//player removeWeapon _x;
+		player action ["DropWeapon", "GroundWeaponHolder" createVehicle position player, _x];
 		systemchat format ["Weapon removed %1 is not in your class", _x];
 	};
 } forEach weapons player;
@@ -49,7 +50,7 @@ if !(headgear player in AllowedItems || headgear player == "") then
 {
 	if !(_x in AllowedItems || _x == "") then
 	{
-		player removePrimaryWeaponItem _x;	
+		player removePrimaryWeaponItem _x;
 		systemchat format ["WeaponItem removed %1 is not in your class", _x];
 	};
 } forEach primaryWeaponItems player;
@@ -57,7 +58,8 @@ if !(headgear player in AllowedItems || headgear player == "") then
 {
 	if !(_x in AllowedItems || _x == "") then
 	{
-		player removeMagazines _x;	
+		//player removeMagazines _x;
+		player action ["dropMagazine", "GroundWeaponHolder" createVehicle position player, _x];
 		systemchat format ["Item removed %1 is not in your class", _x];
 	};
 } forEach magazines player;

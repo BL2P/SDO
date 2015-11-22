@@ -4,10 +4,6 @@
 //--- com slot only 
 	#include "core\Debriefing.hpp"
 
-//--- suicide button defines the buttons for call help and suicide 
-    #include "core\dialogs\defines.hpp"      
-    #include "core\dialogs\dialogs.hpp"      
-
 //--- Kegetys Spectator Script
 	#include "spectator\spectating.hpp"
 

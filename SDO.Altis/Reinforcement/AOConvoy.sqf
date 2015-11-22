@@ -119,7 +119,11 @@ while {!_giveup && PARAMS_ConvoyChance >= 1} do
 			
 			
 			//--- create lead vehicle
-			_Convoy_Vehicle = [getPos _road,0,(SDO_Heavy_Armour_vehicles call BIS_fnc_selectRandom),_ConvoyGroup] call BIS_fnc_spawnVehicle;
+			//_Convoy_Vehicle = [getPos _road,0,(SDO_Heavy_Armour_vehicles call BIS_fnc_selectRandom),_ConvoyGroup] call BIS_fnc_spawnVehicle;
+			_Convoy_Vehicle = createVehicle [(SDO_Heavy_Armour_vehicles call BIS_fnc_selectRandom), _ConvoySafePos,[], 0, "NONE"];
+			[_Convoy_Vehicle, _ConvoyGroup] call BIS_fnc_spawnCrew; 
+			
+			
 			(_Convoy_Vehicle select 0) setDir (getDir _road);
 			ConvoyVehicles set [count ConvoyVehicles, _Convoy_Vehicle select 0];
 			
@@ -141,7 +145,10 @@ while {!_giveup && PARAMS_ConvoyChance >= 1} do
 					_direction = [_road, _connectedRoad] call BIS_fnc_DirTo;
 					_road = _connectedRoad;
 					
-					_Convoy_Vehicle = [getPos _connectedRoad,0,(SDO_Support_vehicles call BIS_fnc_selectRandom),_ConvoyGroup] call BIS_fnc_spawnVehicle;
+					//_Convoy_Vehicle = [getPos _connectedRoad,0,(SDO_Support_vehicles call BIS_fnc_selectRandom),_ConvoyGroup] call BIS_fnc_spawnVehicle;
+					_Convoy_Vehicle = createVehicle [(SDO_Support_vehicles call BIS_fnc_selectRandom), _ConvoySafePos,[], 0, "NONE"];
+					[_Convoy_Vehicle, _ConvoyGroup] call BIS_fnc_spawnCrew; 
+					
 					(_Convoy_Vehicle select 0) setDir _direction;
 					ConvoyVehicles set [count ConvoyVehicles, _Convoy_Vehicle select 0];
 					(vehicle (leader _ConvoyGroup)) spawn SDO_fnc_fuelMonitor;
@@ -160,6 +167,11 @@ while {!_giveup && PARAMS_ConvoyChance >= 1} do
 				_usedroads = _usedroads + [_connectedRoad];
 				_direction = [_road, _connectedRoad] call BIS_fnc_DirTo;
 				_Convoy_Vehicle = [getPos _connectedRoad,0,(SDO_AAA_Armour_vehicles call BIS_fnc_selectRandom),_ConvoyGroup] call BIS_fnc_spawnVehicle;
+				_Convoy_Vehicle = createVehicle [(SDO_AAA_Armour_vehicles call BIS_fnc_selectRandom), _ConvoySafePos,[], 0, "NONE"];
+				
+				[_Convoy_Vehicle, _ConvoyGroup] call BIS_fnc_spawnCrew; 
+				
+				
 				(_Convoy_Vehicle select 0) setDir _direction;
 				_road = _connectedRoad;
 				ConvoyVehicles set [count ConvoyVehicles, _Convoy_Vehicle select 0];

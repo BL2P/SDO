@@ -16,7 +16,7 @@ _welcomeadmin = [
 			"Welcome back %1"
 			];			
 			
-systemchat "SDOnF is running on this Server.";
+//systemchat "SDO-n-Friends... is running on this Server.";
 
 if (isServer) exitWith 
 {
@@ -45,7 +45,7 @@ sleep 1;
 				_isAdmin = true;
 			};
 		};
-} forEach dRFriendsArray;
+} forEach SDOFriendsArray;
 
 player setVariable["friend", _IamAFALCONFriend, true];
 player setVariable["admin", _isAdmin, true];
