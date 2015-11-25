@@ -134,15 +134,15 @@ if (PARAMS_ALLOW_RHS == 1) then
 					"rhsusf_mag_6Rnd_M433_HEDP",
 					"rhsusf_mag_6Rnd_M714_white",
 				//---RHS GL Flares and smokes
-					"rhs_mag_m4009",
-					"rhs_mag_m576",
-					"rhs_mag_M585_white",
-					"rhs_mag_m661_green",
-					"rhs_mag_m662_red",
-					"rhs_mag_m713_Red",
-					"rhs_mag_m714_White",
-					"rhs_mag_m715_Green",
-					"rhs_mag_m716_yellow",
+				//	"rhs_mag_m4009",
+				//	"rhs_mag_m576",
+				//	"rhs_mag_M585_white",
+				//	"rhs_mag_m661_green",
+				//	"rhs_mag_m662_red",
+				//	"rhs_mag_m713_Red",
+				//	"rhs_mag_m714_White",
+				//	"rhs_mag_m715_Green",
+				//	"rhs_mag_m716_yellow",
 				//---RHS Pistol
 					"rhsusf_mag_7x45acp_MHP",
 					"rhsusf_mag_17Rnd_9x19_FMJ",
@@ -152,7 +152,7 @@ if (PARAMS_ALLOW_RHS == 1) then
 					"rhs_m136_hedp_mag",
 					"rhs_m136_hp_mag",
 					"rhs_fim92_mag",
-					"rhs_fgm148_magazine_AT",
+					"rhs_fgm148_magazine_AT"
 				//--- RHS Nades
 				//	"rhs_mag_m67",
 				//	"rhs_mag_mk84",
@@ -161,11 +161,11 @@ if (PARAMS_ALLOW_RHS == 1) then
 				//	"rhs_mag_m7a3_cs",
 				//	"rhs_mag_mk3a2",
 				//--- RHS Hand smokes
-					"rhs_mag_m18_smoke_base",
-					"rhs_mag_m18_green",
-					"rhs_mag_m18_purple",
-					"rhs_mag_m18_red",
-					"rhs_mag_m18_yellow"
+				//	"rhs_mag_m18_smoke_base",
+				//	"rhs_mag_m18_green",
+				//	"rhs_mag_m18_purple",
+				//	"rhs_mag_m18_red",
+				//	"rhs_mag_m18_yellow"
 			];
 
 		RHS_Explosives =

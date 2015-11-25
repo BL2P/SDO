@@ -239,7 +239,6 @@ if (DEBUG) then {
 			_debugCounter = 1;
 			while {(count _flatPos) < 1} do
 			{
-				//if (DEBUG) then { diag_log format["Finding position in INIT script For radio tower.Attempt #%1",_debugCounter]; };
 				_debugCounter = _debugCounter + 1;
 				_position = [[[getMarkerPos currentAO, PARAMS_AOSize],dt],["water","out"]] call BIS_fnc_randomPos;
 				_flatPos = _position isFlatEmpty[3, 1, 0.7, 20, 0, false];
@@ -367,6 +366,19 @@ if (DEBUG) then {
 				currentAO
 			];
 
+		//--- AO done Marker
+			_msg = "";
+			_msg = _msg + format [" T%1/", ([dayTime, "HH:MM"] call BIS_fnc_timeToString)];
+			_msg = _msg + format ["D%3/M%2", (date select 0), (date select 1), (date select 2)];
+			
+			
+			_name = format ["%1",currentAO];
+			createMarker [_name,getMarkerPos "aoMarker"];
+			_name setMarkerType "o_unknown";
+			_name setMarkerText format ["%1",_msg];
+			_name setMarkerColor "ColorGreen";
+			
+			
 			{_x setMarkerPos [0,0,0];} forEach ["aoCircle","aoMarker"];
 
 		//--- Show global target completion hint
@@ -408,6 +420,17 @@ if (DEBUG) then {
 					[] spawn SDO_cleanGroups;
 					sleep 2;
 					
+				//--- Clean WP markers
+				if (DEBUG) then 
+				{
+					if (count (markerArray) > 0) then 
+					{
+						{
+							deleteMarker _x;
+						} foreach	markerArray;
+					};
+				};
+				
 				//--- clean up arrays by fluit and bl1p
 					_arraystocleanup = [];
 					if ((!isnil ("_enemiesArray")) && (count _enemiesArray > 0)) then {
@@ -452,23 +475,7 @@ if (DEBUG) then {
 						};
 						_arraystocleanup set [count _arraystocleanup, HeavyReVehicles]; 
 					};
-					//if (!isnil ("ConvoyUnits")) then {
-					//	if (count ConvoyUnits > 0) then {
-					//		if (DEBUG) then
-					//		{
-					//		diag_log format ["ConvoyUnits = %1",ConvoyUnits];
-					//		};
-					//		_arraystocleanup set [count _arraystocleanup, ConvoyUnits]; 
-					//	};
-					//};
-					//if (isnil ("ConvoyVehicles")) then {ConvoyVehicles = [];};
-					// if (count ConvoyVehicles > 0)then {
-					//	if (DEBUG) then
-					//	{
-					//	diag_log format ["ConvoyVehicles = %1",ConvoyVehicles];
-					//	};
-					//	_arraystocleanup set [count _arraystocleanup, ConvoyVehicles]; 
-					//};
+
 					if (isnil ("AO_Vehicles")) then {AO_Vehicles = [];publicvariable "AO_Vehicles";};
 					 if (count AO_Vehicles > 0)then {
 						if (DEBUG) then
@@ -542,13 +549,7 @@ if (DEBUG) then {
 					};
 					
 				//--- DECLARE ALL FALSE FOR REINFORCEMENTS
-				/*
-					if (ConvoyAlive) then 
-					{
-						showNotification = ["CompletedSub", "Enemy Convoy Retreated when AO was captured."]; publicVariable "showNotification";
-					};
-				*/	
-					
+
 							//////////////////////////////////////////////////
 							//--- RUN INCREASING RANDOM TO CREATE DEFENED MISSION
 							//////////////////////////////////////////////////

@@ -2,7 +2,7 @@ waitUntil {sleep 0.5; !(isNil "currentAOUp")};
 waitUntil {sleep 0.5; !(isNil "currentAO")};
 private ["_SERVERUNITSCHECK1","_SERVERUNITSCHECKresistance","_SERVERUNITSCHECK","_giveup","_flatPos","_accepted","_found","_amount","_debugCounter","_road","_usedroads","_convoyPositionsArray","_name","_convoyPositionsArrayEND","_compare","_cnt","_roadpos","_nearUnits","_ConvoyGroup","_ConRandAmount","_directionEnd","_Convoy_Vehicle","_randomChopper","_wp","_Convoydead"];
 
-if (DEBUG) then {diag_log "===============Reading CONVOY reinforcements====================";};
+if (DEBUG) then {diag_log "===============Reading CONVOY====================";};
 
 ConvoyAlive = false;
 publicVariable "ConvoyAlive";
@@ -71,8 +71,7 @@ while {true} do
 							diag_log "Cant find a good convoy start position exit 1";
 							};
 						};
-
-						_convoyPositionsArray = [getMarkerPos "Convoy_1",getMarkerPos "Convoy_2",getMarkerPos "Convoy_3",getMarkerPos "Convoy_4",getMarkerPos "Convoy_5",getMarkerPos "Convoy_6"];
+						_convoyPositionsArray = [getMarkerPos "Convoy",getMarkerPos "Convoy_1",getMarkerPos "Convoy_2",getMarkerPos "Convoy_3",getMarkerPos "Convoy_4",getMarkerPos "Convoy_5",getMarkerPos "Convoy_6",getMarkerPos "Convoy_7",getMarkerPos "Convoy_8",getMarkerPos "Convoy_9",getMarkerPos "Convoy_10"];
 						//--- shuffle
 							_cnt = count _convoyPositionsArray;
 								for "_i" from 1 to _cnt do {
@@ -120,7 +119,7 @@ while {true} do
 							positionEND = _convoyPositionsArrayEND select _i;
 							//EntitiesListEND = positionEND nearEntities SafeRadiusPlayers;
 							_compare = [positionEND, positionStart] call BIS_fnc_areEqual;
-							if (((positionEND distance (getMarkerPos "respawn_west")) > SafeRadiusBASE) && (positionEND distance (getMarkerPos "currentAO") > SafeRadiusAO) && (!_compare)) exitwith 
+							if (((positionEND distance (getMarkerPos "respawn_west")) > SafeRadiusBASE) && (positionEND distance (getMarkerPos "currentAO") > SafeRadiusAO) && (!_compare) && ((positionEND distance positionStart) >= 10000)) exitwith 
 								{
 								positionEND;
 										if (DEBUG) then 
@@ -168,137 +167,127 @@ while {true} do
 					};
 					
 					if (_giveup) exitWith 
-					{
-						diag_log "Convoy Cant find a good convoy start position exit 2";
-					};
-					
+						{
+							diag_log "Convoy Cant find a good convoy start position exit 2";
+						};
 					_ConvoyGroup = createGroup Independent;
-						
 					_x = 0;
 					_ConRandAmount = [2,3] call BIS_fnc_selectRandom;
-					if(DEBUG) then {
-						diag_log format ["_ConRandAmount = %1",_ConRandAmount];
-					};
-					
-					
+					if(DEBUG) then 
+						{
+							diag_log format ["_ConRandAmount = %1",_ConRandAmount];
+						};
 					//--- create lead vehicle
-					_Convoy_Vehicle = [getPos _road,0,(Conv_Heavy_Armour_vehicles + Conv_APC_vehicles + Conv_Armed_Cars call BIS_fnc_selectRandom),_ConvoyGroup] call BIS_fnc_spawnVehicle;
-					ConvoyVehicles set [count ConvoyVehicles, _Convoy_Vehicle select 0];
-					
-					_directionEnd = [_road, positionEND] call BIS_fnc_DirTo;
-					
-					//(_Convoy_Vehicle select 0) setDir _directionEnd;
-
-					
-					(vehicle (leader _ConvoyGroup)) spawn SDO_fnc_fuelMonitor;
-					if !(isNil "dep_fnc_vehicledamage") then {
-					[(_Convoy_Vehicle select 0)] spawn dep_fnc_vehicledamage;
-					};
-					_usedroads = _usedroads + [_road];
-					sleep 0.5;
-					
+						_Convoy_Vehicle = [getPos _road,0,(Conv_Heavy_Armour_vehicles + Conv_APC_vehicles + Conv_Armed_Cars call BIS_fnc_selectRandom),_ConvoyGroup] call BIS_fnc_spawnVehicle;
+						ConvoyVehicles set [count ConvoyVehicles, _Convoy_Vehicle select 0];
+						_directionEnd = [_road, positionEND] call BIS_fnc_DirTo;
+						(vehicle (leader _ConvoyGroup)) spawn SDO_fnc_fuelMonitor;
+							if !(isNil "dep_fnc_vehicledamage") then 
+								{
+									[(_Convoy_Vehicle select 0)] spawn dep_fnc_vehicledamage;
+								};
+									_usedroads = _usedroads + [_road];
+								sleep 0.5;
+								
 					//---create random amount and type vehs	
 					for [{_x = 0}, {_x < _ConRandAmount}, {_x=_x+1}] do 
 					{
 						_roadConnectedTo = roadsConnectedTo _road;
 						_connectedRoad = _roadConnectedTo select 0;
-						if (_road distance positionEND > _connectedRoad distance positionEND) then {_connectedRoad = _roadConnectedTo select 1;};
-						
-						if (isNil "_connectedRoad") exitwith {diag_log "Convoy connected road Fail on nil";};
-						if !(_connectedRoad in _usedroads) then 
-						{
-							_usedroads = _usedroads + [_connectedRoad];
-							//_direction = [_road, _connectedRoad] call BIS_fnc_DirTo;
-							_road = _connectedRoad;
+							if (_road distance positionEND > _connectedRoad distance positionEND) then 
+								{
+									_connectedRoad = _roadConnectedTo select 1;
+								};
 							
-							_Convoy_Vehicle = [getPos _connectedRoad,0,(Conv_Support_vehicles call BIS_fnc_selectRandom),_ConvoyGroup] call BIS_fnc_spawnVehicle;
-							ConvoyVehicles set [count ConvoyVehicles, _Convoy_Vehicle select 0];
-							//(_Convoy_Vehicle select 0) setDir _directionEnd;
-							
-							(vehicle (leader _ConvoyGroup)) spawn SDO_fnc_fuelMonitor;
-							
-							if !(isNil "dep_fnc_vehicledamage") then {
-							[(_Convoy_Vehicle select 0)] spawn dep_fnc_vehicledamage;
-							};
-							sleep 0.5;
-						};
-					};
-
-					//--- create AA vehicle
-					_roadConnectedTo = roadsConnectedTo _road;
-					_connectedRoad = _roadConnectedTo select 0;
-					if (_road distance positionEND > _connectedRoad distance positionEND) then {_connectedRoad = _roadConnectedTo select 1;};
-					
-					if (!(_connectedRoad in _usedroads) && (!isNil "_connectedRoad") ) then 
-					{
-						_usedroads = _usedroads + [_connectedRoad];
-						_Convoy_Vehicle = [getPos _connectedRoad,0,(Conv_AAA_Armour_vehicles + Conv_Heavy_Armour_vehicles + Conv_APC_vehicles + Conv_Armed_Cars call BIS_fnc_selectRandom),_ConvoyGroup] call BIS_fnc_spawnVehicle;
-						ConvoyVehicles set [count ConvoyVehicles, _Convoy_Vehicle select 0];
-						_road = _connectedRoad;
-						
-						(vehicle (leader _ConvoyGroup)) spawn SDO_fnc_fuelMonitor;
-						if !(isNil "dep_fnc_vehicledamage") then {
-							[(_Convoy_Vehicle select 0)] spawn dep_fnc_vehicledamage;
-						};
-						sleep 0.5;
-					};
-					
-					
-								//---  create a chopper random chance
-			//--- bl1p made it never spawn for now
-					_roadConnectedTo = roadsConnectedTo _road;
-					_connectedRoad = _roadConnectedTo select 0;
-					if (_road distance positionEND > _connectedRoad distance positionEND) then {_connectedRoad = _roadConnectedTo select 1;};
-					
-					if (!(_connectedRoad in _usedroads) && (!isNil "_connectedRoad") ) then 
-					{
-						_randomChopper = random 10;
-						if (_randomChopper > 9) then 
-						{
-							_usedroads = _usedroads + [_connectedRoad];
-							_Convoy_Vehicle = [getPos _connectedRoad,0,(Conv_Air_Attack_chop call BIS_fnc_selectRandom),_ConvoyGroup] call BIS_fnc_spawnVehicle;
-							ConvoyVehicles set [count ConvoyVehicles, _Convoy_Vehicle select 0];
-							_road = _connectedRoad;
-
-							(vehicle (leader _ConvoyGroup)) spawn SDO_fnc_fuelMonitor;
-							sleep 1;
-						}
-						else
-						{
-							_usedroads = _usedroads + [_connectedRoad];
-							_Convoy_Vehicle = [getPos _connectedRoad,0,(Conv_Armed_Cars call BIS_fnc_selectRandom),_ConvoyGroup] call BIS_fnc_spawnVehicle;
-							ConvoyVehicles set [count ConvoyVehicles, _Convoy_Vehicle select 0];
-							_road = _connectedRoad;
-								if !(isNil "dep_fnc_vehicledamage") then {
-										[(_Convoy_Vehicle select 0)] spawn dep_fnc_vehicledamage;
+								if (isNil "_connectedRoad") exitwith 
+									{
+										diag_log "Convoy connected road Fail on nil";
 									};
-							(vehicle (leader _ConvoyGroup)) spawn SDO_fnc_fuelMonitor;
-							sleep 1;
+									if !(_connectedRoad in _usedroads) then 
+										{
+											_usedroads = _usedroads + [_connectedRoad];
+											_road = _connectedRoad;
+											_Convoy_Vehicle = [getPos _connectedRoad,0,(Conv_Support_vehicles call BIS_fnc_selectRandom),_ConvoyGroup] call BIS_fnc_spawnVehicle;
+											ConvoyVehicles set [count ConvoyVehicles, _Convoy_Vehicle select 0];
+											(vehicle (leader _ConvoyGroup)) spawn SDO_fnc_fuelMonitor;
+											if !(isNil "dep_fnc_vehicledamage") then 
+												{
+													[(_Convoy_Vehicle select 0)] spawn dep_fnc_vehicledamage;
+												};
+											sleep 0.5;
+											
+										};
+					};
+					//--- create Last land vehicle
+					_roadConnectedTo = roadsConnectedTo _road;
+					_connectedRoad = _roadConnectedTo select 0;
+					if (_road distance positionEND > _connectedRoad distance positionEND) then 
+						{
+							_connectedRoad = _roadConnectedTo select 1;
 						};
-					};
-					
-						
+							if (!(_connectedRoad in _usedroads) && (!isNil "_connectedRoad") ) then 
+								{
+									_usedroads = _usedroads + [_connectedRoad];
+									_Convoy_Vehicle = [getPos _connectedRoad,0,(Conv_AAA_Armour_vehicles + Conv_Heavy_Armour_vehicles + Conv_APC_vehicles + Conv_Armed_Cars call BIS_fnc_selectRandom),_ConvoyGroup] call BIS_fnc_spawnVehicle;
+									ConvoyVehicles set [count ConvoyVehicles, _Convoy_Vehicle select 0];
+									_road = _connectedRoad;
+									(vehicle (leader _ConvoyGroup)) spawn SDO_fnc_fuelMonitor;
+									if !(isNil "dep_fnc_vehicledamage") then 
+										{
+											[(_Convoy_Vehicle select 0)] spawn dep_fnc_vehicledamage;
+										};
+											sleep 0.5;
+								};
+					//---  create a chopper or car random
+					_roadConnectedTo = roadsConnectedTo _road;
+					_connectedRoad = _roadConnectedTo select 0;
+					if (_road distance positionEND > _connectedRoad distance positionEND) then 
+						{
+							_connectedRoad = _roadConnectedTo select 1;
+						};
+						if (!(_connectedRoad in _usedroads) && (!isNil "_connectedRoad") ) then 
+						{
+							_randomChopper = random 10;
+							if (_randomChopper > 9) then 
+							{
+								_usedroads = _usedroads + [_connectedRoad];
+								_Convoy_Vehicle = [getPos _connectedRoad,0,(Conv_Air_Attack_chop call BIS_fnc_selectRandom),_ConvoyGroup] call BIS_fnc_spawnVehicle;
+								ConvoyVehicles set [count ConvoyVehicles, _Convoy_Vehicle select 0];
+								_road = _connectedRoad;
+								(vehicle (leader _ConvoyGroup)) spawn SDO_fnc_fuelMonitor;
+								sleep 1;
+							}
+							else
+							{
+								_usedroads = _usedroads + [_connectedRoad];
+								_Convoy_Vehicle = [getPos _connectedRoad,0,(Conv_Armed_Cars call BIS_fnc_selectRandom),_ConvoyGroup] call BIS_fnc_spawnVehicle;
+								ConvoyVehicles set [count ConvoyVehicles, _Convoy_Vehicle select 0];
+								_road = _connectedRoad;
+									if !(isNil "dep_fnc_vehicledamage") then {
+											[(_Convoy_Vehicle select 0)] spawn dep_fnc_vehicledamage;
+										};
+								(vehicle (leader _ConvoyGroup)) spawn SDO_fnc_fuelMonitor;
+								sleep 1;
+							};
+						};
 					if(DEBUG) then
-					{
-						diag_log format ["_ConvoyGroup = %1",_ConvoyGroup];
-					};
-				
-					////////////////////////////////////////////////////////////////////travel 
+						{
+							diag_log format ["_ConvoyGroup = %1",_ConvoyGroup];
+						};
+					///////////////////////////////////////////////////////////////////travel 
 					allConvoy = ConvoyUnits + ConvoyVehicles;
-					
 					_wp = _ConvoyGroup addWaypoint [positionEND,0];
-					_wp setWaypointType "MOVE";
+					_wp setWaypointType "SAD";
 					_wp setWaypointSpeed "NORMAL";
 					_wp setWaypointFormation "COLUMN";
-					_wp setWaypointBehaviour "CARELESS";
+					_wp setWaypointBehaviour "SAFE";
 					_wp setWaypointTimeOut [0,5,10];
 					_wp setWaypointCompletionRadius 15;
 					_wp setWaypointStatements ["true", "if (DEBUG) then {diag_log 'CONVOY REACHED DESTINATION';}; _nul = [] execVM 'Reinforcement\ConvoyEnd.sqf';"];
-						
 
-					//[_ConvoyGroup, positionEND, 250] call SDO_fnc_spawn2_perimeterPatrolConvoy;
-						
-				  
+					
+					_ConvoyGroup spawn SDO_fnc_spawn2_waypointBehaviourConvoy;
+
 					   ConvoyAlive = true;
 					   publicVariable "ConvoyAlive";
 					   if(DEBUG) then
@@ -306,10 +295,10 @@ while {true} do
 								diag_log format ["All created ConvoyAlive = %1",ConvoyAlive];
 							};
 						
-						{
-						  ConvoyUnits set [count ConvoyUnits, _x];
-						  publicVariable "ConvoyUnits";
-						} forEach units _ConvoyGroup;
+							{
+							  ConvoyUnits set [count ConvoyUnits, _x];
+							  publicVariable "ConvoyUnits";
+							} forEach units _ConvoyGroup;
 						
 						publicVariable "ConvoyVehicles";
 						
@@ -322,35 +311,34 @@ while {true} do
 				{
 					////////////////////////////
 					_Convoydead = true;
-					//Check status of units
+					//---Check status of units
 						{
-						  if (alive _x) then 
+						  if (alive _x) exitwith 
 						  {
 							_Convoydead = false;
 						  };
 						} forEach ConvoyUnits;
 					
 					
-					// If all dead reset the convoy status
+					//--- If all dead reset the convoy status
 					if ( _Convoydead) then 
 						{
-						
-							//--- showNotification = ["CompletedSub", "Enemy Convoy destroyed."]; publicVariable "showNotification";
+									{
+										deleteVehicle _x;
+									} foreach allConvoy;
+									deleteMarker 'Start'; 
+									deleteMarker 'End';
 							ConvoyAlive = false;
 							publicVariable "ConvoyAlive";
 							ConvoyUnits = [];
 							publicVariable "ConvoyUnits";
 							ConvoyVehicles = [];
 							publicVariable "ConvoyVehicles";
-
 							[] spawn SDO_cleanGroups;
-							
 						};
-					////////////////////////////
-					
 				};
 			};
-			sleep 60;
+			sleep 120;
 		};
-sleep 60;
+sleep 120;
 };

@@ -13,31 +13,31 @@ if (!(rndBase == StadBase) && !(rndBase == HillBase1) && !(rndBase == CapBase) &
 			if (_obj == Sign_1) then 
 				{
 					_obj allowDamage false;
-					_obj setObjectTextureGlobal [0, "Base\Images\signs\Falcons.paa"];
+					_obj setObjectTextureGlobal [0, "core\Media\Falcons.paa"];
 				};
 				
 			if (_obj == Sign_2) then 
 				{
 					_obj allowDamage false;
-					_obj setObjectTextureGlobal [0, "Base\Images\signs\FalconsNest.paa"];
+					_obj setObjectTextureGlobal [0, "core\Media\Header.paa"];
 				};
 				
 			if (_obj == Sign_3) then 
 				{
 					_obj allowDamage false;
-					_obj setObjectTextureGlobal [0, "Base\Images\signs\Falcons.paa"];
+					_obj setObjectTextureGlobal [0, "core\Media\Falcons.paa"];
 				};
 				
 			if ((_obj == Sign_4) || (_obj == Sign_5)) then 
 				{
 					_obj allowDamage false;
-					_obj setObjectTextureGlobal [0, "Base\Images\signs\CautionHeli.paa"];
+					_obj setObjectTextureGlobal [0, "core\Media\CautionHeli.paa"];
 				};
 				
 			if ((_obj == Sign_6) || (_obj == Sign_7)) then 
 				{
 					_obj allowDamage false;
-					_obj setObjectTextureGlobal [0, "Base\Images\signs\Parking.paa"];
+					_obj setObjectTextureGlobal [0, "core\Media\Parking.paa"];
 				};
 				
 		//--- Ammo boxes
@@ -50,28 +50,28 @@ if (!(rndBase == StadBase) && !(rndBase == HillBase1) && !(rndBase == CapBase) &
 			if (_obj == Supportsign_1) then 
 				{
 					_obj allowDamage false;
-					_obj setObjectTextureGlobal [0, "Base\Images\signs\Support.paa"];
+					_obj setObjectTextureGlobal [0, "core\Media\Support.paa"];
 					[[_obj],"fn_VVS_sup",true,true] spawn BIS_fnc_MP;
 				};
 				
 			if (_obj == Supportsign_2) then 
 				{
 					_obj allowDamage false;
-					_obj setObjectTextureGlobal [0, "Base\Images\signs\Air.paa"];
+					_obj setObjectTextureGlobal [0, "core\Media\Air.paa"];
 					[[_obj],"fn_VVS_air",true,true] spawn BIS_fnc_MP;
 				};
 				
 			if (_obj == Supportsign_3) then 
 				{
 					_obj allowDamage false;
-					_obj setObjectTextureGlobal [0, "Base\Images\signs\Cars.paa"];
+					_obj setObjectTextureGlobal [0, "core\Media\Cars.paa"];
 					[[_obj],"fn_VVS_car",true,true] spawn BIS_fnc_MP;
 				};
 				
 			if (_obj == Supportsign_4) then 
 				{
 					_obj allowDamage false;
-					_obj setObjectTextureGlobal [0, "Base\Images\signs\Armour.paa"];
+					_obj setObjectTextureGlobal [0, "core\Media\Armour.paa"];
 					[[_obj],"fn_VVS_tank",true,true] spawn BIS_fnc_MP;
 				};
 
@@ -176,7 +176,7 @@ if (!(rndBase == StadBase) && !(rndBase == HillBase1) && !(rndBase == CapBase) &
 					) 
 					then 
 					{
-							_obj setFlagTexture "Base\Images\signs\Falcons.paa";
+							_obj setFlagTexture "core\Media\Falcons.paa";
 							_obj allowDamage false;
 					};	
 				
@@ -204,31 +204,31 @@ else
 			if (_obj == Sign_1) then 
 				{
 					_obj allowDamage false;
-					_obj setObjectTextureGlobal [0, "Base\Images\signs\Falcons.paa"];
+					_obj setObjectTextureGlobal [0, "core\Media\Falcons.paa"];
 				};
 				
 			if (_obj == Sign_2) then 
 				{
 					_obj allowDamage false;
-					_obj setObjectTextureGlobal [0, "Base\Images\signs\FalconsNest.paa"];
+					_obj setObjectTextureGlobal [0, "core\Media\Header.paa"];
 				};
 				
 			if (_obj == Sign_3) then 
 				{
 					_obj allowDamage false;
-					_obj setObjectTextureGlobal [0, "Base\Images\signs\Falcons.paa"];
+					_obj setObjectTextureGlobal [0, "core\Media\Falcons.paa"];
 				};
 				
 			if ((_obj == Sign_4) || (_obj == Sign_5)) then 
 				{
 					_obj allowDamage false;
-					_obj setObjectTextureGlobal [0, "Base\Images\signs\CautionHeli.paa"];
+					_obj setObjectTextureGlobal [0, "core\Media\CautionHeli.paa"];
 				};
 				
 			if ((_obj == Sign_6) || (_obj == Sign_7)) then 
 				{
 					_obj allowDamage false;
-					_obj setObjectTextureGlobal [0, "Base\Images\signs\Parking.paa"];
+					_obj setObjectTextureGlobal [0, "core\Media\Parking.paa"];
 				};
 				
 		//--- Ammo boxes
@@ -241,28 +241,28 @@ else
 			if (_obj == Supportsign_1) then 
 				{
 					_obj allowDamage false;
-					_obj setObjectTextureGlobal [0, "Base\Images\signs\Support.paa"];
+					_obj setObjectTextureGlobal [0, "core\Media\Support.paa"];
 					[[_obj],"fn_VVS_sup",true,true] spawn BIS_fnc_MP;
 				};
 				
 			if (_obj == Supportsign_2) then 
 				{
 					_obj allowDamage false;
-					_obj setObjectTextureGlobal [0, "Base\Images\signs\Air.paa"];
+					_obj setObjectTextureGlobal [0, "core\Media\Air.paa"];
 					[[_obj],"fn_VVS_air",true,true] spawn BIS_fnc_MP;
 				};
 				
 			if (_obj == Supportsign_3) then 
 				{
 					_obj allowDamage false;
-					_obj setObjectTextureGlobal [0, "Base\Images\signs\Cars.paa"];
+					_obj setObjectTextureGlobal [0, "core\Media\Cars.paa"];
 					[[_obj],"fn_VVS_car",true,true] spawn BIS_fnc_MP;
 				};
 				
 			if (_obj == Supportsign_4) then 
 				{
 					_obj allowDamage false;
-					_obj setObjectTextureGlobal [0, "Base\Images\signs\Armour.paa"];
+					_obj setObjectTextureGlobal [0, "core\Media\Armour.paa"];
 					[[_obj],"fn_VVS_tank",true,true] spawn BIS_fnc_MP;
 				};
 

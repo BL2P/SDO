@@ -7,7 +7,7 @@ while {!_accepted} do
 		{
 			_player = _x;
 			{
-				if ((_x distance (getPos _player)) < 1800) then
+				if ((_x distance (getPos _player)) < 1800) exitwith
 						{
 							_nearUnits = _nearUnits + 1;
 						};
@@ -37,6 +37,7 @@ while {!_accepted} do
 			deleteMarker 'Start'; 
 			deleteMarker 'End';
 			
+
 if (DEBUG) then 
 	{
 		diag_log "CONVOY DESTROYED BECAUSE REACHED END";

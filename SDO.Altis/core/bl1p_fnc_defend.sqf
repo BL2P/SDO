@@ -2,10 +2,10 @@ bl1p_fnc_defend =
 {	
 		private ["_defendMessages","_targetStartText","_TimeMessage","_dt2","_AttackAmount","_defend","_distance","_WarningHint","_randomPos","_inf_Patrol","_DEFENDSERVERUNITSCHECK","_PercentWave","_AttackResult","_arraystocleanup","_AttackResultHint","_waves","_waveRuns"];
 
-			_defendMessages =
-			[
-				"OPFOR Forces incoming! Defend the BLUE target Area!"
-			];
+			//_defendMessages =
+			//[
+			//	"OPFOR Forces incoming! Defend the BLUE target Area!"
+			//];
 
 			_targetStartText = format
 			[
@@ -43,12 +43,13 @@ bl1p_fnc_defend =
 			
 			/////////wait !////////////
 			waitUntil {sleep 5; count list _dt2 >= 1};
-			
+			/*
 			_TimeMessage = format
 				[
 					"%1 under imminent attack, you have a few mins to prepare... Good Luck", currentAO
 				];
 			hqSideChat = _TimeMessage; publicVariable "hqSideChat"; [WEST,"HQ"] sideChat hqSideChat;
+			*/
 				if (DEBUG) then 
 					{
 					sleep 30;
@@ -78,12 +79,14 @@ bl1p_fnc_defend =
 						};
 				sleep 0.5;
 				
+				
 				//-- send incoming wave message
 				_WarningHint = format
 				[
 					"<t align='center' size='2.2'>Defend Target</t><br/><t size='1.5' align='center' color='#FFCF11'>%1</t><br/>____________________<br/>Enemy Spotted : %2meters from AO",currentAO,_distance
 				];
-				hqSideChat = _defendMessages call BIS_fnc_selectRandom; publicVariable "hqSideChat"; [WEST,"HQ"] sideChat hqSideChat;
+				//hqSideChat = _defendMessages call BIS_fnc_selectRandom; publicVariable "hqSideChat"; [WEST,"HQ"] sideChat hqSideChat;
+				
 				GlobalHint = _WarningHint; publicVariable "GlobalHint"; hint parseText GlobalHint;
 				if (DEBUG) then
 						{
@@ -286,7 +289,7 @@ bl1p_fnc_defend =
 						];
 					};
 					
-				hqSideChat = _AttackResult; publicVariable "hqSideChat"; [WEST,"HQ"] sideChat hqSideChat;
+				//hqSideChat = _AttackResult; publicVariable "hqSideChat"; [WEST,"HQ"] sideChat hqSideChat;
 				GlobalHint = _AttackResultHint; publicVariable "GlobalHint"; hint parseText GlobalHint;
 				showNotification = ["CompletedMainDefended", currentAO]; publicVariable "showNotification";
 				//--- bl1p unlock assets
@@ -306,7 +309,7 @@ bl1p_fnc_defend =
 					"<t align='center' size='2.2'>Failed Target</t><br/><t size='1.5' align='center' color='#FFCF11'>%1</t><br/>____________________<br/>You failed to hold out!<br/>____________________<br/>Assets are unavialble Until we clear another AO",currentAO
 				];
 
-				hqSideChat = _AttackResult; publicVariable "hqSideChat"; [WEST,"HQ"] sideChat hqSideChat;
+				//hqSideChat = _AttackResult; publicVariable "hqSideChat"; [WEST,"HQ"] sideChat hqSideChat;
 				GlobalHint = _AttackResultHint; publicVariable "GlobalHint"; hint parseText GlobalHint;
 				
 				//--- bl1p unlock assets

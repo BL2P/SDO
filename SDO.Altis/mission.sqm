@@ -66,7 +66,7 @@ class Mission
 	randomSeed=8346727;
 	class Intel
 	{
-		briefingName="TEST 0.3.1 Altis";
+		briefingName="TEST 0.3.2 Altis";
 		overviewText="Shoot The bad guys... Win... What could possibly go wrong ?";
 		resistanceWest=0;
 		resistanceEast=1;
@@ -127,7 +127,7 @@ class Mission
 						};
 						class Item4
 						{
-							value="            <img image='core\Signs\Header.paa'  width='200' height='100'></img><br/><br/>After years of conflict between NATO and CSAT forces on the island of Altis, the civilian population has been fully evacuated, fled or killed.<br/>CSAT are currently the dominant power but are severely weakened, bolstering their forces with local mercenaries and partisans.<br/>NATO only hold the main airport and a small area around it.<br/>A new NATO strike force has recently arrived to spearhead an invasion using a small staging area base.<br/><br/>Your unit, Task Force Falcon, is tasked with clearing major areas of CSAT concentration.<br/>The enemy have a network of radio towers to co-ordinate reinforcements that must be destroyed.<br/>Expect resistance from guerrilla forces, backed by CSAT strongpoints and vehicles, across the whole island.<br/>A path must be cleared to each Area of Operations to allow safe travel.<br/>In particular the enemy have an abundance of AA capabilities fearing NATO air power.<br/>Air assets are inadvisable without clearing air corridors first.</font><br/><br/>";
+							value="            <img image='core\Media\Header.paa'  width='200' height='100'></img><br/><br/>After years of conflict between NATO and CSAT forces on the island of Altis, the civilian population has been fully evacuated, fled or killed.<br/>CSAT are currently the dominant power but are severely weakened, bolstering their forces with local mercenaries and partisans.<br/>NATO only hold the main airport and a small area around it.<br/>A new NATO strike force has recently arrived to spearhead an invasion using a small staging area base.<br/><br/>Your unit, Task Force Falcon, is tasked with clearing major areas of CSAT concentration.<br/>The enemy have a network of radio towers to co-ordinate reinforcements that must be destroyed.<br/>Expect resistance from guerrilla forces, backed by CSAT strongpoints and vehicles, across the whole island.<br/>A path must be cleared to each Area of Operations to allow safe travel.<br/>In particular the enemy have an abundance of AA capabilities fearing NATO air power.<br/>Air assets are inadvisable without clearing air corridors first.</font><br/><br/>";
 							parentCls="ModuleCreateDiaryRecord_F";
 							typeName="Description";
 						};
@@ -664,13 +664,13 @@ class Mission
 						};
 						class Item2
 						{
-							value="1";
+							value="0";
 							parentCls="ACE_moduleMedicalSettings";
 							typeName="allowLitterCreation";
 						};
 						class Item3
 						{
-							value="600";
+							value="0";
 							parentCls="ACE_moduleMedicalSettings";
 							typeName="litterCleanUpDelay";
 						};
@@ -2276,7 +2276,7 @@ class Mission
 	};
 	class Markers
 	{
-		items=73;
+		items=78;
 		class Item0
 		{
 			position[]={-36612.996,-0.0055956598,-15575.451};
@@ -2727,14 +2727,14 @@ class Mission
 		};
 		class Item67
 		{
-			position[]={28288.73,18.603296,25656.867};
+			position[]={28191.756,23.205664,25453.717};
 			name="Convoy_1";
 			type="Empty";
 			colorName="ColorRed";
 		};
 		class Item68
 		{
-			position[]={14204.341,31.571257,23121.746};
+			position[]={14311.477,34.321728,23128.078};
 			name="Convoy_2";
 			type="Empty";
 			colorName="ColorRed";
@@ -2748,7 +2748,7 @@ class Mission
 		};
 		class Item70
 		{
-			position[]={2864.783,26.202295,9973.7441};
+			position[]={2999.364,37.596092,10108.684};
 			name="Convoy_4";
 			type="Empty";
 			colorName="ColorRed";
@@ -2764,6 +2764,41 @@ class Mission
 		{
 			position[]={9115.1748,31.323954,7712.1504};
 			name="Convoy_6";
+			type="Empty";
+			colorName="ColorRed";
+		};
+		class Item73
+		{
+			position[]={23707.668,4.8391213,15855.047};
+			name="Convoy";
+			type="Empty";
+			colorName="ColorRed";
+		};
+		class Item74
+		{
+			position[]={4456.0869,16.120096,16533.115};
+			name="Convoy_7";
+			type="Empty";
+			colorName="ColorRed";
+		};
+		class Item75
+		{
+			position[]={14107.207,10.982169,12976.042};
+			name="Convoy_8";
+			type="Empty";
+			colorName="ColorRed";
+		};
+		class Item76
+		{
+			position[]={9048.0352,30.078732,23212.154};
+			name="Convoy_9";
+			type="Empty";
+			colorName="ColorRed";
+		};
+		class Item77
+		{
+			position[]={17668.229,7.2877197,19005.328};
+			name="Convoy_10";
 			type="Empty";
 			colorName="ColorRed";
 		};

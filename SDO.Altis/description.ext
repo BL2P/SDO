@@ -57,7 +57,7 @@ class CfgNotifications
 	{
 		title = "NEW MAIN OBJECTIVE";
 		description = "Take %1";
-		iconPicture = "core\notificons\main_objective.paa";
+		iconPicture = "core\Media\notificons\main_objective.paa";
 		//color[] = {1, 0.81, 0.06, 1};
 		color[] = {1,1,1,1};
 		priority = 9;
@@ -67,7 +67,7 @@ class CfgNotifications
 	{
 		title = "MAIN OBJECTIVE COMPLETE";
 		description = "Taken %1";
-		iconPicture = "core\notificons\main_objective_completed.paa";
+		iconPicture = "core\Media\notificons\main_objective_completed.paa";
 		//color[] = {1, 0.81, 0.06, 1};
 		color[] = {1,1,1,1};
 		priority = 9;
@@ -77,7 +77,7 @@ class CfgNotifications
 	{
 		title = "DEFEND MAIN OBJECTIVE";
 		description = "Danger %1";
-		iconPicture = "core\notificons\defendtarget.paa";
+		iconPicture = "core\Media\notificons\defendtarget.paa";
 		//color[] = {1, 0.81, 0.06, 1};
 		color[] = {1,1,1,1};
 		priority = 9;
@@ -87,7 +87,7 @@ class CfgNotifications
 	{
 		title = "MAIN OBJECTIVE DEFENDED";
 		description = "Defended %1";
-		iconPicture = "core\notificons\main_objective_completed.paa";
+		iconPicture = "core\Media\notificons\main_objective_completed.paa";
 		//color[] = {1, 0.81, 0.06, 1};
 		color[] = {1,1,1,1};
 		priority = 9;
@@ -96,7 +96,7 @@ class CfgNotifications
 	{
 		title = "NEW SUB-OBJECTIVE";
 		description = "%1";
-		iconPicture = "core\notificons\main_objective.paa";
+		iconPicture = "core\Media\notificons\main_objective.paa";
 		//color[] = {1, 0.81, 0.06, 1};
 		color[] = {1,1,1,1};
 		priority = 8;
@@ -106,7 +106,7 @@ class CfgNotifications
 	{
 		title = "SUB-OBJECTIVE COMPLETE";
 		description = "%1";
-		iconPicture = "core\notificons\main_objective_completed.paa";
+		iconPicture = "core\Media\notificons\main_objective_completed.paa";
 		//color[] = {1, 0.81, 0.06, 1};
 		color[] = {1,1,1,1};
 		priority = 8;
@@ -116,7 +116,7 @@ class CfgNotifications
 	{
 		title = "TEAM REWARD";
 		description = "%1";
-		iconPicture = "core\notificons\reward.paa";
+		iconPicture = "core\Media\notificons\reward.paa";
 		color[] = {1,1,1,1};
 		priority = 6;
 	};
@@ -127,15 +127,10 @@ class CfgSounds
 	class MOVIN
 		{
 			name = "MOVIN"; // Name for mission editor
-			sound[] = {core\signs\MOVIN.ogg, 2, 1};
+			sound[] = {core\Media\MOVIN.ogg, 2, 1};
 			titles[] = {0, ""};
 		};
-	class dumdidum
-		{
-			name = "dumdidum"; // Name for mission editor
-			sound[] = {core\signs\dumdidum.ogg, 2, 1};
-			titles[] = {0, ""};
-		};
+
 };
 
 class CfgUnitInsignia
@@ -144,7 +139,7 @@ class CfgUnitInsignia
 	{
 		displayName = "Falcons"; // Name displayed in Arsenal
 		author = "BL1P"; // Author displayed in Arsenal
-		texture = "Core\Factions\Falcons.paa"; // Image path
+		texture = "core\Media\Falcons.paa"; // Image path
 		textureVehicle = ""; // Does nothing currently, reserved for future use
 	};
 };
@@ -167,8 +162,8 @@ class CfgIdentities
 author = BL1P, Fluit & Flipped;
 onLoadName = "SDO";
 
-loadScreen = "core\signs\Image01.paa";
-overviewPicture = "core\signs\Image01.paa";
+loadScreen = "core\Media\Image01.paa";
+overviewPicture = "core\Media\Image01.paa";
 
 OnLoadMission = "Search and Destroy Operations.";
 onLoadMissionTime = true;

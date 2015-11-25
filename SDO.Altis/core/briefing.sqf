@@ -8,7 +8,7 @@ player createDiaryRecord
 		[
 			"Information", 
 "
-            <img image='core\Signs\Header.paa'  width='200' height='100'></img><br/><br/>
+            <img image='core\Media\Header.paa'  width='200' height='100'></img><br/><br/>
 <font face ='EtelkaNarrowMediumPro'  size = '15'>Feel free to join us on TeamSpeak<br/>
 ts.sulcorp.com<br/>
 The TeamSpeak is Provided by BlitzerNL<br/><br/>

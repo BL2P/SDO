@@ -224,6 +224,7 @@ random_mortar_camps = {
 					_m setMarkerType "o_mortar";
 					_m setMarkerText format ["%1", format ["mortar %1",_y]];
 					_m setMarkerColor "ColorRed";
+					markerArray = markerArray + [_m];
 				};
 			};
 			if (_triescamp < 1 && !_created) exitWith {

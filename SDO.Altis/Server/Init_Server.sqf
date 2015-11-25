@@ -51,6 +51,7 @@ diag_log "==============Init_Server Start==============";
 	NUKEYES = false;publicVariable "NUKEYES";
 	LASTNUKE = 0; publicVariable "LASTNUKE";
 	LASTDEFEND = 0; publicVariable "LASTDEFEND";
+	markerArray = [];
 	
 //--- victory variables
 	DEPVICTORYDONE = false;publicVariable "DEPVICTORYDONE";
