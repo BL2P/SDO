@@ -31,7 +31,7 @@ if (isNil "dep_ready") then
     waitUntil {!isNil "dep_ready"};
     if (dep_ready) then
     {
-        systemChat "Dynamic Enemy Population initialized.";
+        diag_log "Dynamic Enemy Population initialized.";
     };
 };
 

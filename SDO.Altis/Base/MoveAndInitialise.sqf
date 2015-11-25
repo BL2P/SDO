@@ -97,8 +97,7 @@ if (!(rndBase == StadBase) && !(rndBase == HillBase1) && !(rndBase == CapBase) &
 				waitUntil {scriptDone _brumbrum28};
 		//--- cammo nets
 				_net = [Resp_net] execVM "Base\ObjectInits.sqf";
-				_net2 = [Ammo_net] execVM "Base\ObjectInits.sqf";
-				waitUntil {scriptDone _net2};
+				waitUntil {scriptDone _net};
 		//--- Flags
 				_flag =[flag1] execVM "Base\ObjectInits.sqf";
 				_flag2 =[flag2] execVM "Base\ObjectInits.sqf";
@@ -219,23 +218,7 @@ if (!(rndBase == StadBase) && !(rndBase == HillBase1) && !(rndBase == CapBase) &
 
 	};
 				waitUntil {serverTime > 10};
-				_HouseArray = [MedFac] call BIS_fnc_buildingPositions;
-				NurseGladys setPos  (getPos Rescue_pad);
-				
-				_z = (count _HouseArray) - 1;
-					 for "_y" from 0 to _z do {
-						_newpos = _HouseArray select _y;
-						_newpos set [2, ((_newpos select 2) + 0.2)];
-						_wp = (group NurseGladys) addWaypoint [_newpos, 0];
-						_wp setwaypointcombatmode "BLUE";
-						_wp setWaypointSpeed "LIMITED";
-						_wp setWaypointTimeOut [60,300,360];
-						
-						if (_y < _z) then {
-							_wp setWaypointType "MOVE";
-						} else {
-						_wp setWaypointType "CYCLE";
-						};
-					};
+				NurseGladys setPos  (getPos MedFac);
+
 	MovedAndInitialised = true; 
 	PublicVariable "MovedAndInitialised";

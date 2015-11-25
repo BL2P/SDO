@@ -147,7 +147,7 @@ SDO_u_AO_HeavyGunner = "O_HeavyGunner_F";
 		];
  SDO_Air_Attack_chop = 
 		[
-			"O_Heli_Attack_02_F"
+			"O_Heli_Light_02_F"
 		];
  SDO_Air_Attack_plane = 
 		[

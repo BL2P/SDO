@@ -230,7 +230,7 @@ PilotItems = PilotItems+
 		"U_B_HeliPilotCoveralls",
 		"H_HelmetCrew_B",
 		"H_PilotHelmetHeli_B"
-	] + GENERAL_GLOBAL;
+	] + GENERAL_GLOBAL + GenAuse_Weapons_Standard;
 /////////////////////////////////////////////////////////////////
 RTOItems = RTOItems+
 	[

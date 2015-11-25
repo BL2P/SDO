@@ -197,8 +197,8 @@ MedicItems = MedicItems+
 		"ACE_salineIV_500",
 		"ACE_salineIV_250",
 		"ACE_salineIV",
-		"ACE_epinephrine",
-		"ACE_atropine"
+		"ACE_epinephrine"
+		//"ACE_atropine"
 	] + GENERAL_GLOBAL + ACE_Weapons_Standard;
 
 /////////////////////////////////////////////////////////////////
@@ -210,7 +210,7 @@ EODItems = EODItems+
 /////////////////////////////////////////////////////////////////
 PilotItems = PilotItems+
 	[
-	] + GENERAL_GLOBAL;
+	] + GENERAL_GLOBAL + ACE_Weapons_Standard;
 /////////////////////////////////////////////////////////////////
 RTOItems = RTOItems+
 	[
@@ -281,8 +281,8 @@ RconMedic = RconMedic+
 		"ACE_salineIV_500",
 		"ACE_salineIV_250",
 		"ACE_salineIV",
-		"ACE_epinephrine",
-		"ACE_atropine"
+		"ACE_epinephrine"
+		//"ACE_atropine"
 	] + GENERAL_GLOBAL + ACE_Silencers + ACE_Weapons_Standard;
 
 /////////////////////////////////////////////////////////////////

@@ -19,15 +19,6 @@ if (isServer || isDedicated || !hasInterFace) exitwith {diag_log "I was kicked f
 //--- BL1P check for Mods on Client
 	acre_enabled = isClass(configFile/"CfgPatches"/"acre_main");
 
-//--- BL1P Black listed mods
-	STGI = isClass(configFile/"CfgPatches"/"STGI");
-	st_interact = isClass(configFile/"CfgPatches"/"st_interact");
-	STNametags = isClass(configFile/"CfgPatches"/"STNametags");
-	
-//---BL1P send to lobby if black listed mods present	
-	if (STGI) then {failMission "END9";};
-	if (st_interact) then {failMission "END9";};
-	if (STNametags) then {failMission "END9";};
 	
 //--- bl1p blablabla
 	execVM "core\briefing.sqf";                                                         	
@@ -49,6 +40,9 @@ if (isServer || isDedicated || !hasInterFace) exitwith {diag_log "I was kicked f
 	waituntil {MovedAndInitialised};
 	sleep 10;
 	420 cutText ["====      Loading complete...    ====","BLACK IN",2];
+	sleep 8;
+	[str("SDO - Altis") , str(date select 1) + "." + str(date select 2) + "." + str(date select 0), str(SDOmessage)] spawn BIS_fnc_infoText;
+	//[str (SDOmessage)] spawn BIS_fnc_infoText;
 	};
 Init_Client = true;
 

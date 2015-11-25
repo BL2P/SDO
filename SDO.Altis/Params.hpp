@@ -407,9 +407,9 @@ class AO_UNITS
 	//def 3
 	class ConvoyChance
 	{
-		title = "% Chance Of Convoys Moving to AO";
-		values[] = {0,1,2,3,4,5,6,7,8,9,10};
-		texts[] = {0,10,20,30,40,50,60,70,80,90,100};
+		title = "Random Convoys OFF or ON";
+		values[] = {0,1};
+		texts[] = {"OFF","ON"};
 		default = 1;
 	};
 	//def 0
@@ -418,7 +418,7 @@ class AO_UNITS
 		title = "% Chance Of Air Vehicles Patrolling AO";
 		values[] = {0,1,2,3,4,5,6,7,8,9,10};
 		texts[] = {0,10,20,30,40,50,60,70,80,90,100};
-		default = 1;
+		default = 2;
 	};
 	//def 5
 	class MortarChance
@@ -426,7 +426,7 @@ class AO_UNITS
 		title = "% Chance Of Mortars at AO";
 		values[] = {0,1,2,3,4,5,6,7,8,9,10};
 		texts[] = {0,10,20,30,40,50,60,70,80,90,100};
-		default = 1;
+		default = 2;
 	};
 	//def 5
 	class INOUTMortarChance

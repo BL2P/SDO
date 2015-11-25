@@ -37,6 +37,7 @@ if !(headgear player in AllowedItems || headgear player == "") then
 		_weaphold = "GroundWeaponHolder" createVehicle position player;
 		_weaphold addWeaponCargoGlobal[_x, 1];
 		systemchat format ["Weapon removed %1 is not in your class", _x];
+		_null = [player] execVM "scripts\clearItemsDropped.sqf";
 	};
 } forEach weapons player;
 /*
@@ -61,6 +62,7 @@ if !(headgear player in AllowedItems || headgear player == "") then
 	{
 		//player removeMagazines _x;
 		player action ["dropMagazine", "GroundWeaponHolder" createVehicle position player, _x];
+		_null = [player] execVM "scripts\clearItemsDropped.sqf";
 		systemchat format ["Item removed %1 is not in your class", _x];
 	};
 } forEach magazines player;

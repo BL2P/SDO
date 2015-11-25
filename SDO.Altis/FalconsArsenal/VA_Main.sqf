@@ -37,7 +37,7 @@ _specTypes =
 	["B_soldier_LAT_F","B_soldier_AT_F"],
 	["B_medic_F"],
 	["B_soldier_exp_F"],
-	["B_Helipilot_F","B_helicrew_F","B_Pilot_F","B_soldier_repair_F"],
+	["B_Helipilot_F","B_helicrew_F","B_Pilot_F","B_soldier_repair_F","B_engineer_F","B_crew_F"],
 	["B_Soldier_A_F"],
 	["B_Soldier_F"],
 	["B_officer_F"],
@@ -142,7 +142,7 @@ _AutoriflemanItems_CLASS = ["B_soldier_AR_F"];
 _ATItems_CLASS = ["B_soldier_LAT_F","B_soldier_AT_F"]; 
 _MedicItems_CLASS = ["B_medic_F"];  
 _EODItems_CLASS = ["B_soldier_exp_F"]; 
-_PilotItems_CLASS = ["B_Helipilot_F","B_helicrew_F","B_Pilot_F","B_soldier_repair_F"]; 
+_PilotItems_CLASS = ["B_Helipilot_F","B_helicrew_F","B_Pilot_F","B_soldier_repair_F","B_engineer_F","B_crew_F"]; 
 _RTOItems_CLASS = ["B_Soldier_A_F"]; 
 _RifelmanItems_CLASS = ["B_Soldier_F"]; 
 _CommanderItems_CLASS = ["B_officer_F"];

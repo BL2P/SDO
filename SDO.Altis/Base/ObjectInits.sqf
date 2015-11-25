@@ -152,8 +152,7 @@ if (!(rndBase == StadBase) && !(rndBase == HillBase1) && !(rndBase == CapBase) &
 				
 		//--- CammoNet
 			if (
-					(_obj == Resp_net) ||
-					(_obj == Ammo_net)
+					(_obj == Resp_net)
 				) then 
 				{
 						_obj allowDamage false;

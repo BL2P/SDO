@@ -76,7 +76,10 @@ diag_log "==============Init_Server Start==============";
 		{ 
 			_PointlessVariable2 = execVM "Server\DEPVictory.sqf";
 		};
-
+		
+	//--- start convoys
+	if (PARAMS_ConvoyChance > 0) then { _null = [] execVM "Reinforcement\AOConvoy.sqf"; };
+		
 		//set radio action on radiobox
 		[radiobox] spawn setRadiobox;
 		

@@ -450,6 +450,7 @@ if (PARAMS_Roadblocks == 1 && _numberofcamps <= 2) then {
 									// run mortar spotter if both mortars are present
 									if (count Mortars > 0) then 
 									{
+										(leader _spawnGroupSPX) addbackpack "UK3CB_BAF_B_Bergen_MTP_Radio_H_A";
 										[(leader _spawnGroupSPX), Mortars] execVM "core\mortar_spotter.sqf";
 									};	
 								};
@@ -528,7 +529,7 @@ if (PARAMS_Roadblocks == 1 && _numberofcamps <= 2) then {
 //////////////////////////////////////////////////////// EXTPAT END ////////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////// CARPAT START ////////////////////////////////////////////////////////
-
+			AO_Vehicles = []; publicVariable "AO_Vehicles";
 			// cars pat NONE UPS
 			_randCar = random 10;
 				if (DEBUG) then
@@ -564,6 +565,7 @@ if (PARAMS_Roadblocks == 1 && _numberofcamps <= 2) then {
 					if ((count _roadpos) == 3) then 
 					{
 						_vehcar = [_roadpos,0,(SDO_Armed_Cars call BIS_fnc_selectRandom),_spawngroupcar] call BIS_fnc_spawnVehicle;
+						AO_Vehicles set [count AO_Vehicles, _vehcar select 0];
 						// wait untill alive
 						//waitUntil {alive (leader _spawngroupcar)};
 						_InOrOutChanceCar = random 10;
@@ -683,6 +685,7 @@ if (PARAMS_Roadblocks == 1 && _numberofcamps <= 2) then {
 						_armour = [_roadpos,0,(SDO_Heavy_Armour_vehicles call BIS_fnc_selectRandom),_armourGroup] call BIS_fnc_spawnVehicle;
 						};
 						sleep 1;
+						AO_Vehicles set [count AO_Vehicles, _armour select 0];
 						// wait untill alive
 						//waitUntil {alive (leader _armourGroup)};
 						_InOrOutChance = random 10;
@@ -778,7 +781,7 @@ if (PARAMS_Roadblocks == 1 && _numberofcamps <= 2) then {
 
 						[_airGroup,getMarkerPos currentAO,(4 * (PARAMS_AOSize / 3))] call SDO_fnc_spawn2_perimeterPatrol;
 						(vehicle (leader _airGroup)) spawn SDO_fnc_fuelMonitor;
-						
+						AO_Vehicles set [count AO_Vehicles, _airType select 0];
 						sleep 1;
 						if(DEBUG) then
 						{

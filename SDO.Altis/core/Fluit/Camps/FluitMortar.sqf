@@ -106,8 +106,8 @@ mortar_camp_big = {
 		_newpos = [_center, 10, (_dir + 45)] call BIS_fnc_relPos;
 		SDO_u_AO_sl createUnit [_newpos, _mortardefgroup];
 		SDO_u_AO_aa createUnit [_newpos, _mortardefgroup];
-		SDO_u_AO_mg createUnit [_newpos, _mortardefgroup];
-		SDO_u_AO_mg createUnit [_newpos, _mortardefgroup];
+		SDO_u_AO_ar createUnit [_newpos, _mortardefgroup];
+		SDO_u_AO_HeavyGunner createUnit [_newpos, _mortardefgroup];
 		SDO_u_AO_gl createUnit [_newpos, _mortardefgroup];
 		if !(isNil "SDO_fnc_spawn2_perimeterPatrol") then {
 			[_mortardefgroup, _pos, 50] call SDO_fnc_spawn2_perimeterPatrol;

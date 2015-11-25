@@ -22,8 +22,6 @@ if (isServer) exitWith
 {
 	SDOFriendsArray = call compile preprocessFile "\SDO\SDOFriends.sqf";
 	publicVariable "SDOFriendsArray";
-	sleep 1;
-	diag_log format ["%1",SDOFriendsArray];
 };
 
 		
@@ -57,11 +55,14 @@ _playerType = typeOf player;
 if (_IamAFALCONFriend) then {
 	if (_isAdmin) then {
 		//--- level 2
-		systemChat format [_welcomeadmin call BIS_fnc_selectRandom, name player];
+		//systemChat format [_welcomeadmin call BIS_fnc_selectRandom, name player];
+		SDOmessage = format [_welcomeadmin call BIS_fnc_selectRandom, name player];
 		
 	} else {
 		//--- level 1
-		systemChat format [_welcome call BIS_fnc_selectRandom, name player];
+		//systemChat format [_welcome call BIS_fnc_selectRandom, name player];
+		SDOmessage = format [_welcome call BIS_fnc_selectRandom, name player];
+		//[str (_message)] spawn BIS_fnc_infoText;
 	};
 } else {
 		//--- level None

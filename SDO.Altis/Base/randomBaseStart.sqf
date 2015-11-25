@@ -305,7 +305,6 @@ Base1 =
 	["Land_HelipadEmpty_F",[4.18945,46.7114,0],269.723,1,0,[0,0],"Rep_Fac_Pad","",true,false], 
 	//--- nets
 	["CamoNet_BLUFOR_open_F",[-17.5889,-32.4663,0],0,1,0,[0,0],"Resp_net","",true,false], 
-	["CamoNet_BLUFOR_big_F",[-39.9082,-10.7666,0],280,1,0,[0,0],"Ammo_net","",true,false], 
 	//--- cones
 	["RoadCone_L_F",[5.00098,-0.60083,0.00211954],0.456513,1,0,[0,0],"","",true,false], 
 	["RoadCone_L_F",[9.82373,-0.622559,0.00211954],0.485527,1,0,[0,0],"","",true,false], 

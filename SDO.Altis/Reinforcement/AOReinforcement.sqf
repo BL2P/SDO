@@ -155,7 +155,7 @@ while {true} do
 							ReinforcementVehicles set [count ReinforcementVehicles, _veh select 0];
 							
 							//[_Arm_Patrol, getMarkerPos currentAO,250] call SDO_fnc_spawn2_perimeterPatrolBL1P;
-							[_Arm_Patrol, getMarkerPos currentAO,250] call call SDO_fnc_spawn2_randomPatrolBL1P;
+							[_Arm_Patrol, getMarkerPos currentAO,250] call SDO_fnc_spawn2_randomPatrolBL1P;
 							
 							(vehicle (leader _Arm_Patrol)) spawn SDO_fnc_fuelMonitor;
 							if !(isNil "dep_fnc_vehicledamage") then {
@@ -243,7 +243,7 @@ while {true} do
 							ReinforcementVehicles set [count ReinforcementVehicles, _veh select 0];
 							
 							//[_Arm_Patrol, getMarkerPos currentAO,250] call SDO_fnc_spawn2_perimeterPatrolBL1P;
-							[_Arm_Patrol, getMarkerPos currentAO,250] call call SDO_fnc_spawn2_randomPatrolBL1P;
+							[_Arm_Patrol, getMarkerPos currentAO,250] call SDO_fnc_spawn2_randomPatrolBL1P;
 							
 							(vehicle (leader _Arm_Patrol)) spawn SDO_fnc_fuelMonitor;
 							if !(isNil "dep_fnc_vehicledamage") then {

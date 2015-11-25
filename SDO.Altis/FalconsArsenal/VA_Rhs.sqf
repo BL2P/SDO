@@ -154,12 +154,12 @@ if (PARAMS_ALLOW_RHS == 1) then
 					"rhs_fim92_mag",
 					"rhs_fgm148_magazine_AT",
 				//--- RHS Nades
-					"rhs_mag_m67",
-					"rhs_mag_mk84",
-					"rhs_mag_an_m8hc",
-					"rhs_mag_an_m14_th3",
-					"rhs_mag_m7a3_cs",
-					"rhs_mag_mk3a2",
+				//	"rhs_mag_m67",
+				//	"rhs_mag_mk84",
+				//	"rhs_mag_an_m8hc",
+				//	"rhs_mag_an_m14_th3",
+				//	"rhs_mag_m7a3_cs",
+				//	"rhs_mag_mk3a2",
 				//--- RHS Hand smokes
 					"rhs_mag_m18_smoke_base",
 					"rhs_mag_m18_green",
@@ -170,9 +170,9 @@ if (PARAMS_ALLOW_RHS == 1) then
 
 		RHS_Explosives =
 			[
-				"rhsusf_m112_mag",
-				"rhsusf_m112x4_mag",
-				"rhs_mine_M19_mag"
+			//	"rhsusf_m112_mag",
+			//	"rhsusf_m112x4_mag",
+			//	"rhs_mine_M19_mag"
 			];
 
 		RHS_Backpacks = 
@@ -290,7 +290,7 @@ EODItems = EODItems+
 /////////////////////////////////////////////////////////////////
 PilotItems = PilotItems+
 	[
-	] + GENERAL_GLOBAL;
+	] + GENERAL_GLOBAL + RHS_Weapons_Standard;
 /////////////////////////////////////////////////////////////////
 RTOItems = RTOItems+
 	[

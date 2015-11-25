@@ -30,6 +30,9 @@ if (PARAMS_AO_UNITS == 4) then
 		_AO_Enemy = execVM "Server\UnitTypes\AO_UnitTypes_SUP_WEU.sqf";
 		waitUntil{scriptDone _AO_Enemy}; 
 	};	
+	
+	_AO_Enemy = execVM "Server\UnitTypes\AO_UnitTypes_Convoy.sqf";
+	waitUntil{scriptDone _AO_Enemy}; 
  diag_log "==========Finished Reading AO_UnitTypes.sqf============";
  
  

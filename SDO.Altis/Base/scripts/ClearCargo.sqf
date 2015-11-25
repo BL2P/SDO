@@ -41,8 +41,8 @@ if (alive _this) then
 					"ACE_salineIV_250",
 					"ACE_salineIV",
 					"ACE_epinephrine",
-					"ACE_morphine",
-					"ACE_atropine"
+					"ACE_morphine"
+					//"ACE_atropine"
 				];			
 					{
 						_this addItemCargoGlobal [_x,50];
@@ -109,5 +109,5 @@ if (alive _this) then
 			clearItemCargoGlobal _this;
 		};
 	
-
+	[_this, 3, "ACE_Wheel", true] call ace_repair_fnc_addSpareParts;
 };

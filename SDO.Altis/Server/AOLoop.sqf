@@ -135,24 +135,18 @@ _targets = [
     for "_i" from 1 to _cnt do {
         _initialTargets pushBack (_initialTargets deleteAt floor random _cnt);
     };
-	if (DEBUG) then {diag_log format ["finding %1 AO's", _number_ao];};
+	if (DEBUG) then {diag_log format ["Attempting %1 AO's", _number_ao];};
 	while {(count _ao_list) < _number_ao && (_radius < 50000)} do
 		{
-			if (DEBUG) then {diag_log format ["while {%1 < %2 && ( %3 < 50000)} do",count _ao_list, _number_ao,_radius];};
 			_found = false;
-			if (DEBUG) then {diag_log format [" found = %1 ",_found];};
 			{
 				_pos = getMarkerPos _x;
-				//if (DEBUG) then {diag_log format [" Not in ao_list _x = %1 ",_x];};
 				if !(_x in _ao_list) then 
 				{
-					if (DEBUG) then {diag_log format ["if ((%1) < %2)",(_pos distance _centerpos),_radius];};
 					if ((_pos distance _centerpos) < _radius) then 
 					{
-						if (DEBUG) then {diag_log format ["if ((%1 ) > 2000 from Base)",(_pos distance _baselocation)];};
 						if ((_pos distance _baselocation) > 2000) then 
 						{
-							if (DEBUG) then {diag_log format ["if ((%1) > 2000 From Previous)",(_pos distance _previous)];};
 							if ((_pos distance _previous) > 2000) then 
 							{
 								_found = true;
@@ -160,7 +154,10 @@ _targets = [
 								_centerpos = _pos;
 								_radius = _startradius;
 								_previous = _pos;
-								if (DEBUG) then {diag_log format ["_found= %1,_ao_list = %2",_found,_ao_list];};
+								if (DEBUG) then {diag_log format ["_found= %1 ---///--- AO added = %2",_found,_x];};
+								if (DEBUG) then {diag_log format ["Dist from base = %1 ---///--- Dist from last AO = %2",(_pos distance _baselocation),(_pos distance _previous)];};
+								if (DEBUG) then {diag_log format ["Ammount of AOs is now %1", count _ao_list];};
+								if (DEBUG) then {diag_log format ["AO list is  %1",_ao_list];};
 							};
 						};
 					};
@@ -299,15 +296,9 @@ if (DEBUG) then {
 			_targetStartText = format
 				[
 					"
-					%2<t align='center' size='2.2'>New Target</t><br/><t size='1.5' align='center' color='#FFCF11'>%1</t><br/>____________________<br/><br/>Take down the Radio Tower. Eliminate all Hostiles.</t>
-					",currentAO
+					<t align='center' size='2.2'>New Target</t><br/><t size='1.5' align='center' color='#FFCF11'>%1</t><br/>____________________<br/><br/>Take down the Radio Tower. Eliminate all Hostiles.<br/>%2 AOs to go</t>
+					",currentAO,_targetsLeft
 				];
-
-			_targetStartText = format
-				[
-					"%1 - %2 more targets to go",_targetStartText,_targetsLeft
-				];
-
 
 		//--- Show global target start hint
 			GlobalHint = _targetStartText; publicVariable "GlobalHint"; hint parseText GlobalHint;
@@ -320,7 +311,7 @@ if (DEBUG) then {
 
 			if (PARAMS_HeavyReinforcement > 0) then { _null = [] execVM "Reinforcement\AOHeavyReinforce.sqf"; };
 			if (PARAMS_AOReinforcement  > 0) then { _null = [] execVM "Reinforcement\AOReinforcement.sqf"; };
-			if (PARAMS_ConvoyChance > 0) then { _null = [] execVM "Reinforcement\AOConvoy.sqf"; };
+
 
 		
 	/* =============================================== */
@@ -461,22 +452,30 @@ if (DEBUG) then {
 						};
 						_arraystocleanup set [count _arraystocleanup, HeavyReVehicles]; 
 					};
-					if (!isnil ("ConvoyUnits")) then {
-						if (count ConvoyUnits > 0) then {
-							if (DEBUG) then
-							{
-							diag_log format ["ConvoyUnits = %1",ConvoyUnits];
-							};
-							_arraystocleanup set [count _arraystocleanup, ConvoyUnits]; 
-						};
-					};
-					if (isnil ("ConvoyVehicles")) then {ConvoyVehicles = [];};
-					 if (count ConvoyVehicles > 0)then {
+					//if (!isnil ("ConvoyUnits")) then {
+					//	if (count ConvoyUnits > 0) then {
+					//		if (DEBUG) then
+					//		{
+					//		diag_log format ["ConvoyUnits = %1",ConvoyUnits];
+					//		};
+					//		_arraystocleanup set [count _arraystocleanup, ConvoyUnits]; 
+					//	};
+					//};
+					//if (isnil ("ConvoyVehicles")) then {ConvoyVehicles = [];};
+					// if (count ConvoyVehicles > 0)then {
+					//	if (DEBUG) then
+					//	{
+					//	diag_log format ["ConvoyVehicles = %1",ConvoyVehicles];
+					//	};
+					//	_arraystocleanup set [count _arraystocleanup, ConvoyVehicles]; 
+					//};
+					if (isnil ("AO_Vehicles")) then {AO_Vehicles = [];publicvariable "AO_Vehicles";};
+					 if (count AO_Vehicles > 0)then {
 						if (DEBUG) then
 						{
-						diag_log format ["ConvoyVehicles = %1",ConvoyVehicles];
+						diag_log format ["AO_Vehicles = %1",AO_Vehicles];
 						};
-						_arraystocleanup set [count _arraystocleanup, ConvoyVehicles]; 
+						_arraystocleanup set [count _arraystocleanup, AO_Vehicles]; 
 					};
 					sleep 0.5;
 					if (DEBUG) then
@@ -676,8 +675,8 @@ if (DEBUG) then {
 							"priorityMarker" SetMarkerAlpha 0;
 							publicVariable "priorityMarker";
 							
-							ConvoyAlive = false;
-							publicVariable "ConvoyAlive";
+							//ConvoyAlive = false;
+							//publicVariable "ConvoyAlive";
 							
 							ReinforcedPlane = false;
 							publicVariable "ReinforcedPlane";

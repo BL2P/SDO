@@ -186,7 +186,7 @@ SDO_fnc_spawn2_perimeterPatrolConvoy =
 		_wp setWaypointType "MOVE";
 		_wp setWaypointSpeed "LIMITED";
 		_wp setWaypointFormation "COLUMN";
-		_wp setWaypointBehaviour "SAFE";
+		_wp setWaypointBehaviour "CARELESS";
 		_wp setWaypointTimeOut [0,5,10];
 		_wp setWaypointCompletionRadius 15;
 		
@@ -223,7 +223,7 @@ SDO_fnc_spawn2_perimeterPatrolConvoy =
 		_name setMarkerText "Cycle";
 	};
 	
-	_group spawn SDO_fnc_spawn2_waypointBehaviourConvoy;
+	//_group spawn SDO_fnc_spawn2_waypointBehaviourConvoy;
 };
 
 //---- Edited give ai waypoint behaviours
@@ -237,9 +237,9 @@ SDO_fnc_spawn2_waypointBehaviourConvoy =
 		{
 			{
 				if(waypointType _x == "MOVE") then {_x setWaypointBehaviour "SAD"};
-				_x setWaypointSpeed "LIMITED";
-				_x setWaypointBehaviour "SAFE";
-				_x setWaypointBehaviour "COLUMN";
+				//_x setWaypointSpeed "LIMITED";
+				_x setWaypointBehaviour "COMBAT";
+				//_x setWaypointBehaviour "COLUMN";
 				
 			}forEach (waypoints _this);
 		};
@@ -249,7 +249,7 @@ SDO_fnc_spawn2_waypointBehaviourConvoy =
 			{
 				if(waypointType _x == "SAD") then {_x setWaypointBehaviour "MOVE"};
 				_x setWaypointSpeed "LIMITED";
-				_x setWaypointBehaviour "SAFE";
+				_x setWaypointBehaviour "CARELESS";
 				_x setWaypointBehaviour "COLUMN";
 			}forEach (waypoints _this);
 		};
