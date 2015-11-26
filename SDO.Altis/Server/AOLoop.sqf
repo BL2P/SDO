@@ -366,18 +366,6 @@ if (DEBUG) then {
 				currentAO
 			];
 
-		//--- AO done Marker
-			_msg = "";
-			_msg = _msg + format [" T%1/", ([dayTime, "HH:MM"] call BIS_fnc_timeToString)];
-			_msg = _msg + format ["D%3/M%2", (date select 0), (date select 1), (date select 2)];
-			
-			
-			_name = format ["%1",currentAO];
-			createMarker [_name,getMarkerPos "aoMarker"];
-			_name setMarkerType "o_unknown";
-			_name setMarkerText format ["%1",_msg];
-			_name setMarkerColor "ColorGreen";
-			
 			
 			{_x setMarkerPos [0,0,0];} forEach ["aoCircle","aoMarker"];
 
@@ -585,6 +573,35 @@ if (DEBUG) then {
 									publicVariable "LASTDEFEND";
 									waituntil {sleep 1; !RunninngDefenceAO};
 								};
+								
+								if (UnlockAssets) then 
+									{
+											//--- AO done Marker
+											_msg = "";
+											_msg = _msg + format [" T%1/", ([dayTime, "HH:MM"] call BIS_fnc_timeToString)];
+											_msg = _msg + format ["D%3/M%2", (date select 0), (date select 1), (date select 2)];
+											
+											
+											_name = format ["%1",currentAO];
+											createMarker [_name,getMarkerPos "aoMarker"];
+											_name setMarkerType "o_unknown";
+											_name setMarkerText format ["%1",_msg];
+											_name setMarkerColor "ColorGreen";
+									}
+									else
+									{
+											//--- AO done Marker
+											_msg = "";
+											_msg = _msg + format [" T%1/", ([dayTime, "HH:MM"] call BIS_fnc_timeToString)];
+											_msg = _msg + format ["D%3/M%2", (date select 0), (date select 1), (date select 2)];
+											
+											
+											_name = format ["%1",currentAO];
+											createMarker [_name,getMarkerPos "aoMarker"];
+											_name setMarkerType "o_unknown";
+											_name setMarkerText format ["%1",_msg];
+											_name setMarkerColor "ColorOrange";
+									};
 							//////////////////////////////////////////////////
 							//--- END DEFEND MISSION
 							//////////////////////////////////////////////////

@@ -1,3 +1,4 @@
+if (!isServer) exitwith {};
 waitUntil {sleep 0.5; !(isNil "currentAOUp")};
 waitUntil {sleep 0.5; !(isNil "currentAO")};
 private ["_SERVERUNITSCHECK1","_SERVERUNITSCHECKresistance","_SERVERUNITSCHECK","_giveup","_flatPos","_accepted","_found","_amount","_debugCounter","_road","_usedroads","_convoyPositionsArray","_name","_convoyPositionsArrayEND","_compare","_cnt","_roadpos","_nearUnits","_ConvoyGroup","_ConRandAmount","_directionEnd","_Convoy_Vehicle","_randomChopper","_wp","_Convoydead"];
@@ -277,7 +278,7 @@ while {true} do
 					///////////////////////////////////////////////////////////////////travel 
 					allConvoy = ConvoyUnits + ConvoyVehicles;
 					_wp = _ConvoyGroup addWaypoint [positionEND,0];
-					_wp setWaypointType "SAD";
+					_wp setWaypointType "MOVE";
 					_wp setWaypointSpeed "NORMAL";
 					_wp setWaypointFormation "COLUMN";
 					_wp setWaypointBehaviour "SAFE";

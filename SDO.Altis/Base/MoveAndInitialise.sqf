@@ -116,6 +116,18 @@ if (!(rndBase == StadBase) && !(rndBase == HillBase1) && !(rndBase == CapBase) &
 				_light6 =[Lamp6] execVM "Base\ObjectInits.sqf";
 				_light7 =[Lamp7] execVM "Base\ObjectInits.sqf";
 				waitUntil {scriptDone _light7};
+				
+		//--- Containers
+			_Cont =[Ammo_cont] execVM "Base\ObjectInits.sqf";
+			_Cont =[Fuel_cont] execVM "Base\ObjectInits.sqf";
+			_Cont =[Med_cont] execVM "Base\ObjectInits.sqf";
+			_Cont =[Rep_cont] execVM "Base\ObjectInits.sqf";
+			_Cont =[Ammo_cont_1] execVM "Base\ObjectInits.sqf";
+			_Cont =[Fuel_cont_1] execVM "Base\ObjectInits.sqf";
+			_Cont =[Med_cont_1] execVM "Base\ObjectInits.sqf";
+			_Cont =[Rep_cont_1] execVM "Base\ObjectInits.sqf";
+		
+		
 	} 
 	else
 	{
@@ -215,6 +227,17 @@ if (!(rndBase == StadBase) && !(rndBase == HillBase1) && !(rndBase == CapBase) &
 				_fac =[MedFac] execVM "Base\ObjectInits.sqf";
 				_fac2 =[RepFac] execVM "Base\ObjectInits.sqf";
 				waitUntil {scriptDone _fac2};
+				
+		//--- Containers
+			_Cont =[Ammo_cont] execVM "Base\ObjectInits.sqf";
+			_Cont =[Fuel_cont] execVM "Base\ObjectInits.sqf";
+			_Cont =[Med_cont] execVM "Base\ObjectInits.sqf";
+			_Cont =[Rep_cont] execVM "Base\ObjectInits.sqf";
+			_Cont =[Ammo_cont_1] execVM "Base\ObjectInits.sqf";
+			_Cont =[Fuel_cont_1] execVM "Base\ObjectInits.sqf";
+			_Cont =[Med_cont_1] execVM "Base\ObjectInits.sqf";
+			_Cont =[Rep_cont_1] execVM "Base\ObjectInits.sqf";
+		
 
 	};
 				waitUntil {serverTime > 10};

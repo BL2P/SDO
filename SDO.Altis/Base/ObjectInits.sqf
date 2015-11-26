@@ -195,6 +195,23 @@ if (!(rndBase == StadBase) && !(rndBase == HillBase1) && !(rndBase == CapBase) &
 				{
 						_obj allowDamage false;
 				};	
+				
+		//--- Containers
+			if (		
+					(_obj  == Ammo_cont) ||
+					(_obj  == Fuel_cont) ||
+					(_obj  == Med_cont) ||
+					(_obj  == Rep_cont) ||
+					(_obj  == Ammo_cont_1) ||
+					(_obj  == Fuel_cont_1) ||
+					(_obj  == Med_cont_1) ||
+					(_obj  == Rep_cont_1)
+				)
+				then 
+				{
+					_obj execVM "base\scripts\ClearCargo.sqf";
+				};
+		
 }
 else
 {
@@ -338,5 +355,21 @@ else
 					then 
 					{
 							_obj allowDamage false;
+					};
+					
+			//--- Containers
+				if (		
+						(_obj  == Ammo_cont) ||
+						(_obj  == Fuel_cont) ||
+						(_obj  == Med_cont) ||
+						(_obj  == Rep_cont) ||
+						(_obj  == Ammo_cont_1) ||
+						(_obj  == Fuel_cont_1) ||
+						(_obj  == Med_cont_1) ||
+						(_obj  == Rep_cont_1)
+					)
+					then 
+					{
+						_obj execVM "base\scripts\ClearCargo.sqf";
 					};
 };

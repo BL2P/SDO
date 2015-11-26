@@ -2,6 +2,12 @@ if(isNull _this) exitWith {};
 if (alive _this) then 
 {
 
+	if ((typeOf _this == "B_Truck_01_Repair_F") || (typeOf _this == "B_Slingload_01_Repair_F")) then 
+	{
+		[_this, 13, "ACE_Wheel", true] call ace_repair_fnc_addSpareParts;
+		[_this, 3, "ACE_Track", true] call ace_repair_fnc_addSpareParts;
+	};
+
 	//--- Ammo Truck
 	if (typeOf _this == "B_Truck_01_ammo_F") then 
 	{

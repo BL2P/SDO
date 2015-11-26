@@ -62,6 +62,7 @@ diag_log "==============Init_Server Start==============";
 	
 //--- Clean script
 		_null = [] execVM "scripts\clearItems.sqf";
+		//_id = addMissionEventHandler ["HandleDisconnect",{ _this execVM "scripts\clearItemsDropped.sqf"}];
 
 //--- Run AO and/or DEP victory scripts
 	if(isNil "PARAMS_AOTOGGLE") then {PARAMS_AOTOGGLE = 1};

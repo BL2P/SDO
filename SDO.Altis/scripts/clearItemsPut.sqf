@@ -7,13 +7,13 @@ _delay = 300;
  
 while {true} do
 {
-		if (DEBUG) then {diag_log "Cleaning Player Restricted dropped items...";};
+		if (DEBUG) then {diag_log "Cleaning Player Placed dropped items...";};
 			_itemsToClear = nearestObjects [_pos,["weaponholder"],_rad];
 				if (count _itemsToClear <= 0) exitwith {if (DEBUG) then {diag_log "No Items to clear exititing script";};};
 				sleep _delay;
 				{
 					deleteVehicle _x;
 				} forEach _itemsToClear;
-			if (DEBUG) then {diag_log "Player Restricted dropped Items cleared";};
-			sleep 1;
+			if (DEBUG) then {diag_log "Player Placed dropped Items cleared";};
+		sleep 1;
 };

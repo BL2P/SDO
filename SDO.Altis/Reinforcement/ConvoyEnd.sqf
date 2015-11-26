@@ -1,3 +1,5 @@
+if (hasinterface) exitwith {};
+
 private ["_accepted","_nearUnits","_player"];
 
 _accepted = false;

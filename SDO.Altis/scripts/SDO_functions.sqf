@@ -13,5 +13,16 @@ SDO_fnc_spawn2_perimeterPatrolBL1P = compile preprocessFileLineNumbers ("\SDO\SD
 SDO_fnc_spawn2_perimeterPatrol = compile preprocessFileLineNumbers ("\SDO\SDO_Functions\SDO_fnc_spawn2_perimeterPatrol.sqf");
 SDO_fnc_Snipers = compile preprocessFileLineNumbers ("\SDO\SDO_Functions\SDO_fnc_Snipers.sqf"); 
 SDO_cleanGroups = compile preprocessFileLineNumbers ("\SDO\SDO_Functions\SDO_cleanGroups.sqf"); 
-SDO_serverMapTP = compile preprocessFileLineNumbers ("\SDO\SDO_Functions\SDO_serverMapTP.sqf"); 
 SDO_fnc_AOAdvance = compile preprocessFileLineNumbers ("\SDO\SDO_Functions\SDO_fnc_AOAdvance.sqf"); 
+
+
+SDO_serverMapTP = 
+	{
+		if(!DEBUG) exitWith{};
+		onMapSingleClick "player setPos _pos;onMapSingleClick '';true";
+	};
+	
+if (DEBUG) then 
+	{
+		diag_log "***SDO_Functions Initialised***";
+	};

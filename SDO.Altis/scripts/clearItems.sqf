@@ -1,16 +1,21 @@
-
-private ["_itemsToClear","_obj","_rad","_delay"];
-_obj = getMarkerPos "respawn_west"; // get spawn - might as well
-_rad = 150;  //  radius outwards from center point to clear items.
-_delay = 1200; // amount of time in-between clean-ups
+if(!isServer) exitwith {};
+private ["_itemsToClear","_pos","_rad"];
+_pos = dep_map_center; 
+_rad = 16000;
  
 while {true} do
 {
-	sleep _delay;
-	if (DEBUG) then {diag_log "Cleaning Items from spawn...";};
-	_itemsToClear = nearestObjects [_obj,["weaponholder"],_rad];
-	{
-		deleteVehicle _x;
-	} forEach _itemsToClear;
-	if (DEBUG) then {diag_log "Items cleared";};
+diag_log "Waiting for players to be ZERO";
+	waituntil {servertime > 5};
+	waituntil {count  allPlayers == 0};
+diag_log "Finished Waiting for players to be ZERO Running the Clean up";
+		if (DEBUG) then {diag_log "Cleaning ALL dropped items...";};
+			_itemsToClear = nearestObjects [_pos,["weaponholder"],_rad];
+				{
+				if (count _itemsToClear <= 0) exitwith {if (DEBUG) then {diag_log "No Items to clear exititing script";};};
+					deleteVehicle _x;
+				} forEach _itemsToClear;
+			if (DEBUG) then {diag_log "Items cleared";};
+diag_log "Waiting for players to be ONE or More";
+		waituntil {count  allPlayers >= 1};
 };

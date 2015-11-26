@@ -292,6 +292,7 @@ bl1p_fnc_defend =
 				//hqSideChat = _AttackResult; publicVariable "hqSideChat"; [WEST,"HQ"] sideChat hqSideChat;
 				GlobalHint = _AttackResultHint; publicVariable "GlobalHint"; hint parseText GlobalHint;
 				showNotification = ["CompletedMainDefended", currentAO]; publicVariable "showNotification";
+				
 				//--- bl1p unlock assets
 				UnlockAssets = true;
 				publicvariable "UnlockAssets";

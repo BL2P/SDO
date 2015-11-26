@@ -253,15 +253,14 @@ diag_log "////====****READING VA_FAL.SQF ****====////";
 					Falcons_Hats_Glasses_Masks = 
 						[
 						"Falcons_Cap_headphones",
-						"Falcons_Woolhat_black",
-						"Falcons_Woolhat_blue",
-						"Falcons_Woolhat_brown",
-						"Falcons_Woolhat_green",
-						"Falcons_Woolhat_red",
+						"Falcons_Woolhat_Black",
+						"Falcons_Woolhat_Blue",
+						"Falcons_Woolhat_Brown",
+						"Falcons_Woolhat_Green",
+						"Falcons_Woolhat_Red",
 						"Falcons_bandana_Skull",
 						"Falcons_bandana_Skull2",
 						"Falcons_Beret_Green",
-						
 						"Falcons_bandana_Desert",
 						"Falcons_bandana_Dark",
 						"Falcons_bandana_Wood",
@@ -273,15 +272,14 @@ diag_log "////====****READING VA_FAL.SQF ****====////";
 					Falcons_Hats_Glasses_Masks = 
 						[
 						"Falcons_Cap_headphones",
-						"Falcons_Woolhat_black",
-						"Falcons_Woolhat_blue",
-						"Falcons_Woolhat_brown",
-						"Falcons_Woolhat_green",
-						"Falcons_Woolhat_red",
+						"Falcons_Woolhat_Black",
+						"Falcons_Woolhat_Blue",
+						"Falcons_Woolhat_Brown",
+						"Falcons_Woolhat_Green",
+						"Falcons_Woolhat_Red",
 						"Falcons_bandana_Skull",
 						"Falcons_bandana_Skull2",
 						"Falcons_Beret_Green",
-						
 						"Falcons_bandana_Wood"
 						];
 					};
@@ -290,15 +288,14 @@ diag_log "////====****READING VA_FAL.SQF ****====////";
 					Falcons_Hats_Glasses_Masks = 
 						[
 						"Falcons_Cap_headphones",
-						"Falcons_Woolhat_black",
-						"Falcons_Woolhat_blue",
-						"Falcons_Woolhat_brown",
-						"Falcons_Woolhat_green",
-						"Falcons_Woolhat_red",
+						"Falcons_Woolhat_Black",
+						"Falcons_Woolhat_Blue",
+						"Falcons_Woolhat_Brown",
+						"Falcons_Woolhat_Green",
+						"Falcons_Woolhat_Red",
 						"Falcons_bandana_Skull",
 						"Falcons_bandana_Skull2",
 						"Falcons_Beret_Green",
-						
 						"Falcons_bandana_Urban"
 						];
 					};
@@ -307,15 +304,14 @@ diag_log "////====****READING VA_FAL.SQF ****====////";
 					Falcons_Hats_Glasses_Masks = 
 						[
 						"Falcons_Cap_headphones",
-						"Falcons_Woolhat_black",
-						"Falcons_Woolhat_blue",
-						"Falcons_Woolhat_brown",
-						"Falcons_Woolhat_green",
-						"Falcons_Woolhat_red",
+						"Falcons_Woolhat_Black",
+						"Falcons_Woolhat_Blue",
+						"Falcons_Woolhat_Brown",
+						"Falcons_Woolhat_Green",
+						"Falcons_Woolhat_Red",
 						"Falcons_bandana_Skull",
 						"Falcons_bandana_Skull2",
 						"Falcons_Beret_Green",
-						
 						"Falcons_bandana_Dark"
 						];
 					};
@@ -324,15 +320,14 @@ diag_log "////====****READING VA_FAL.SQF ****====////";
 					Falcons_Hats_Glasses_Masks = 
 						[
 						"Falcons_Cap_headphones",
-						"Falcons_Woolhat_black",
-						"Falcons_Woolhat_blue",
-						"Falcons_Woolhat_brown",
-						"Falcons_Woolhat_green",
-						"Falcons_Woolhat_red",
+						"Falcons_Woolhat_Black",
+						"Falcons_Woolhat_Blue",
+						"Falcons_Woolhat_Brown",
+						"Falcons_Woolhat_Green",
+						"Falcons_Woolhat_Red",
 						"Falcons_bandana_Skull",
 						"Falcons_bandana_Skull2",
 						"Falcons_Beret_Green",
-						
 						"Falcons_bandana_Desert"
 						];
 					};

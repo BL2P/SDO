@@ -1,7 +1,10 @@
 //--- by BL1P 
 if (isServer || isDedicated || !hasInterFace) exitWith {Diag_log "I was kicked from the restrictions.sqf I am not a true client";};
-diag_log "Reading weapon restrictions script";
-
+if (DEBUG) then
+	{
+		diag_log "Reading weapon restrictions script";
+	};
+	
 waitUntil {!isNil "VA_MAIN"}; 
 waitUntil {VA_MAIN}; 
 

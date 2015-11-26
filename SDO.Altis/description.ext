@@ -112,14 +112,6 @@ class CfgNotifications
 		priority = 8;
 	};
 
-	class Reward
-	{
-		title = "TEAM REWARD";
-		description = "%1";
-		iconPicture = "core\Media\notificons\reward.paa";
-		color[] = {1,1,1,1};
-		priority = 6;
-	};
 };
 
 class CfgSounds 
