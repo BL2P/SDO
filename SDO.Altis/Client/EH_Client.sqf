@@ -4,7 +4,7 @@ player removeAllEventHandlers "Take";
 player addEventHandler ["Take", {_null = [] execVM "core\Restrictions\restrictions.sqf";}];
 
 player removeAllEventHandlers "Put";
-player addEventHandler ["Put", {_null = [] execVM "Scripts\clearItemsPut.sqf";}];
+player addEventHandler ["Put", {_null = [(str (_this select 1))] execVM "Scripts\clearItemsPut.sqf";}];
 
 player setVariable [ "VAcatch", [ "VAcatch", "onEachFrame", 
 { 

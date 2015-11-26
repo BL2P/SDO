@@ -66,7 +66,7 @@ class Mission
 	randomSeed=8346727;
 	class Intel
 	{
-		briefingName="TEST 0.3.2 Altis";
+		briefingName="co34 [Falcons] SDO ACE3 033.Altis";
 		overviewText="Shoot The bad guys... Win... What could possibly go wrong ?";
 		resistanceWest=0;
 		resistanceEast=1;
