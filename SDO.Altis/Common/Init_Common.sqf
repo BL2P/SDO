@@ -1,4 +1,4 @@
-diag_log "==============Init_Common Start==============";
+diag_log "***Init_Common Start==============";
 
 //--- Arty
 	enableEngineArtillery false;
@@ -133,10 +133,10 @@ diag_log "==============Init_Common Start==============";
 	SDO_IsHeadless = if !(hasInterface || isDedicated) then {true} else {false};
 
 //--- write to rpts who is who
-	diag_log format ["SDO_IsHostedServer = %1",SDO_IsHostedServer];
-	diag_log format ["SDO_IsServer = %1",SDO_IsServer];
-	diag_log format ["SDO_IsClient = %1",SDO_IsClient];
-	diag_log format ["SDO_IsHeadless = %1",SDO_IsHeadless];
+	diag_log format ["***SDO_IsHostedServer = %1",SDO_IsHostedServer];
+	diag_log format ["***SDO_IsServer = %1",SDO_IsServer];
+	diag_log format ["***SDO_IsClient = %1",SDO_IsClient];
+	diag_log format ["***SDO_IsHeadless = %1",SDO_IsHeadless];
 	
 //--- kick client from script to init client
 	if (SDO_IsClient) exitwith
@@ -159,4 +159,4 @@ diag_log "==============Init_Common Start==============";
 			execVm "Headless\Init_Headless.sqf";
 		};	
 	
-diag_log "==============Init_Common END==============";	
+diag_log "***Init_Common END==============";	

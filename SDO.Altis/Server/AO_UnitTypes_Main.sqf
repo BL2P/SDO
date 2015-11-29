@@ -1,6 +1,6 @@
-if !(isServer) exitwith {diag_log "Exiting AO_UnitTypes_Main.sqf not a server";};
+if !(isServer) exitwith {diag_log "***Exiting AO_UnitTypes_Main.sqf not a server";};
 
-diag_log "==========Reading AO_UnitTypes_Main.sqf============";
+diag_log "***Reading AO_UnitTypes_Main.sqf============";
 if (PARAMS_AO_UNITS == 0) then
 	{
 		_AO_Enemy = execVM "Server\UnitTypes\AO_UnitTypes_BIS.sqf";
@@ -33,7 +33,7 @@ if (PARAMS_AO_UNITS == 4) then
 	
 	_AO_Enemy = execVM "Server\UnitTypes\AO_UnitTypes_Convoy.sqf";
 	waitUntil{scriptDone _AO_Enemy}; 
- diag_log "==========Finished Reading AO_UnitTypes.sqf============";
+ diag_log "***Finished Reading AO_UnitTypes.sqf============";
  
  
  

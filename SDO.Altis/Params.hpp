@@ -450,7 +450,7 @@ class AO_UNITS
 		title = "Enable Debug Mode";
 		values[] = {1,0};
 		texts[] = {"Enable","Disable"};
-		default = 0;
+		default = 1;
 	};
 
 	class BaseSelector

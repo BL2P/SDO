@@ -1,6 +1,5 @@
-//--- Edited for Zargabad
-if (isServer) exitwith {diag_log "I was kicked from VA_GenAuse.sqf";};
-diag_log "////====****READING VA_GenAuse.SQF ****====////";
+if (isServer) exitwith {diag_log "***I was kicked from VA_GenAuse.sqf";};
+diag_log "***READING VA_GenAuse.SQF ****====////";
 
 /////////////////////////////////////////////////////////////////
 

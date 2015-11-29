@@ -1,11 +1,11 @@
 
-diag_log "==============RUNONCE Start==============";
+diag_log "***RUNONCE Start==============";
 
-if (isServer || isDedicated || !hasInterFace) exitwith {diag_log "I was kicked from the RUNONCE.sqf";};
+if (isServer || isDedicated || !hasInterFace) exitwith {diag_log "***I was kicked from the RUNONCE.sqf";};
 if (isNil "RUNONCERunning") then {RUNONCERunning = false};
 if (isNil "RAN_ONCE") then {RAN_ONCE = false};
-if (RUNONCERunning) exitwith {diag_log "Exiting RUNONCE its already running";};
-if (RAN_ONCE) exitwith {diag_log "Exiting RUNONCE already done";};
+if (RUNONCERunning) exitwith {diag_log "***Exiting RUNONCE its already running";};
+if (RAN_ONCE) exitwith {diag_log "***Exiting RUNONCE already done";};
 
 //--- script is running
 	RUNONCERunning = true;
@@ -115,6 +115,6 @@ if (isNil "PARAMS_ALLOW_UNIFORM")  then  { waitUntil{!isNil "PARAMS_ALLOW_UNIFOR
 //--- script has been ran
 	RAN_ONCE = true;
 	
-diag_log "==============RUNONCE End==============";
+diag_log "***RUNONCE End==============";
 
 

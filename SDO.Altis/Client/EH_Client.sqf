@@ -1,4 +1,4 @@
-diag_log "Reading EH_Client.sqf";
+diag_log "***Reading EH_Client.sqf";
 
 player removeAllEventHandlers "Take";
 player addEventHandler ["Take", {_null = [] execVM "core\Restrictions\restrictions.sqf";}];
@@ -35,4 +35,4 @@ player setVariable [ "VAcatch", [ "VAcatch", "onEachFrame",
 		};
 	}];
 
-diag_log "FINISHED Reading EH_Client.sqf";
+diag_log "***FINISHED Reading EH_Client.sqf";

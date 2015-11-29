@@ -1,8 +1,8 @@
 //--- by BL1P 
-if (isServer || isDedicated || !hasInterFace) exitWith {Diag_log "I was kicked from the restrictions.sqf I am not a true client";};
+if (isServer || isDedicated || !hasInterFace) exitWith {Diag_log "***I was kicked from the restrictions.sqf I am not a true client";};
 if (DEBUG) then
 	{
-		diag_log "Reading weapon restrictions script";
+		diag_log "***Reading weapon restrictions script";
 	};
 	
 waitUntil {!isNil "VA_MAIN"}; 
@@ -43,6 +43,7 @@ if !(headgear player in AllowedItems || headgear player == "") then
 		_null = [player] execVM "scripts\clearItemsDropped.sqf";
 	};
 } forEach weapons player;
+
 /*
 {
 	if !(_x in AllowedItems || _x == "") then

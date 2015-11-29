@@ -4,10 +4,10 @@
 
 if (DEBUG) then 
 	{
-	Diag_log "I am in the MPS_FUNC_OUTRO_sequence.SQF";
+	Diag_log "***I am in the MPS_FUNC_OUTRO_sequence.SQF";
 	};
 
-if(isDedicated) exitWith{diag_log "I was kicked from MPS_FUNC_OUTRO_CAMERA.SQF";};
+if(isDedicated) exitWith{diag_log "***I was kicked from MPS_FUNC_OUTRO_CAMERA.SQF";};
 
 private["_count","_titles","_time"];
 

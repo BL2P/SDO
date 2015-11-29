@@ -3,7 +3,7 @@
 //==========BL1P EDIT===============//
 //===================================//
 
-if (DEBUG) then {diag_log "READING the Create_units.sqf";};
+if (DEBUG) then {diag_log "***READING the Create_units.sqf";};
 
 SDO_fnc_spawnUnits = 
 {
@@ -14,8 +14,8 @@ SDO_fnc_spawnUnits =
 
 		if (DEBUG) then 
 		{
-		diag_log "=============AO AI CREATION ( SDO_fnc_spawnUnits ) FUNC STARTED=============";
-		diag_log format ["currentAO = %1",currentAO];
+		diag_log "***AO AI CREATION ( SDO_fnc_spawnUnits ) FUNC STARTED=============";
+		diag_log format ["***currentAO = %1",currentAO];
 		};
 
 		private ["_randomPos","_spawnGroup","_pos","_x","_armourGroup","_armour","_airGroup","_air","_airType","_randmort","_ExtOrCenterChance"];
@@ -24,17 +24,17 @@ SDO_fnc_spawnUnits =
 		_houses = [];
 
 		// check and remove this list of mortars
-		if (!isNil ("mortar1")) then {if (DEBUG) then {diag_log "mortar1 was not nil removing";};deleteVehicle mortar1;}; 
-		if (!isNil ("mortar2")) then {if (DEBUG) then {diag_log "mortar2 was not nil removing";};deleteVehicle mortar2;}; 
+		if (!isNil ("mortar1")) then {if (DEBUG) then {diag_log "***mortar1 was not nil removing";};deleteVehicle mortar1;}; 
+		if (!isNil ("mortar2")) then {if (DEBUG) then {diag_log "***mortar2 was not nil removing";};deleteVehicle mortar2;}; 
 		
 		// check and remove this list of groups
-		if (!isNil ("_spawnGroupSN")) then {if (DEBUG) then {diag_log "_spawnGroupSN was not nil removing";};deleteGroup _spawnGroupSN;};
-		if (!isNil ("_spawnGroup")) then {if (DEBUG) then {diag_log "_spawnGroup was not nil removing";};deleteGroup _spawnGroup;};
-		if (!isNil ("_spawnGroupSP")) then {if (DEBUG) then {diag_log "_spawnGroupSP was not nil removing";};deleteGroup _spawnGroupSP;};
-		if (!isNil ("_spawnGroupSPX")) then {if (DEBUG) then {diag_log "_spawnGroupSPX was not nil removing";};deleteGroup _spawnGroupSPX;};
-		if (!isNil ("_spawngroupcar")) then {if (DEBUG) then {diag_log "_spawnGroupcar was not nil removing";};deleteGroup _spawngroupcar;};
-		if (!isNil ("_armourGroup")) then {if (DEBUG) then {diag_log "_armourGroup was not nil removing";};deleteGroup _armourGroup;};
-		if (!isNil ("_airGroup")) then {if (DEBUG) then {diag_log "_airGroup was not nil removing";};deleteGroup _airGroup;};
+		if (!isNil ("_spawnGroupSN")) then {if (DEBUG) then {diag_log "***_spawnGroupSN was not nil removing";};deleteGroup _spawnGroupSN;};
+		if (!isNil ("_spawnGroup")) then {if (DEBUG) then {diag_log "***_spawnGroup was not nil removing";};deleteGroup _spawnGroup;};
+		if (!isNil ("_spawnGroupSP")) then {if (DEBUG) then {diag_log "***_spawnGroupSP was not nil removing";};deleteGroup _spawnGroupSP;};
+		if (!isNil ("_spawnGroupSPX")) then {if (DEBUG) then {diag_log "***_spawnGroupSPX was not nil removing";};deleteGroup _spawnGroupSPX;};
+		if (!isNil ("_spawngroupcar")) then {if (DEBUG) then {diag_log "***_spawnGroupcar was not nil removing";};deleteGroup _spawngroupcar;};
+		if (!isNil ("_armourGroup")) then {if (DEBUG) then {diag_log "***_armourGroup was not nil removing";};deleteGroup _armourGroup;};
+		if (!isNil ("_airGroup")) then {if (DEBUG) then {diag_log "***_airGroup was not nil removing";};deleteGroup _airGroup;};
 
 
 			
@@ -72,19 +72,19 @@ if (PARAMS_Roadblocks == 1 && _numberofcamps <= 2) then {
 
 	if(DEBUG) then {
 		if (Createmortars) then	{
-			diag_log format ["==== CREATING MORTARS ==== _randmort = %1 PARAMS_MortarChance = %2",_randmort,PARAMS_MortarChance];
+			diag_log format ["***CREATING MORTARS ==== _randmort = %1 PARAMS_MortarChance = %2",_randmort,PARAMS_MortarChance];
 		} else {
-			diag_log format ["==== NOT CREATING MORTARS ==== _randmort = %1 PARAMS_MortarChance = %2 ",_randmort,PARAMS_MortarChance];
+			diag_log format ["***NOT CREATING MORTARS ==== _randmort = %1 PARAMS_MortarChance = %2 ",_randmort,PARAMS_MortarChance];
 		};
 	};
 	
 	if (Createmortars) then {
 		_radius = 1000;
 		if (_interior) then {
-			if(DEBUG) then { diag_log "========creating mortars INSIDE AO ===========";};
+			if(DEBUG) then { diag_log "***creating mortars INSIDE AO ===========";};
 			_radius = 20 + round (random 40);
 		} else {
-			if(DEBUG) then { diag_log "========creating mortars OUTSIDE AO ===========";};
+			if(DEBUG) then { diag_log "***creating mortars OUTSIDE AO ===========";};
 		};
 		_camplocations = [1, getMarkerPos currentAO, _radius, ceil (random 3)] call random_mortar_camps;
 		_enemiesArray = _enemiesArray + campArray;
@@ -93,7 +93,7 @@ if (PARAMS_Roadblocks == 1 && _numberofcamps <= 2) then {
 		// Spotters
 		_x = 0;
 		_rand = [2,3,4,5] call BIS_fnc_selectRandom;
-		if (DEBUG) then {diag_log format ["=====Creating %1 MORTSPOT=====",_rand];};
+		if (DEBUG) then {diag_log format ["***Creating %1 MORTSPOT=====",_rand];};
 		for "_x" from 1 to _rand do 
 		{
 			_randomPos = [getMarkerPos currentAO, 350,2] call SDO_fnc_randomPos;
@@ -145,7 +145,7 @@ if (PARAMS_Roadblocks == 1 && _numberofcamps <= 2) then {
 			}
 			else
 			{
-				diag_log "DID NOT CREATE SPOTTERS FAILED ON RAND POS";
+				diag_log "***DID NOT CREATE SPOTTERS FAILED ON RAND POS";
 			};
 		};
 	};
@@ -154,7 +154,7 @@ if (PARAMS_Roadblocks == 1 && _numberofcamps <= 2) then {
 //////////////////////////////////////////////////////// SQPAT START ////////////////////////////////////////////////////////
 		// squad patrol UPS
 			_x = 0;
-			if (DEBUG) then {diag_log format ["=====Creating %1 SQPAT UPS=====",PARAMS_SquadsPatrol];};
+			if (DEBUG) then {diag_log format ["***Creating %1 SQPAT UPS=====",PARAMS_SquadsPatrol];};
 			for "_x" from 1 to PARAMS_SquadsPatrol do 
 			{
 				
@@ -228,7 +228,7 @@ if (PARAMS_Roadblocks == 1 && _numberofcamps <= 2) then {
 				}
 				else
 				{
-					diag_log "====DID NOT CREATE SQPATUPS BECAUSE OF FAILED RANDOM POS====";
+					diag_log "***DID NOT CREATE SQPATUPS BECAUSE OF FAILED RANDOM POS====";
 				};
 			};
 //////////////////////////////////////////////////////// SQPAT END ////////////////////////////////////////////////////////	
@@ -236,7 +236,7 @@ if (PARAMS_Roadblocks == 1 && _numberofcamps <= 2) then {
 //////////////////////////////////////////////////////// DEFPAT START ////////////////////////////////////////////////////////		
 		//--- Defence pat NONE UPS
 			_x = 0;
-			if (DEBUG) then {diag_log format ["=====Creating %1 DEFSQ=====",PARAMS_SquadsDefend];};
+			if (DEBUG) then {diag_log format ["***Creating %1 DEFSQ=====",PARAMS_SquadsDefend];};
 			for "_x" from 1 to PARAMS_SquadsDefend do {
 				
 				_randomPos = [getMarkerPos currentAO, 200,2] call SDO_fnc_randomPos;
@@ -308,7 +308,7 @@ if (PARAMS_Roadblocks == 1 && _numberofcamps <= 2) then {
 				}
 				else
 				{
-					diag_log "====DID NOT CREATE DEFSQ BECAUSE OF FAILED RANDOM POS====";
+					diag_log "***DID NOT CREATE DEFSQ BECAUSE OF FAILED RANDOM POS====";
 				};
 			};
 //////////////////////////////////////////////////////// DEFPAT END ////////////////////////////////////////////////////////
@@ -316,7 +316,7 @@ if (PARAMS_Roadblocks == 1 && _numberofcamps <= 2) then {
 //////////////////////////////////////////////////////// MIDPAT START ////////////////////////////////////////////////////////
 		// MID MidPatrol NONE UPS
 			_x = 0;
-			if (DEBUG) then {diag_log format ["=====Creating %1 MIDPAT=====",PARAMS_MidPatrol];};
+			if (DEBUG) then {diag_log format ["***Creating %1 MIDPAT=====",PARAMS_MidPatrol];};
 			for "_x" from 1 to PARAMS_MidPatrol do {
 				_randomPos = [getMarkerPos currentAO, 450,2] call SDO_fnc_randomPosbl1p;
 				if ((count _randomPos) == 3) then 
@@ -388,7 +388,7 @@ if (PARAMS_Roadblocks == 1 && _numberofcamps <= 2) then {
 				}
 				else
 				{
-					diag_log "====DID NOT CREATE MIDPAT BECAUSE OF FAILED RANDOM POS====";
+					diag_log "***DID NOT CREATE MIDPAT BECAUSE OF FAILED RANDOM POS====";
 				};
 			};
 //////////////////////////////////////////////////////// MIDPAT END ////////////////////////////////////////////////////////	
@@ -399,17 +399,17 @@ if (PARAMS_Roadblocks == 1 && _numberofcamps <= 2) then {
 			if (_randmort <= PARAMS_MortarChance) then 
 			{
 			_randExtern = 0.1;
-			if (DEBUG) then {diag_log "====mortars = true so external groups = true====";};
+			if (DEBUG) then {diag_log "***mortars = true so external groups = true====";};
 			};
 				if (DEBUG) then 
 					{
 						if (_randExtern <= PARAMS_ExternChance) then
 							{
-								diag_log format ["=========_randExtern = %1 I AM CREATING External UPS ==========",_randExtern];
+								diag_log format ["***_randExtern = %1 I AM CREATING External UPS ==========",_randExtern];
 							}
 							else
 							{
-								diag_log format ["=====_randExtern = %1 I AM NOT CREATING External UPS =========",_randExtern];
+								diag_log format ["***_randExtern = %1 I AM NOT CREATING External UPS =========",_randExtern];
 							};
 					};
 			if ( _randExtern <= PARAMS_ExternChance) then	
@@ -418,9 +418,9 @@ if (PARAMS_Roadblocks == 1 && _numberofcamps <= 2) then {
 					_randamountSquad = [2,3,4] call BIS_fnc_selectRandom;
 					if(DEBUG) then
 						{
-						diag_log format ["====_randamountSquad = %1 amount of extern squad====",_randamountSquad];
+						diag_log format ["***_randamountSquad = %1 amount of extern squad====",_randamountSquad];
 						};
-						if (DEBUG) then {diag_log format ["=====Creating %1 EXTSQ UPS=====",_randamountSquad];};
+						if (DEBUG) then {diag_log format ["***Creating %1 EXTSQ UPS=====",_randamountSquad];};
 					for "_x" from 1 to _randamountSquad do 
 					{
 						_randomPos = [getMarkerPos currentAO, PARAMS_AOSize+500,2] call SDO_fnc_randomPosbl1p;
@@ -441,7 +441,7 @@ if (PARAMS_Roadblocks == 1 && _numberofcamps <= 2) then {
 									
 									if (_randRecon > 5) then 
 									{
-									if (DEBUG) then {diag_log "Creating recon exterior Mortar spotters";};
+									if (DEBUG) then {diag_log "***Creating recon exterior Mortar spotters";};
 										 {
 										_x createUnit [_randomPos, _spawnGroupSPX];
 										} foreach AO_Recon_Squad_Basic;
@@ -467,7 +467,7 @@ if (PARAMS_Roadblocks == 1 && _numberofcamps <= 2) then {
 									
 									if (_randRecon > 5) then 
 									{
-									if (DEBUG) then {diag_log "Creating recon exterior NONE spotter dudes";};
+									if (DEBUG) then {diag_log "***Creating recon exterior NONE spotter dudes";};
 										{
 										_x createUnit [_randomPos, _spawnGroupSPX];
 										} foreach AO_Recon_Squad_Weapons;
@@ -522,7 +522,7 @@ if (PARAMS_Roadblocks == 1 && _numberofcamps <= 2) then {
 						}
 						else
 						{
-							diag_log "====DID NOT CREATE EXTPAT BECAUSE OF FAILED RANDOM POS====";
+							diag_log "***DID NOT CREATE EXTPAT BECAUSE OF FAILED RANDOM POS====";
 						};
 					};
 				};
@@ -536,11 +536,11 @@ if (PARAMS_Roadblocks == 1 && _numberofcamps <= 2) then {
 				{
 					if (_randCar <= PARAMS_CarsChance) then
 					{
-						diag_log format ["====I AM CREATING CARS ====_randCar = %1 ",_randCar];
+						diag_log format ["***I AM CREATING CARS ====_randCar = %1 ",_randCar];
 					}
 					else
 					{
-						diag_log format ["====I AM NOT CREATING CARS====_randCar = %1",_randCar];
+						diag_log format ["***I AM NOT CREATING CARS====_randCar = %1",_randCar];
 					};
 					
 				};	
@@ -550,7 +550,7 @@ if (PARAMS_Roadblocks == 1 && _numberofcamps <= 2) then {
 				_x = 0;
 				_randAmountCars = round random PARAMS_CarsPatrol;
 				if (_randAmountCars == 0) then {_randAmountCars = 1};
-				if (DEBUG) then {diag_log format ["Creating %1 CAR vehicles",_randAmountCars];};
+				if (DEBUG) then {diag_log format ["***Creating %1 CAR vehicles",_randAmountCars];};
 				
 				for "_x" from 1 to _randAmountCars do 
 				{
@@ -573,7 +573,7 @@ if (PARAMS_Roadblocks == 1 && _numberofcamps <= 2) then {
 							{
 							if (DEBUG) then
 								{
-									diag_log Format ["_InOrOutChanceCar = %1 :: CAR perim pat at PARAMS_AOSize / 1.1 ",_InOrOutChanceCar];
+									diag_log Format ["***_InOrOutChanceCar = %1 :: CAR perim pat at PARAMS_AOSize / 1.1 ",_InOrOutChanceCar];
 								};
 								[_spawngroupcar,getMarkerPos currentAO,(PARAMS_AOSize)] call SDO_fnc_spawn2_perimeterPatrol;
 							};
@@ -581,7 +581,7 @@ if (PARAMS_Roadblocks == 1 && _numberofcamps <= 2) then {
 							{
 								if (DEBUG) then
 								{
-									diag_log Format ["_InOrOutChanceCar = %1 :: CAR perim pat at PARAMS_AOSize",_InOrOutChanceCar];
+									diag_log Format ["***_InOrOutChanceCar = %1 :: CAR perim pat at PARAMS_AOSize",_InOrOutChanceCar];
 								};
 								[_spawngroupcar,getMarkerPos currentAO,(PARAMS_AOSize+250)] call SDO_fnc_spawn2_perimeterPatrol;
 							};
@@ -589,7 +589,7 @@ if (PARAMS_Roadblocks == 1 && _numberofcamps <= 2) then {
 							{
 								if (DEBUG) then
 								{
-									diag_log Format ["_InOrOutChanceCar = %1 :: CAR perim pat at PARAMS_AOSize+200 ",_InOrOutChanceCar];
+									diag_log Format ["***_InOrOutChanceCar = %1 :: CAR perim pat at PARAMS_AOSize+200 ",_InOrOutChanceCar];
 								};
 								[_spawngroupcar,getMarkerPos currentAO,(PARAMS_AOSize+500)] call SDO_fnc_spawn2_perimeterPatrol;
 							};
@@ -628,7 +628,7 @@ if (PARAMS_Roadblocks == 1 && _numberofcamps <= 2) then {
 					}
 					else
 					{
-						diag_log "====DID NOT CREATE CARPAT BECAUSE OF FAILED RANDOM POS====";
+						diag_log "***DID NOT CREATE CARPAT BECAUSE OF FAILED RANDOM POS====";
 					};
 				};
 			};
@@ -641,14 +641,14 @@ if (PARAMS_Roadblocks == 1 && _numberofcamps <= 2) then {
 					{
 						if (DEBUG) then
 						{
-						diag_log format ["====I AM CREATING ARMOUR====_randarmour = %1",_randarmour];
+						diag_log format ["***I AM CREATING ARMOUR====_randarmour = %1",_randarmour];
 						};
 					}
 					else
 					{
 						if (DEBUG) then
 						{
-						diag_log format ["====I AM NOT CREATING ARMOUR====_randarmour = %1",_randarmour];
+						diag_log format ["***I AM NOT CREATING ARMOUR====_randarmour = %1",_randarmour];
 						};
 					};
 			if ( _randarmour <= PARAMS_ArmourChance) then
@@ -658,7 +658,7 @@ if (PARAMS_Roadblocks == 1 && _numberofcamps <= 2) then {
 				_randAmountArmour = round random PARAMS_CarsPatrol;
 				if (_randAmountArmour == 0) then {_randAmountArmour = 1};
 				
-				if (DEBUG) then {diag_log format ["Creating %1 Armour vehicles",_randAmountArmour];};
+				if (DEBUG) then {diag_log format ["***Creating %1 Armour vehicles",_randAmountArmour];};
 				for "_x" from 1 to _randAmountArmour do 
 				{
 					_armourGroup = createGroup east;
@@ -694,7 +694,7 @@ if (PARAMS_Roadblocks == 1 && _numberofcamps <= 2) then {
 							{
 								if (DEBUG) then
 									{
-										diag_log Format ["_InOrOutChance = %1 :: Armour perim pat at PARAMS_AOSize / 1.1 ",_InOrOutChance];
+										diag_log Format ["***_InOrOutChance = %1 :: Armour perim pat at PARAMS_AOSize / 1.1 ",_InOrOutChance];
 									};
 									[_armourGroup,getMarkerPos currentAO,(PARAMS_AOSize+ _Rand_radius)] call SDO_fnc_spawn2_perimeterPatrol;
 							};
@@ -702,7 +702,7 @@ if (PARAMS_Roadblocks == 1 && _numberofcamps <= 2) then {
 							{
 								if (DEBUG) then
 								{
-									diag_log Format ["_InOrOutChance = %1 :: Armour perim pat at PARAMS_AOSize",_InOrOutChance];
+									diag_log Format ["***_InOrOutChance = %1 :: Armour perim pat at PARAMS_AOSize",_InOrOutChance];
 								};
 									[_armourGroup,getMarkerPos currentAO,(PARAMS_AOSize+_Rand_radius)] call SDO_fnc_spawn2_perimeterPatrol;
 							};
@@ -710,7 +710,7 @@ if (PARAMS_Roadblocks == 1 && _numberofcamps <= 2) then {
 							{
 								if (DEBUG) then
 								{
-									diag_log Format ["_InOrOutChance = %1 :: Armour perim pat at PARAMS_AOSize+200 ",_InOrOutChance];
+									diag_log Format ["***_InOrOutChance = %1 :: Armour perim pat at PARAMS_AOSize+200 ",_InOrOutChance];
 								};
 									[_armourGroup,getMarkerPos currentAO,(PARAMS_AOSize+_Rand_radius)] call SDO_fnc_spawn2_perimeterPatrol;
 							};
@@ -747,7 +747,7 @@ if (PARAMS_Roadblocks == 1 && _numberofcamps <= 2) then {
 					}
 					else
 					{
-						diag_log "====DID NOT CREATE ARMOURPAT BECAUSE OF FAILED RANDOM POS====";
+						diag_log "***DID NOT CREATE ARMOURPAT BECAUSE OF FAILED RANDOM POS====";
 					};
 				};
 			};
@@ -758,7 +758,7 @@ if (PARAMS_Roadblocks == 1 && _numberofcamps <= 2) then {
 				{
 					if (DEBUG) then
 					{
-					diag_log "====I AM CREATING AIR====";
+					diag_log "***I AM CREATING AIR====";
 					};
 					_airGroup = createGroup east;
 					_randomPos = [getMarkerPos currentAO, PARAMS_AOSize] call SDO_fnc_randomPos;
@@ -766,13 +766,13 @@ if (PARAMS_Roadblocks == 1 && _numberofcamps <= 2) then {
 					{
 						if(random 1 <= 0.5) then 
 							{
-								diag_log "Creating Chopper";
+								diag_log "***Creating Chopper";
 								_pos = [_randomPos select 0,_randomPos select 1,1000];
 								_airType = [_pos,0,(SDO_Air_Attack_chop call BIS_fnc_selectRandom),_airGroup] call BIS_fnc_spawnVehicle;
 							}
 							else 
 							{
-								diag_log "Creating Plane";
+								diag_log "***Creating Plane";
 								_pos = [_randomPos select 0,_randomPos select 1,1000];
 								_airType = [_pos,0,(SDO_Air_Attack_chop call BIS_fnc_selectRandom),_airGroup] call BIS_fnc_spawnVehicle;
 							};
@@ -808,19 +808,84 @@ if (PARAMS_Roadblocks == 1 && _numberofcamps <= 2) then {
 					}
 					else
 					{
-						diag_log "====DID NOT CREATE AIRPAT BECAUSE OF FAILED RANDOM POS====";
+						diag_log "***DID NOT CREATE AIRPAT BECAUSE OF FAILED RANDOM POS====";
 					};
 				}
 				else
 				{
 					if (DEBUG) then
 						{
-						diag_log "====I AM NOT CREATING AIR====";
+						diag_log "***I AM NOT CREATING AIR====";
 						};
 				};
 //////////////////////////////////////////////////////// AIRPAT END ////////////////////////////////////////////////////////
 
-				if (DEBUG) then {diag_log "=============AO AI CREATION ( SDO_fnc_spawnUnits ) FUNC DONE=============";};
+//===================================//
+//========== GARISON  ================//
+//===================================//
+
+		if (DEBUG) then {diag_log "***Checking Garrison";};
+			
+			_houses = (getMarkerPos currentAO) nearObjects ["House",50];
+			_Housecount = count _houses;  
+				if (DEBUG) then {diag_log format ["***Garrison house count is %1",_Housecount];};
+				if (_Housecount >= 4) then 
+					{     
+						if (DEBUG) then {diag_log "***Garrison House > 5";};
+						_spawnGarisonGroup = createGroup EAST;
+						GarisonGroup = [];
+						GarisonGroup = GarisonGroup + AO_Squad_Grenadier  + AO_Squad_Heavy + AO_Squad_Heavy;
+						_randomPos = [getMarkerPos currentAO, 50,2] call SDO_fnc_randomPosbl1p;
+						if ((count _randomPos) == 3) then 
+						{
+							{
+								_x createUnit [_randomPos, _spawnGarisonGroup];
+							} foreach GarisonGroup;
+							_nul = [(getMarkerPos currentAO), units _spawnGarisonGroup, 50, true, true] execVM "Scripts\Zen_OccupyHouse.sqf";
+						
+							sleep 0.5;
+							{
+								_x execVM "scripts\AO_unitinit.sqf";
+								sleep 0.01;
+							} foreach units _spawnGarisonGroup;
+							sleep 0.5;
+							(leader _spawnGarisonGroup) setVariable ["asr_ai_exclude", true];
+							
+							sleep 1;
+							if(DEBUG) then
+							{
+								_name = format ["%1%2",name (leader _spawnGarisonGroup),_x];
+								createMarker [_name,getPos (leader _spawnGarisonGroup)];
+								_name setMarkerType "o_unknown";
+								_name setMarkerText format ["Garison %1",_x];;
+								_name setMarkerColor "ColorRed";
+								[_spawnGarisonGroup,_name] spawn
+								{
+									private["_group","_marker"];
+									_group = _this select 0;
+									_marker = _this select 1;
+
+									while{count (units _group) > 0} do
+									{
+										_marker setMarkerPos (getPos (leader _group));
+										sleep 1;
+									};
+									deleteMarker _marker;
+								};
+							};
+							
+						_enemiesArray = _enemiesArray + [_spawnGarisonGroup];
+						
+						} else {if (DEBUG) then {diag_log "***Garison Failed on random pos";};};
+					} else {if (DEBUG) then {diag_log "***Garison Failed House count";};};
+				
+			if (DEBUG) then {diag_log "***Garrison Finished===============";};
+			
+//===================================//
+//========== GARISON  END============//
+//===================================//
+
+				if (DEBUG) then {diag_log "***AO AI CREATION ( SDO_fnc_spawnUnits ) FUNC DONE=============";};
 				AOAICREATIONMAINDONE = true;
 				publicVariable "AOAICREATIONMAINDONE";
 				
@@ -833,7 +898,7 @@ if (PARAMS_Roadblocks == 1 && _numberofcamps <= 2) then {
 BL_fnc_towerDefence =
 {
 
-	if (DEBUG) then {diag_log "===============TOWER DEFENCE FUNC STARTED==============";};
+	if (DEBUG) then {diag_log "***TOWER DEFENCE FUNC STARTED==============";};
 	_enemiesArray2 = [grpNull];
 	// Reconguards
 	
@@ -845,7 +910,7 @@ BL_fnc_towerDefence =
 		
 		_randAmountTdef = round random PARAMS_TowerDefenders;
 		if (_randAmountTdef == 0) then {_randAmountTdef = 1};
-		if (DEBUG) then {diag_log format ["Creating %1 Tower defence Teams",_randAmountTdef];};
+		if (DEBUG) then {diag_log format ["***Creating %1 Tower defence Teams",_randAmountTdef];};
 		for "_x" from 1 to _randAmountTdef do 
 		{
 		
@@ -891,7 +956,7 @@ BL_fnc_towerDefence =
 				}
 				else
 				{
-						diag_log "====DID NOT CREATE TOWDEF BECAUSE OF FAILED RANDOM POS====";
+						diag_log "***DID NOT CREATE TOWDEF BECAUSE OF FAILED RANDOM POS====";
 				};
 		};
 	};
@@ -901,7 +966,7 @@ BL_fnc_towerDefence =
 			_x = 0;
 			_randAmountTdef = round random PARAMS_TowerDefenders;
 			if (_randAmountTdef == 0) then {_randAmountTdef = 1};
-			if (DEBUG) then {diag_log format ["Creating %1 Tower defence Teams",_randAmountTdef];};
+			if (DEBUG) then {diag_log format ["***Creating %1 Tower defence Teams",_randAmountTdef];};
 			for "_x" from 1 to _randAmountTdef do 
 			{
 					_randomPos = [getMarkerPos "radioMarker", 10] call SDO_fnc_randomPosbl1p;
@@ -961,7 +1026,7 @@ BL_fnc_towerDefence =
 					}
 					else
 					{
-							diag_log "====DID NOT CREATE TOWDEF BECAUSE OF FAILED RANDOM POS====";
+							diag_log "***DID NOT CREATE TOWDEF BECAUSE OF FAILED RANDOM POS====";
 					};
 			};
 		};
@@ -971,11 +1036,11 @@ BL_fnc_towerDefence =
 	{
 		if ( _randSnipe <= PARAMS_SniperChance) then
 				{
-					diag_log format ["_randSnipe = %1 I AM CREATING SNIPERS ============ ",_randSnipe];
+					diag_log format ["***_randSnipe = %1 I AM CREATING SNIPERS ============ ",_randSnipe];
 				}
 				else
 				{
-					diag_log format ["_randSnipe = %1 I AM NOT CREATING SNIPERS ========== ",_randSnipe];
+					diag_log format ["***_randSnipe = %1 I AM NOT CREATING SNIPERS ========== ",_randSnipe];
 				};
 	};
 	if ( _randSnipe <= PARAMS_SniperChance) then	
@@ -984,7 +1049,7 @@ BL_fnc_towerDefence =
 		_sniperand = [2,3,4] call BIS_fnc_selectRandom;
 		if(DEBUG) then
 			{
-			diag_log format ["_sniperand = %1 amount of snipers",_sniperand];
+			diag_log format ["***_sniperand = %1 amount of snipers",_sniperand];
 			};
 		for "_x" from 1 to _sniperand do 
 		{
@@ -997,10 +1062,7 @@ BL_fnc_towerDefence =
 			} foreach AO_Squad_Snipers;
 
 			_spawnGroupSN setBehaviour "STEALTH";
-			
-		//	[_spawnGroupSN, getMarkerPos currentAO, PARAMS_AOSize] call SDO_fnc_spawn2_randomPatrol;
-		//	sleep 0.5;
-		//	[(units _spawnGroupSN)] call SDO_fnc_Snipers;
+
 			sleep 0.5;
 			{
 			_x execVM "scripts\AO_unitinit.sqf";
@@ -1033,7 +1095,8 @@ BL_fnc_towerDefence =
 			_enemiesArray2 = _enemiesArray2 + [_spawnGroupSN];
 		};
 	};
-	if (DEBUG) then {diag_log "==============TOWER DEFENCE FUNC DONE===============";};
+	if (DEBUG) then {diag_log "***TOWER DEFENCE FUNC DONE===============";};
 	_enemiesArray2
 };	
-if (DEBUG) then {diag_log "==============Create_Units SCRIPT DONE===============";};
+
+if (DEBUG) then {diag_log "***Create_Units SCRIPT DONE===============";};

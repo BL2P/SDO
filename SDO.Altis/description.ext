@@ -1,3 +1,6 @@
+//-- hud remover
+showHUD[] = {true,false,false,false,false,false,false,true};
+
 //--- FORCE ROTATTHINGY
 	forceRotorLibSimulation = 1;
 
@@ -24,12 +27,17 @@ class Header
 	  maxPlayers = 34;
 	};
 
-
 //-- corspe thingy
-corpseManagerMode = 2;
+corpseManagerMode = 1;
+corpseLimit = 25;
+corpseRemovalMinTime = 300; //seconds
+corpseRemovalMaxTime = 360; //seconds
 
 //-- wreck thingy
 wreckManagerMode = 3;
+wreckLimit = 25;
+wreckRemovalMinTime = 900; //seconds
+wreckRemovalMaxTime = 1800; //seconds
 
 enableSaving = [false, false];
 

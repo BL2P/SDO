@@ -3,8 +3,9 @@
 //        by Fluit n BL1P						
 //     execVM "SDO_N_Friends.sqf	;	
 //////////////////////////////////////////////
-diag_log "================reading SDO_N_Friends.sqf";
-
+if (DEBUG) then {
+diag_log "***reading SDO_N_Friends.sqf";
+};
 private ["_FalconFriends","_IamAFALCONFriend", "_isAdmin", "_welcome", "_welcomeadmin", "_isFalcon"];
 _IamAFALCONFriend = false;
 _isAdmin = false;
@@ -27,9 +28,9 @@ if (isServer) exitWith
 		
 if (isNil ("SDOFriendsArray")) then 
 	{
-		diag_log "waiting for SDOFriendsArray";
+		diag_log "***waiting for SDOFriendsArray";
 		waitUntil {!isNil("SDOFriendsArray")};
-		diag_log "FINISHED waiting for SDOFriendsArray";
+		diag_log "***FINISHED waiting for SDOFriendsArray";
 	};
 sleep 1;
 	
@@ -68,5 +69,6 @@ if (_IamAFALCONFriend) then {
 		systemChat "Contact info is in on the map, under info or Not";
 		systemChat "Enjoy your stay";
 };
-
-diag_log "===============FINISHED reading SDO_N_Friends.sqf";
+if (DEBUG) then {
+diag_log "***FINISHED reading SDO_N_Friends.sqf";
+};

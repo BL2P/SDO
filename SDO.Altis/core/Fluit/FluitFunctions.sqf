@@ -1,4 +1,4 @@
-diag_log " * Fluit common functions are initializing...";
+diag_log "***Fluit common functions are initializing...";
 // Register Fluit's functions
 
 handle_gforce = {
@@ -157,7 +157,7 @@ restrict_artycomputer = {
 };
 
 SDO_handle_healing = {
-		diag_log "inside SDO_handle_healing";
+		diag_log "***inside SDO_handle_healing";
 		private ["_unit", "_healer", "_medic", "_damage", "_return"];
 		_unit = _this select 0;
 		_healer = _this select 1;
@@ -341,14 +341,14 @@ random_camps = {
 					};
 				};
 				if (_triescamp < 1) exitWith {
-					diag_log "Camp creation failed. Trying different location.";
+					diag_log "***Camp creation failed. Trying different location.";
 					_created = true;
 				};
 				sleep 0.05;
 			};
 			if (_triesroad < 1) exitWith {
 				_giveup = true;
-				diag_log "Could not create all camps...";
+				diag_log "***Could not create all camps...";
 			};
 		};
 		if (_giveup) exitWith {};
@@ -692,7 +692,7 @@ DynamicEnemyPopulation = {
 	_NME_pool = ["I_G_Soldier_F","I_G_Soldier_GL_F","I_G_Soldier_AR_F","I_G_Soldier_LAT_F","I_G_medic_F","I_Soldier_AA_F","I_G_Soldier_SL_F","I_G_Soldier_M_F"];
     _totalAI = 0;
     
-	diag_log "DEP Dynamic Enemy Population started...";
+	diag_log "***DEP Dynamic Enemy Population started...";
 	while {(count _positions) < _amount} do {
 		_validhouses = [];
 		_newpos = [] call BIS_fnc_randomPos;
@@ -787,7 +787,7 @@ DynamicEnemyPopulation = {
 			sleep 0.5;
 		};
 	};
-	diag_log "DEP Initialization completed";
+	diag_log "***DEP Initialization completed";
 };
 
 addActionMP = {
@@ -824,4 +824,4 @@ setRadiobox = {
 	[_box, "<t color=""#FFEA00"">Take AN/PRC-117", "(_this select 1) addItem ""ACRE_PRC117F"";", "(((_this distance _target) <= 4) && !([(items player), 'ACRE_PRC117F'] call acre_api_fnc_hasKindOfRadio));"] spawn addActionMP;
 };
 
-diag_log " * Done initializing Fluit common functions!";
+diag_log "***Done initializing Fluit common functions!";

@@ -1,9 +1,9 @@
-if !(isServer) exitwith {diag_log "Get the fuck out of RandomBaseStart";};
+if !(isServer) exitwith {diag_log "***Get the fuck out of RandomBaseStart";};
 if (isNil "PARAMS_ALLOW_3CB")  then  { waitUntil{!isNil "PARAMS_ALLOW_3CB"};};
 if (isNil "PARAMS_BaseSelector") then {waitUntil {!isNil "PARAMS_BaseSelector"};};
 
 bases = synchronizedObjects _this; 
-if (DEBUG) then {diag_log format["bases = %1",bases];};
+if (DEBUG) then {diag_log format["***bases = %1",bases];};
 
 if (PARAMS_BaseSelector < 0 ) then 
 			{
@@ -70,7 +70,7 @@ if (PARAMS_BaseSelector == 15) then
 					rndBase = Penin; 
 			};
 			
-if (DEBUG) then {diag_log format["The Base = %1",rndBase];};
+if (DEBUG) then {diag_log format["***The Base = %1",rndBase];};
 
 
 BASETYPE = [];
@@ -100,7 +100,7 @@ BBoat2 = "B_Boat_Transport_01_F";
 	
 			if (PARAMS_ALLOW_3CB == 1 && PARAMS_ALLOW_RHS == 1 ) then
 				{
-					diag_log "=========PARAMS_ALLOW_3CB == 1 && PARAMS_ALLOW_RHS == 1 ========";
+					diag_log "***PARAMS_ALLOW_3CB == 1 && PARAMS_ALLOW_RHS == 1 ========";
 					Base2 = 
 						[
 						//--- choppers
@@ -138,7 +138,7 @@ BBoat2 = "B_Boat_Transport_01_F";
 				};
 			if (PARAMS_ALLOW_3CB != 1 && PARAMS_ALLOW_RHS != 1 ) then
 				{
-					diag_log "========PARAMS_ALLOW_3CB != 1 && PARAMS_ALLOW_RHS != 1=========";
+					diag_log "***PARAMS_ALLOW_3CB != 1 && PARAMS_ALLOW_RHS != 1=========";
 					Base2 = 
 						[
 						//--- choppers
@@ -176,7 +176,7 @@ BBoat2 = "B_Boat_Transport_01_F";
 				};
 			if (PARAMS_ALLOW_3CB == 1 && PARAMS_ALLOW_RHS != 1 ) then
 				{
-					diag_log "=========PARAMS_ALLOW_3CB == 1 && PARAMS_ALLOW_RHS != 1 ========";
+					diag_log "***PARAMS_ALLOW_3CB == 1 && PARAMS_ALLOW_RHS != 1 ========";
 					Base2 = 
 						[
 							[BHeliLB,[12.668,-8.87573,0],0,1,0,[0,0],"LB_1","",true,false], 
@@ -213,7 +213,7 @@ BBoat2 = "B_Boat_Transport_01_F";
 				};
 			if (PARAMS_ALLOW_3CB != 1 && PARAMS_ALLOW_RHS == 1 ) then
 				{
-					diag_log "=========PARAMS_ALLOW_3CB != 1 && PARAMS_ALLOW_RHS == 1 ========";
+					diag_log "***PARAMS_ALLOW_3CB != 1 && PARAMS_ALLOW_RHS == 1 ========";
 					Base2 = 
 						[
 						//--- choppers
@@ -516,14 +516,14 @@ Base1 =
 	["Land_HelipadRescue_F",[72.4639,-37.9453,0],89.8326,1,0,[0,0],"VVS_tank_1","",true,false], 
 	["Land_HelipadRescue_F",[72.3369,46.9326,0],89.8326,1,0,[0,0],"VVS_Support_1","",true,false], 
 	//--- slingloads
-	["B_Slingload_01_Ammo_F",[42.5132,43.7871,0],89.8326,1,0,[0,0],"Ammo_cont","",true,false], 
-	["B_Slingload_01_Fuel_F",[42.6465,38.5366,0],89.8326,1,0,[0,0],"Fuel_cont","",true,false], 
-	["B_Slingload_01_Medevac_F",[42.541,32.9888,0],89.8326,1,0,[0,0],"Med_cont","",true,false], 
-	["B_Slingload_01_Repair_F",[42.729,27.7876,0],89.8326,1,0,[0,0],"Rep_cont","",true,false], 
-	["B_Slingload_01_Ammo_F",[42.7432,23.0928,0],89.8326,1,0,[0,0],"Ammo_cont_1","",true,false], 
-	["B_Slingload_01_Fuel_F",[42.8765,17.8423,0],89.8326,1,0,[0,0],"Fuel_cont_1","",true,false], 
-	["B_Slingload_01_Medevac_F",[42.771,12.2944,0],89.8326,1,0,[0,0],"Med_cont_1","",true,false], 
-	["B_Slingload_01_Repair_F",[42.959,7.09326,0],89.8326,1,0,[0,0],"Rep_cont_1","",true,false]
+	["Land_HelipadEmpty_F",[42.5132,43.7871,0],89.8326,1,0,[0,0],"Ammo_cont_Mark","",true,false], 
+	["Land_HelipadEmpty_F",[42.6465,38.5366,0],89.8326,1,0,[0,0],"Fuel_cont_Mark","",true,false], 
+	["Land_HelipadEmpty_F",[42.541,32.9888,0],89.8326,1,0,[0,0],"Med_cont_Mark","",true,false], 
+	["Land_HelipadEmpty_F",[42.729,27.7876,0],89.8326,1,0,[0,0],"Rep_cont_Mark","",true,false], 
+	["Land_HelipadEmpty_F",[42.7432,23.0928,0],89.8326,1,0,[0,0],"Ammo_cont_Mark_1","",true,false], 
+	["Land_HelipadEmpty_F",[42.8765,17.8423,0],89.8326,1,0,[0,0],"Fuel_cont_Mark_1","",true,false], 
+	["Land_HelipadEmpty_F",[42.771,12.2944,0],89.8326,1,0,[0,0],"Med_cont_Mark_1","",true,false], 
+	["Land_HelipadEmpty_F",[42.959,7.09326,0],89.8326,1,0,[0,0],"Rep_cont_Mark_1","",true,false]
 
 ] + Base2;
 
@@ -543,14 +543,19 @@ BaseStad =
 	["Land_HelipadRescue_F",[15.2085,35.3623,0],38.4693,1,0,[0,0],"Rescue_pad","",true,false], 
 	["Land_HelipadEmpty_F",[33.9756,25.335,0],308.637,1,0,[0,0],"MedicalTruck_1_Marker","",true,false], 
 	[BTruckA,[37.6353,29.0791,0.114967],308.206,1,0,[0,-0],"AmmoTruck_1","",true,false], 
-	["B_Slingload_01_Ammo_F",[32.8628,44.7949,0],38.4693,1,0,[0,0],"Ammo_cont_1","",true,false], 
-	["B_Slingload_01_Fuel_F",[37.0513,41.6279,0],38.4693,1,0,[0,0],"Fuel_cont_1","",true,false], 
-	["B_Slingload_01_Repair_F",[29.1797,47.7207,0],38.4693,1,0,[0,0],"Rep_cont","",true,false], 
-	["B_Slingload_01_Medevac_F",[41.3145,38.0742,0],38.4693,1,0,[0,0],"Med_cont_1","",true,false], 
-	["B_Slingload_01_Medevac_F",[25.0093,50.8193,0],38.4693,1,0,[0,0],"Med_cont","",true,false], 
-	["B_Slingload_01_Repair_F",[45.1665,35.0605,0],38.4693,1,0,[0,0],"Rep_cont_1","",true,false], 
-	["B_Slingload_01_Fuel_F",[20.7349,54.375,0],38.4693,1,0,[0,0],"Fuel_cont","",true,false], 
-	["B_Slingload_01_Ammo_F",[16.5435,57.5566,0],38.4693,1,0,[0,0],"Ammo_cont","",true,false], 
+	
+	["Land_HelipadEmpty_F",[16.5435,57.5566,0],38.4693,1,0,[0,0],"Ammo_cont_Mark","",true,false], 
+	["Land_HelipadEmpty_F",[32.8628,44.7949,0],38.4693,1,0,[0,0],"Ammo_cont_Mark_1","",true,false], 
+	["Land_HelipadEmpty_F",[20.7349,54.375,0],38.4693,1,0,[0,0],"Fuel_cont_Mark","",true,false], 
+	["Land_HelipadEmpty_F",[37.0513,41.6279,0],38.4693,1,0,[0,0],"Fuel_cont_Mark_1","",true,false], 
+	["Land_HelipadEmpty_F",[29.1797,47.7207,0],38.4693,1,0,[0,0],"Rep_cont_Mark","",true,false], 
+	["Land_HelipadEmpty_F",[45.1665,35.0605,0],38.4693,1,0,[0,0],"Rep_cont_Mark_1","",true,false], 
+	["Land_HelipadEmpty_F",[25.0093,50.8193,0],38.4693,1,0,[0,0],"Med_cont_Mark","",true,false], 
+	["Land_HelipadEmpty_F",[41.3145,38.0742,0],38.4693,1,0,[0,0],"Med_cont_Mark_1","",true,false], 
+
+
+
+	
 	[BCar3,[50.2563,-42.5205,0.149763],130.139,1,0,[-0.510772,0.368713],"car_4","",true,false], 
 	[BCar3,[54.2559,-37.7148,0.149414],130.139,1,0,[-0.295489,0.350416],"car_3","",true,false], 
 	[BCar3,[46.2651,-47.626,0.149067],131.376,1,0,[-0.165151,-0.0436674],"car_8","",true,false], 
@@ -651,14 +656,16 @@ BaseHill1 =
 	["Land_HelipadRescue_F",[616.77,140.717,0],291.317,1,0,[0,0],"VVS_tank_1","",true,false], 
 	["SignAd_Sponsor_Vrana_F",[623.205,109.646,0.00265503],111.237,1,0,[2.89671,-0.922271],"Supportsign_3","",true,false], 
 	["SignAd_Sponsor_Vrana_F",[635.513,134.697,0.00505066],111.406,1,0,[2.16005,-3.41565],"Supportsign_4","",true,false], 
-	["B_Slingload_01_Ammo_F",[680.405,156.422,0.0058136],0.729266,1,0,[-0.0287016,-3.73872],"Ammo_cont","",true,false], 
-	["B_Slingload_01_Fuel_F",[685.738,156.463,4.57764e-005],0.724617,1,0,[0.233018,-0.302601],"Fuel_cont","",true,false], 
-	["B_Slingload_01_Medevac_F",[691.299,156.273,3.05176e-005],0.725849,1,0,[0.229154,0.0029032],"Med_cont","",true,false], 
-	["B_Slingload_01_Repair_F",[701.184,131.42,0.000701904],88.7534,1,0,[1.75607,-0.038225],"Rep_cont_1","",true,false], 
-	["B_Slingload_01_Repair_F",[696.494,156.389,3.05176e-005],0.725849,1,0,[0.229154,0.0029032],"Rep_cont","",true,false], 
-	["B_Slingload_01_Medevac_F",[701.035,136.299,0.00138855],88.7534,1,0,[1.76603,0.420008],"Med_cont_1","",true,false], 
-	["B_Slingload_01_Fuel_F",[701.053,141.863,0.000732422],88.7537,1,0,[1.29816,-0.0282473],"Fuel_cont_1","",true,false], 
-	["B_Slingload_01_Ammo_F",[700.847,147.111,0.00012207],88.754,1,0,[0.239085,0.453247],"Ammo_cont_1","",true,false], 
+	
+	["Land_HelipadEmpty_F",[680.405,156.422,0.0058136],0.729266,1,0,[-0.0287016,-3.73872],"Ammo_cont_Mark","",true,false], 
+	["Land_HelipadEmpty_F",[685.738,156.463,4.57764e-005],0.724617,1,0,[0.233018,-0.302601],"Fuel_cont_Mark","",true,false], 
+	["Land_HelipadEmpty_F",[691.299,156.273,3.05176e-005],0.725849,1,0,[0.229154,0.0029032],"Med_cont_Mark","",true,false], 
+	["Land_HelipadEmpty_F",[701.184,131.42,0.000701904],88.7534,1,0,[1.75607,-0.038225],"Rep_cont_Mark_1","",true,false], 
+	["Land_HelipadEmpty_F",[696.494,156.389,3.05176e-005],0.725849,1,0,[0.229154,0.0029032],"Rep_cont_Mark","",true,false], 
+	["Land_HelipadEmpty_F",[701.035,136.299,0.00138855],88.7534,1,0,[1.76603,0.420008],"Med_cont_Mark_1","",true,false], 
+	["Land_HelipadEmpty_F",[701.053,141.863,0.000732422],88.7537,1,0,[1.29816,-0.0282473],"Fuel_cont_Mark_1","",true,false], 
+	["Land_HelipadEmpty_F",[700.847,147.111,0.00012207],88.754,1,0,[0.239085,0.453247],"Ammo_cont_Mark_1","",true,false], 
+	
 	["Land_HelipadEmpty_F",[736.181,80.6895,0],84.3512,1,0,[0.0610667,-0.15949],"Med_Fac_Pad","",true,false], 
 	["Land_HelipadEmpty_F",[743.357,65.3418,0],84.3512,1,0,[0.00752694,0.0760976],"Rep_Fac_Pad","",true,false]
 ];
@@ -704,25 +711,25 @@ BaseCap =
 	["SignAd_Sponsor_Vrana_F",[-64.2988,-69.1777,0.00283051],322.92,1,0,[-2.39185,1.52104],"Sign_6","",true,false], 
 	["Land_HelipadRescue_F",[91.5781,-23.6016,0],229.465,1,0,[0,0],"VVS_air_1","",true,false], 
 	["RoadCone_L_F",[104.908,3.52539,0.00396729],318.672,1,0,[-2.22844,-0.684306],"","",true,false], 
-	["B_Slingload_01_Ammo_F",[-73.2441,-77.3809,0.0111008],149.115,1,0,[4.94221,-1.53877],"Ammo_cont","",true,false], 
+	["Land_HelipadEmpty_F",[-73.2441,-77.3809,0.0111008],149.115,1,0,[4.94221,-1.53877],"Ammo_cont_Mark","",true,false], 
 	["SignAd_Sponsor_Vrana_F",[106.689,5.20508,0.00153732],138.215,1,0,[2.29065,0.615667],"Sign_5","",true,false], 
 	["SignAd_Sponsor_Vrana_F",[106.518,-10.9844,0.000240326],50.7081,1,0,[-0.752469,-0.075218],"Supportsign_2","",true,false], 
 	["SignAd_Sponsor_Vrana_F",[81.3086,-71.9355,0.0152855],228.508,1,0,[1.87492,-6.72722],"Supportsign_4","",true,false], 
 	["RoadCone_L_F",[108.525,6.66406,0.00403214],318.699,1,0,[-2.29233,-0.527222],"","",true,false], 
 	["Land_HelipadRescue_F",[95.1914,-57.9551,0],48.4873,1,0,[0,0],"VVS_tank_1","",true,false], 
-	["B_Slingload_01_Ammo_F",[-61.5938,-93.0781,0.00354767],145.649,1,0,[-2.52439,1.44852],"Ammo_cont_1","",true,false], 
-	["B_Slingload_01_Fuel_F",[-77.6426,-80.2598,0.00187683],149.096,1,0,[0.77498,-1.97672],"Fuel_cont","",true,false], 
+	["Land_HelipadEmpty_F",[-61.5938,-93.0781,0.00354767],145.649,1,0,[-2.52439,1.44852],"Ammo_cont_Mark_1","",true,false], 
+	["Land_HelipadEmpty_F",[-77.6426,-80.2598,0.00187683],149.096,1,0,[0.77498,-1.97672],"Fuel_cont_Mark","",true,false], 
 	["Land_HelipadRescue_F",[94.4434,60.2871,0],228.253,1,0,[0,0],"Rescue_pad","",true,false], 
 	["Land_HelipadCircle_F",[115.598,-4.79102,0],48.0103,1,0,[0,0],"","",true,false], 
-	["B_Slingload_01_Fuel_F",[-65.8867,-96.0645,0.000144958],145.673,1,0,[-0.418528,0.470803],"Fuel_cont_1","",true,false], 
+	["Land_HelipadEmpty_F",[-65.8867,-96.0645,0.000144958],145.673,1,0,[-0.418528,0.470803],"Fuel_cont_Mark_1","",true,false], 
 	[BHeliLB,[116.479,-5.51172,0.00163269],318.189,1,0,[-1.04853,-0.599419],"LB_1","",true,false], 
-	["B_Slingload_01_Medevac_F",[-82.4453,-83.0254,0.00200272],149.096,1,0,[0.631024,-2.06851],"Med_cont","",true,false], 
+	["Land_HelipadEmpty_F",[-82.4453,-83.0254,0.00200272],149.096,1,0,[0.631024,-2.06851],"Med_cont_Mark","",true,false], 
 	["Land_HelipadRescue_F",[110.514,-45.6035,0],229.568,1,0,[0,0],"VVS_Support_1","",true,false], 
-	["B_Slingload_01_Medevac_F",[-70.4746,-99.0156,0.00465393],145.618,1,0,[0.298578,-3.34775],"Med_cont_1","",true,false], 
-	["B_Slingload_01_Repair_F",[-86.8555,-85.8457,0.00198364],149.107,1,0,[1.86123,-1.20285],"Rep_cont","",true,false], 
+	["Land_HelipadEmpty_F",[-70.4746,-99.0156,0.00465393],145.618,1,0,[0.298578,-3.34775],"Med_cont_Mark_1","",true,false], 
+	["Land_HelipadEmpty_F",[-86.8555,-85.8457,0.00198364],149.107,1,0,[1.86123,-1.20285],"Rep_cont_Mark","",true,false], 
 	["RoadCone_L_F",[121.334,20.6719,-0.00922394],321.587,1,0,[-1.97878,2.543],"","",true,false], 
 	["SignAd_Sponsor_Vrana_F",[122.74,22.4121,0.0501556],142.108,1,0,[1.88163,-1.56131],"Sign_4","",true,false], 
-	["B_Slingload_01_Repair_F",[-74.5156,-101.793,0.00547791],145.596,1,0,[0.718592,-3.54309],"Rep_cont_1","",true,false], 
+	["Land_HelipadEmpty_F",[-74.5156,-101.793,0.00547791],145.596,1,0,[0.718592,-3.54309],"Rep_cont_Mark_1","",true,false], 
 	["RoadCone_L_F",[125.189,23.7188,0.0045166],321.632,1,0,[-1.25262,2.35463],"","",true,false], 
 	["SignAd_Sponsor_Vrana_F",[125.525,-32.0059,0.00383759],49.3824,1,0,[-0.902172,3.28624],"Supportsign_1","",true,false], 
 	["Land_HelipadCircle_F",[133.643,10.9121,0],48.0056,1,0,[0,0],"","",true,false], 
@@ -783,15 +790,15 @@ BaseBeach =
 	["SignAd_Sponsor_Vrana_F",[73.7314,86.4199,0.00197029],192.189,1,0,[2.4245,1.07098],"Sign_6","",true,false], 
 	["SignAd_Sponsor_Vrana_F",[85.7393,-85.1133,0.011322],196.715,1,0,[4.60611,4.01189],"Supportsign_2","",true,false], 
 	["Land_HelipadRescue_F",[54.7471,109.64,0],126.54,1,0,[0,-0],"Rescue_pad","",true,false], 
-	["B_Slingload_01_Ammo_F",[77.4844,121.37,0.0102067],312.719,1,0,[1.04996,-4.84177],"Ammo_cont","",true,false], 
-	["B_Slingload_01_Ammo_F",[61.7998,133.076,0.0455036],309.765,1,0,[-7.17648,-7.64706],"Ammo_cont_1","",true,false], 
-	["B_Slingload_01_Fuel_F",[81.1768,125.417,0.0142994],312.999,1,0,[4.19044,4.11637],"Fuel_cont","",true,false], 
-	["B_Slingload_01_Fuel_F",[65.2842,137.215,0.000488281],309.408,1,0,[-0.729324,-0.796972],"Fuel_cont_1","",true,false], 
-	["B_Slingload_01_Medevac_F",[84.9834,129.36,0.00827026],312.975,1,0,[4.10864,1.7458],"Med_cont","",true,false], 
-	["B_Slingload_01_Medevac_F",[68.7246,141.5,0.0374613],309.909,1,0,[-8.86246,-3.48419],"Med_cont_1","",true,false], 
+	["Land_HelipadEmpty_F",[77.4844,121.37,0.0102067],312.719,1,0,[1.04996,-4.84177],"Ammo_cont_Mark","",true,false], 
+	["Land_HelipadEmpty_F",[61.7998,133.076,0.0455036],309.765,1,0,[-7.17648,-7.64706],"Ammo_cont_Mark_1","",true,false], 
+	["Land_HelipadEmpty_F",[81.1768,125.417,0.0142994],312.999,1,0,[4.19044,4.11637],"Fuel_cont_Mark","",true,false], 
+	["Land_HelipadEmpty_F",[65.2842,137.215,0.000488281],309.408,1,0,[-0.729324,-0.796972],"Fuel_cont_Mark_1","",true,false], 
+	["Land_HelipadEmpty_F",[84.9834,129.36,0.00827026],312.975,1,0,[4.10864,1.7458],"Med_cont_Mark","",true,false], 
+	["Land_HelipadEmpty_F",[68.7246,141.5,0.0374613],309.909,1,0,[-8.86246,-3.48419],"Med_cont_Mark_1","",true,false], 
 	[BBoat2,[144.442,-67.3008,0],180.602,1,0,[0,0],"car_4","",true,false], 
-	["B_Slingload_01_Repair_F",[88.3818,133.515,0.0229945],312.578,1,0,[-0.712691,7.39601],"Rep_cont","",true,false], 
-	["B_Slingload_01_Repair_F",[72.1182,145.342,0.0143623],309.246,1,0,[-0.275005,5.87068],"Rep_cont_1","",true,false], 
+	["Land_HelipadEmpty_F",[88.3818,133.515,0.0229945],312.578,1,0,[-0.712691,7.39601],"Rep_cont_Mark","",true,false], 
+	["Land_HelipadEmpty_F",[72.1182,145.342,0.0143623],309.246,1,0,[-0.275005,5.87068],"Rep_cont_Mark_1","",true,false], 
 	[BBoat2,[148.783,-67.2734,0],180.602,1,0,[0,0],"car_3","",true,false], 
 	["Land_HelipadEmpty_F",[98.6846,141.973,0],37.1226,1,0,[-0.789777,-4.51669],"Med_Fac_Pad","",true,false], 
 	[BBoat2,[158.68,-71.957,0],180.181,1,0,[0,0],"car_2","",true,false], 
@@ -820,23 +827,23 @@ BaseRound =
 	[Bquad,[-39.2188,-1.76514,0.214176],207.059,1,0,[-2.44091,1.92567],"quad_2","",true,false], 
 	[Bquad,[-39.1992,-6.75293,0.206463],207.107,1,0,[-0.870177,1.69957],"quad_10","",true,false], 
 	["Land_HelipadEmpty_F",[15.8887,37.4849,0],46.1575,1,0,[0.0572931,-0.160925],"Ammo_2_marker","",true,false], 
-	["B_Slingload_01_Medevac_F",[-19.416,36.6377,0.00623322],328.394,1,0,[-2.29604,3.11484],"Med_cont_1","",true,false], 
+	["Land_HelipadEmpty_F",[-19.416,36.6377,0.00623322],328.394,1,0,[-2.29604,3.11484],"Med_cont_Mark_1","",true,false], 
 	[Bquad,[-41.1563,-5.53564,0.205788],207.119,1,0,[-0.87052,1.6994],"quad_11","",true,false], 
-	["B_Slingload_01_Fuel_F",[-24.2285,33.8501,0.00938416],328.438,1,0,[-4.22804,2.15267],"Fuel_cont_1","",true,false], 
+	["Land_HelipadEmpty_F",[-24.2285,33.8501,0.00938416],328.438,1,0,[-4.22804,2.15267],"Fuel_cont_Mark_1","",true,false], 
 	[Bquad,[-41.7539,-0.433594,0.214184],207.059,1,0,[-2.44091,1.92567],"quad_1","",true,false], 
-	["B_Slingload_01_Repair_F",[-15.2734,39.2017,0.00527191],328.411,1,0,[-2.22195,2.79971],"Rep_cont_1","",true,false], 
-	["B_Slingload_01_Ammo_F",[-28.7266,30.999,0.0058136],328.549,1,0,[-3.75361,0.149887],"Ammo_cont_1","",true,false], 
+	["Land_HelipadEmpty_F",[-15.2734,39.2017,0.00527191],328.411,1,0,[-2.22195,2.79971],"Rep_cont_Mark_1","",true,false], 
+	["Land_HelipadEmpty_F",[-28.7266,30.999,0.0058136],328.549,1,0,[-3.75361,0.149887],"Ammo_cont_Mark_1","",true,false], 
 	["SignAd_Sponsor_Vrana_F",[22.9531,35.7612,0.000152588],45.7365,1,0,[0.493777,-0.587893],"Sign_1","",true,false], 
 	[Bcar1,[-8.1875,-42.1577,0.19413],282.547,1,0,[2.82452,-3.90412],"car_3","",true,false], 
 	["SignAd_Sponsor_Vrana_F",[20.1621,38.6221,0.0001297],45.7365,1,0,[0.493777,-0.587893],"Sign_2","",true,false], 
 	[Bquad,[-43.625,-4.28027,0.205849],207.119,1,0,[-0.87052,1.6994],"quad_12","",true,false], 
-	["B_Slingload_01_Repair_F",[-36.1367,26.4751,0.0202789],329.933,1,0,[-3.846,-5.8706],"Rep_cont","",true,false], 
+	["Land_HelipadEmpty_F",[-36.1367,26.4751,0.0202789],329.933,1,0,[-3.846,-5.8706],"Rep_cont_Mark","",true,false], 
 	["SignAd_Sponsor_Vrana_F",[17.5742,41.4287,0.0001297],45.7365,1,0,[0.493777,-0.587893],"Sign_3","",true,false], 
-	["B_Slingload_01_Medevac_F",[-40.4316,23.6812,0.00248337],329.756,1,0,[-1.87965,-1.55622],"Med_cont","",true,false], 
-	["B_Slingload_01_Fuel_F",[-45.3262,20.9224,0.00928116],329.703,1,0,[-1.08641,-4.57564],"Fuel_cont","",true,false], 
+	["Land_HelipadEmpty_F",[-40.4316,23.6812,0.00248337],329.756,1,0,[-1.87965,-1.55622],"Med_cont_Mark","",true,false], 
+	["Land_HelipadEmpty_F",[-45.3262,20.9224,0.00928116],329.703,1,0,[-1.08641,-4.57564],"Fuel_cont_Mark","",true,false], 
 	[BTruckA,[-11.3027,-49.2388,0.183762],315.107,1,0,[6.34813,0.0118893],"AmmoTruck_1","",true,false], 
 	["Land_HelipadRescue_F",[-42.5352,-31.1167,0],239.73,1,0,[0,0],"Rescue_pad","",true,false], 
-	["B_Slingload_01_Ammo_F",[-49.8691,18.2725,0.0137482],329.933,1,0,[-5.55345,-1.54128],"Ammo_cont","",true,false], 
+	["Land_HelipadEmpty_F",[-49.8691,18.2725,0.0137482],329.933,1,0,[-5.55345,-1.54128],"Ammo_cont_Mark","",true,false], 
 	["Land_HelipadEmpty_F",[-15.6426,-52.2783,0],315.406,1,0,[6.20184,-1.95386],"MedicalTruck_1_Marker","",true,false], 
 	[BTruckF,[-18.6445,-56.3579,0.165672],315.035,1,0,[5.4398,-0.482779],"Fuel_Truck_1","",true,false], 
 	[BTruckR,[-22.4414,-59.8477,0.151531],314.978,1,0,[4.15191,-0.703832],"Repair_Truck_1","",true,false], 
@@ -913,20 +920,20 @@ BaseSeaSide =
 	["SignAd_Sponsor_Vrana_F",[64.9253,4.4375,0.0173616],337.371,1,0,[-2.04531,-7.05669],"Supportsign_4","",true,false], 
 	[BHeliLB,[-46.75,-45.9434,0.0227137],20.8526,1,0,[-3.19232,-2.76834],"LB_1","",true,false], 
 	["Land_HelipadRescue_F",[73.6362,-13.1992,0],157.428,1,0,[0,-0],"VVS_tank_1","",true,false], 
-	["B_Slingload_01_Medevac_F",[-6.95557,83.9258,0.000431061],354.614,1,0,[-0.321387,-0.967139],"Med_cont","",true,false], 
-	["B_Slingload_01_Fuel_F",[-12.4502,83.4941,0.00028038],354.614,1,0,[0.796377,0.308574],"Fuel_cont","",true,false], 
-	["B_Slingload_01_Repair_F",[-1.78027,84.6367,0.000442505],354.614,1,0,[-0.321387,-0.967139],"Rep_cont","",true,false], 
-	["B_Slingload_01_Ammo_F",[-17.6643,82.8672,0.00119877],354.634,1,0,[1.11724,1.27597],"Ammo_cont","",true,false], 
+	["Land_HelipadEmpty_F",[-6.95557,83.9258,0.000431061],354.614,1,0,[-0.321387,-0.967139],"Med_cont_Mark","",true,false], 
+	["Land_HelipadEmpty_F",[-12.4502,83.4941,0.00028038],354.614,1,0,[0.796377,0.308574],"Fuel_cont_Mark","",true,false], 
+	["Land_HelipadEmpty_F",[-1.78027,84.6367,0.000442505],354.614,1,0,[-0.321387,-0.967139],"Rep_cont_Mark","",true,false], 
+	["Land_HelipadEmpty_F",[-17.6643,82.8672,0.00119877],354.634,1,0,[1.11724,1.27597],"Ammo_cont_Mark","",true,false], 
 	["Land_HelipadEmpty_F",[11.7283,84.1113,0],78.7299,1,0,[3.59124,-0.327105],"Med_Fac_Pad","",true,false], 
 	["Land_HelipadRescue_F",[80.406,-31.7441,0],338.298,1,0,[0,0],"VVS_Support_1","",true,false], 
 	["SignAd_Sponsor_Vrana_F",[91.4497,13.0957,0.0124493],337.007,1,0,[-0.569506,-6.20698],"Supportsign_3","",true,false], 
 	["Land_HelipadRescue_F",[98.4888,-2.69922,0],157.389,1,0,[0,-0],"VVS_car_1","",true,false], 
 	["Land_HelipadRescue_F",[-42.5784,89.25,0],168.385,1,0,[0,-0],"Rescue_pad","",true,false], 
 	["SignAd_Sponsor_Vrana_F",[88.4045,-50.3066,0.00744534],158.236,1,0,[0.933056,4.79844],"Supportsign_1","",true,false], 
-	["B_Slingload_01_Medevac_F",[-10.8298,103.498,0.000331879],351.15,1,0,[0.684295,-0.570415],"Med_cont_1","",true,false], 
-	["B_Slingload_01_Fuel_F",[-16.3442,102.785,6.29425e-005],351.157,1,0,[-0.389171,-0.0167678],"Fuel_cont_1","",true,false], 
-	["B_Slingload_01_Ammo_F",[-21.4897,101.922,0.00113869],351.134,1,0,[-1.21719,1.11758],"Ammo_cont_1","",true,false], 
-	["B_Slingload_01_Repair_F",[-6.02295,104.268,0.00128365],351.138,1,0,[0.50767,-1.70231],"Rep_cont_1","",true,false], 
+	["Land_HelipadEmpty_F",[-10.8298,103.498,0.000331879],351.15,1,0,[0.684295,-0.570415],"Med_cont_Mark_1","",true,false], 
+	["Land_HelipadEmpty_F",[-16.3442,102.785,6.29425e-005],351.157,1,0,[-0.389171,-0.0167678],"Fuel_cont_Mark_1","",true,false], 
+	["Land_HelipadEmpty_F",[-21.4897,101.922,0.00113869],351.134,1,0,[-1.21719,1.11758],"Ammo_cont_Mark_1","",true,false], 
+	["Land_HelipadEmpty_F",[-6.02295,104.268,0.00128365],351.138,1,0,[0.50767,-1.70231],"Rep_cont_Mark_1","",true,false], 
 	["Land_HelipadEmpty_F",[6.45825,107.721,0],350.126,1,0,[0.346527,-2.46262],"Rep_Fac_Pad","",true,false], 
 	["Land_HelipadRescue_F",[107.34,-20.9023,0],338.241,1,0,[0,0],"VVS_air_1","",true,false], 
 	["SignAd_Sponsor_Vrana_F",[114.436,-39.125,0.0041275],159.582,1,0,[0.60826,3.60007],"Supportsign_2","",true,false], 
@@ -961,14 +968,14 @@ BaseHawk =
 	[Bquad,[73.1777,-60.3896,0.21688],47.0906,1,0,[3.38713,0.394057],"quad_7","",true,false], 
 	[Bquad,[75.0254,-62.3955,0.21688],47.0906,1,0,[3.38713,0.394057],"quad_8","",true,false], 
 	[BBoat2,[-41.6387,25.3066,0.319528],123.237,1,0,[15.209,-2.30428],"quad_9","",true,false], 
-	["B_Slingload_01_Ammo_F",[62.1875,-22.8408,0.00648403],321.454,1,0,[-3.92028,0.588736],"Ammo_cont","",true,false], 
-	["B_Slingload_01_Ammo_F",[97.5254,7.44531,0.0160103],319.431,1,0,[-5.56572,-2.76031],"Ammo_cont_1","",true,false], 
-	["B_Slingload_01_Fuel_F",[101.596,11.0088,0.00896549],319.048,1,0,[-2.85861,3.69153],"Fuel_cont_1","",true,false], 
-	["B_Slingload_01_Fuel_F",[66.2129,-19.4141,0.0109482],321.408,1,0,[-4.81081,1.7953],"Fuel_cont","",true,false], 
-	["B_Slingload_01_Medevac_F",[105.801,14.5029,0.00490475],319.222,1,0,[-3.41774,0.12654],"Med_cont_1","",true,false], 
-	["B_Slingload_01_Medevac_F",[70.5938,-16.1436,0.0038414],321.471,1,0,[-2.96661,-0.662939],"Med_cont","",true,false], 
-	["B_Slingload_01_Repair_F",[109.473,17.6758,0.00696945],319.267,1,0,[-3.04439,-2.71712],"Rep_cont_1","",true,false], 
-	["B_Slingload_01_Repair_F",[74.543,-12.7178,0.00390625],321.473,1,0,[-2.95443,-0.770395],"Rep_cont","",true,false], 
+	["Land_HelipadEmpty_F",[62.1875,-22.8408,0.00648403],321.454,1,0,[-3.92028,0.588736],"Ammo_cont_Mark","",true,false], 
+	["Land_HelipadEmpty_F",[97.5254,7.44531,0.0160103],319.431,1,0,[-5.56572,-2.76031],"Ammo_cont_Mark_1","",true,false], 
+	["Land_HelipadEmpty_F",[101.596,11.0088,0.00896549],319.048,1,0,[-2.85861,3.69153],"Fuel_cont_Mark_1","",true,false], 
+	["Land_HelipadEmpty_F",[66.2129,-19.4141,0.0109482],321.408,1,0,[-4.81081,1.7953],"Fuel_cont_Mark","",true,false], 
+	["Land_HelipadEmpty_F",[105.801,14.5029,0.00490475],319.222,1,0,[-3.41774,0.12654],"Med_cont_Mark_1","",true,false], 
+	["Land_HelipadEmpty_F",[70.5938,-16.1436,0.0038414],321.471,1,0,[-2.96661,-0.662939],"Med_cont_Mark","",true,false], 
+	["Land_HelipadEmpty_F",[109.473,17.6758,0.00696945],319.267,1,0,[-3.04439,-2.71712],"Rep_cont_Mark_1","",true,false], 
+	["Land_HelipadEmpty_F",[74.543,-12.7178,0.00390625],321.473,1,0,[-2.95443,-0.770395],"Rep_cont_Mark","",true,false], 
 	[BTruckR,[64.3926,54.6279,0.155576],142.498,1,0,[4.34106,0.8993],"Repair_Truck_1","",true,false], 
 	[BTruckA,[52.084,46.0254,0.348208],142.271,1,0,[10.79,-4.47901],"AmmoTruck_1","",true,false], 
 	[BTruckF,[60.0332,51.5498,0.215623],142.751,1,0,[6.34433,4.45625],"Fuel_Truck_1","",true,false], 
@@ -1057,15 +1064,15 @@ BasePenin =
 	["RoadCone_L_F",[-96.2676,-50.4658,0.00477791],177.182,1,0,[2.8633,-0.829357],"","",true,false], 
 	["Land_HelipadEmpty_F",[-158.548,-42.0664,0],1.973,1,0,[-5.86627,-2.18916],"Rep_Fac_Pad","",true,false], 
 	["Land_HelipadEmpty_F",[-158.135,-66.2451,0],90.3608,1,0,[-2.12023,-2.83768],"Med_Fac_Pad","",true,false], 
-	["B_Slingload_01_Repair_F",[-171.359,-42.8516,0.00673008],2.62457,1,0,[-3.02656,2.68872],"Rep_cont_1","",true,false], 
-	["B_Slingload_01_Medevac_F",[-176.363,-42.627,0.00466061],2.85417,1,0,[-2.81344,-1.82252],"Med_cont_1","",true,false], 
-	["B_Slingload_01_Repair_F",[-171.206,-62.9736,0.00269794],6.16378,1,0,[-1.94303,1.63377],"Rep_cont","",true,false], 
-	["B_Slingload_01_Fuel_F",[-181.807,-42.21,0.0101833],2.64945,1,0,[-4.79082,1.30708],"Fuel_cont_1","",true,false], 
-	["B_Slingload_01_Medevac_F",[-176.445,-62.6738,5.53131e-005],6.21831,1,0,[-0.26093,0.278953],"Med_cont","",true,false], 
-	["B_Slingload_01_Ammo_F",[-187.095,-42.0498,0.00508785],2.7534,1,0,[-3.52033,0.136414],"Ammo_cont_1","",true,false], 
-	["B_Slingload_01_Fuel_F",[-181.929,-61.9551,8.7738e-005],6.21936,1,0,[-0.0496567,0.455655],"Fuel_cont","",true,false], 
+	["Land_HelipadEmpty_F",[-171.359,-42.8516,0.00673008],2.62457,1,0,[-3.02656,2.68872],"Rep_cont_Mark_1","",true,false], 
+	["Land_HelipadEmpty_F",[-176.363,-42.627,0.00466061],2.85417,1,0,[-2.81344,-1.82252],"Med_cont_Mark_1","",true,false], 
+	["Land_HelipadEmpty_F",[-171.206,-62.9736,0.00269794],6.16378,1,0,[-1.94303,1.63377],"Rep_cont_Mark","",true,false], 
+	["Land_HelipadEmpty_F",[-181.807,-42.21,0.0101833],2.64945,1,0,[-4.79082,1.30708],"Fuel_cont_Mark_1","",true,false], 
+	["Land_HelipadEmpty_F",[-176.445,-62.6738,5.53131e-005],6.21831,1,0,[-0.26093,0.278953],"Med_cont_Mark","",true,false], 
+	["Land_HelipadEmpty_F",[-187.095,-42.0498,0.00508785],2.7534,1,0,[-3.52033,0.136414],"Ammo_cont_Mark_1","",true,false], 
+	["Land_HelipadEmpty_F",[-181.929,-61.9551,8.7738e-005],6.21936,1,0,[-0.0496567,0.455655],"Fuel_cont_Mark","",true,false], 
 	["SignAd_Sponsor_Vrana_F",[-192.799,-36.0713,0.0239267],2.98868,1,0,[-8.48592,-0.36981],"Supportsign_3","",true,false], 
-	["B_Slingload_01_Ammo_F",[-187.204,-61.5029,8.7738e-005],6.21936,1,0,[-0.0496567,0.455655],"Ammo_cont","",true,false], 
+	["Land_HelipadEmpty_F",[-187.204,-61.5029,8.7738e-005],6.21936,1,0,[-0.0496567,0.455655],"Ammo_cont_Mark","",true,false], 
 	["Land_HelipadRescue_F",[-197.968,-5.58496,0],181.561,1,0,[0,0],"Rescue_pad","",true,false], 
 	["SignAd_Sponsor_Vrana_F",[-191.509,-68.835,0.000335693],185.471,1,0,[1.17695,-0.270978],"Supportsign_2","",true,false], 
 	["Land_HelipadRescue_F",[-203.794,-40.9951,0],183.507,1,0,[0,0],"VVS_car_1","",true,false], 
@@ -1093,7 +1100,7 @@ if (rndBase == Penin) then {BASETYPE = BasePenin};
 
 waituntil {!isNil "VVS_tank_1"};
 BaseCreated = true;publicVariable "BaseCreated";
-diag_log format ["BaseCreated = %1",BaseCreated];
+diag_log format ["***BaseCreated = %1",BaseCreated];
 
 
   

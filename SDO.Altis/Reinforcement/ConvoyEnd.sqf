@@ -25,7 +25,7 @@ while {!_accepted} do
 		{
 			if (DEBUG) then 
 			{
-				diag_log "Players near waiting for them to move away";
+				diag_log "***Players near waiting for them to move away";
 			};
 		};
 	sleep 30;
@@ -42,5 +42,5 @@ while {!_accepted} do
 
 if (DEBUG) then 
 	{
-		diag_log "CONVOY DESTROYED BECAUSE REACHED END";
+		diag_log "***CONVOY DESTROYED BECAUSE REACHED END";
 	};

@@ -1,5 +1,7 @@
 private ["_r", "_m", "_brd"];
-Diag_log "==========READING SERVER DIFICULTYS==============";
+if (DEBUG) then {
+Diag_log "***READING SERVER DIFICULTYS==============";
+};
 _r = 
 [
 "FriendlyTag", 

@@ -1,6 +1,7 @@
 //--- bl1p
-diag_log "=========== this is the Thermal check script =============";
-//if (isServer || isDedicated || !hasInterFace) exitWith {Diag_log "I was kicked from the Thermal.sqf I am not a true client";};
+if (DEBUG) then {
+diag_log "***this is the Thermal check script =============";
+};
 _layer = 85125; 
 
 _alowedThermals = ["rhs_weap_fgm148","launch_B_Titan_F","launch_B_Titan_short_F","UK3CB_BAF_Javelin_Launcher"];
@@ -10,7 +11,7 @@ while {true} do
 	waituntil {currentVisionMode player == 2}; 
 	_weaponClass = currentWeapon (vehicle player);
 	if (DEBUG) then {
-	diag_log format ["_weaponClass = %1",_weaponClass];
+	diag_log format ["***_weaponClass = %1",_weaponClass];
 	};
 	sleep 0.01;
 	if  !(_weaponClass in _alowedThermals) then

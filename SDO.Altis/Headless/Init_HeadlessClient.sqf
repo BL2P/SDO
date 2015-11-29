@@ -4,4 +4,4 @@
 
 
 //--- End of file
-diag_log "-----==== End of Init_HeadlessClient.sqf ====----"
+diag_log "***End of Init_HeadlessClient.sqf ====----"

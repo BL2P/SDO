@@ -18,11 +18,11 @@ publicvariable "spottedTank";
 _spotter = _this select 0;
 _spotterType = typeOf _spotter;
 
-if (backpack _spotter != "UK3CB_BAF_B_Bergen_MTP_Radio_H_A") exitwith {diag_log format ["///====LEAVING SPOTTER SCRIPT I DONT HAVE A RADIO %1",_spotter];};
+if (backpack _spotter != "UK3CB_BAF_B_Bergen_MTP_Radio_H_A") exitwith {diag_log format ["***LEAVING SPOTTER SCRIPT I DONT HAVE A RADIO %1",_spotter];};
 
 if(DEBUG) then
 	{
-	diag_log format ["=======%1  is a REINFORCEMENT spotter==========",_spotterType];
+	diag_log format ["***%1  is a REINFORCEMENT spotter==========",_spotterType];
 	};
 
 _planeclass = ["B_Plane_CAS_01_F","B_Heli_Attack_01_F"];
@@ -39,7 +39,6 @@ _sideToAttack = [];
 	};
 }forEach [opfor,west,independent];
 sleep 1;
-//diag_log format ["_sideto attack = %1",_sideToAttack];
 _debugCounter = 1;
 
 while {alive _spotter} do 
@@ -57,7 +56,7 @@ while {alive _spotter} do
 				{
 					if (side _x in _sideToAttack && { alive _x && _spotter knowsAbout _x > 0 } ) then 
 						{
-							diag_log format ["Reinforcement - %1 knowsabout = %2",_spotter, (_spotter knowsAbout _x)];
+							diag_log format ["***Reinforcement - %1 knowsabout = %2",_spotter, (_spotter knowsAbout _x)];
 						};
 				};
 		
@@ -73,7 +72,7 @@ while {alive _spotter} do
 				{
 					if(DEBUG) then
 					{
-						diag_log format ["_target = %1 targets >=3 calling reinforcements",_targets];
+						diag_log format ["***_target = %1 targets >=3 calling reinforcements",_targets];
 					};
 					spotted = true;
 					publicvariable "spotted";	
@@ -82,7 +81,7 @@ while {alive _spotter} do
 				{
 					if(DEBUG) then
 					{
-						diag_log format ["_target = %1 targets >=3 calling reinforcements",_targets];
+						diag_log format ["***_target = %1 targets >=3 calling reinforcements",_targets];
 					};
 					spotted = true;
 					publicvariable "spotted";
@@ -92,7 +91,7 @@ while {alive _spotter} do
 			{
 				if (count _targets > 0) then
 				{
-					diag_log format ["_targets = %1",count _targets];
+					diag_log format ["***_targets = %1",count _targets];
 				};
 			};
 		
@@ -106,7 +105,7 @@ while {alive _spotter} do
 				{
 					if (side _x in _sideToAttack && { alive _x && _spotter knowsAbout _x > 0 } ) then 
 						{
-							diag_log format ["Reinforcement - %1 knowsabout = %2",_spotter, (_spotter knowsAbout _x)]; 
+							diag_log format ["***Reinforcement - %1 knowsabout = %2",_spotter, (_spotter knowsAbout _x)]; 
 						};
 				};		
 			if (side _x in _sideToAttack && { alive _x && _spotter knowsAbout _x >= 1.5 } ) then 
@@ -119,7 +118,7 @@ while {alive _spotter} do
 							{
 								if(DEBUG) then
 								{
-								diag_log format ["_typeVeh is %1 calling plane",_typeVeh];
+								diag_log format ["***_typeVeh is %1 calling plane",_typeVeh];
 								};
 								spottedPlane = true;
 								publicvariable "spottedPlane";
@@ -140,7 +139,7 @@ while {alive _spotter} do
 			{
 				if (side _x in _sideToAttack && { alive _x && _spotter knowsAbout _x > 0 } ) then 
 					{
-						diag_log format ["Reinforcement - %1 knowsabout = %2",_spotter, (_spotter knowsAbout _x)]; 
+						diag_log format ["***Reinforcement - %1 knowsabout = %2",_spotter, (_spotter knowsAbout _x)]; 
 					};
 			};		
 			if (side _x in _sideToAttack && { alive _x && _spotter knowsAbout _x >= 1.5 } ) then 
@@ -153,7 +152,7 @@ while {alive _spotter} do
 							{
 								if(DEBUG) then
 								{
-								diag_log format ["_typeVeh is %1 calling tanks",_typeVeh];
+								diag_log format ["***_typeVeh is %1 calling tanks",_typeVeh];
 								};
 								spottedTank = true;
 								publicvariable "spottedTank";

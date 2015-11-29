@@ -1,5 +1,5 @@
-if (isServer) exitwith {diag_log "I was kicked from ACE_VA.sqf";};
-diag_log "////====****READING VA_ACE.SQF ****====////";
+if (isServer) exitwith {diag_log "***I was kicked from ACE_VA.sqf";};
+diag_log "***READING VA_ACE.SQF ****====////";
 
 /////////////////////////////////////////////////////////////////
 

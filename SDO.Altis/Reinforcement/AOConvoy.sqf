@@ -3,7 +3,7 @@ waitUntil {sleep 0.5; !(isNil "currentAOUp")};
 waitUntil {sleep 0.5; !(isNil "currentAO")};
 private ["_SERVERUNITSCHECK1","_SERVERUNITSCHECKresistance","_SERVERUNITSCHECK","_giveup","_flatPos","_accepted","_found","_amount","_debugCounter","_road","_usedroads","_convoyPositionsArray","_name","_convoyPositionsArrayEND","_compare","_cnt","_roadpos","_nearUnits","_ConvoyGroup","_ConRandAmount","_directionEnd","_Convoy_Vehicle","_randomChopper","_wp","_Convoydead"];
 
-if (DEBUG) then {diag_log "===============Reading CONVOY====================";};
+if (DEBUG) then {diag_log "***Reading CONVOY====================";};
 
 ConvoyAlive = false;
 publicVariable "ConvoyAlive";
@@ -49,7 +49,7 @@ while {true} do
 				{
 					if(DEBUG) then
 					{
-						diag_log format ["ConvoyAlive = %1",ConvoyAlive];
+						diag_log format ["***ConvoyAlive = %1",ConvoyAlive];
 					};
 					/// find flat pos not near base ///
 					_flatPos = [0];
@@ -69,7 +69,7 @@ while {true} do
 							_debugCounter = 1;
 						if(DEBUG) then
 							{
-							diag_log "Cant find a good convoy start position exit 1";
+							diag_log "***Cant find a good convoy start position exit 1";
 							};
 						};
 						_convoyPositionsArray = [getMarkerPos "Convoy",getMarkerPos "Convoy_1",getMarkerPos "Convoy_2",getMarkerPos "Convoy_3",getMarkerPos "Convoy_4",getMarkerPos "Convoy_5",getMarkerPos "Convoy_6",getMarkerPos "Convoy_7",getMarkerPos "Convoy_8",getMarkerPos "Convoy_9",getMarkerPos "Convoy_10"];
@@ -80,7 +80,7 @@ while {true} do
 								};
 					if(DEBUG) then
 					{
-						diag_log format ["_convoyPositionsArray = %1",_convoyPositionsArray];
+						diag_log format ["***_convoyPositionsArray = %1",_convoyPositionsArray];
 					};
 						//--- create start point
 						for "_i" from 0 to (count _convoyPositionsArray)-1 do
@@ -100,7 +100,7 @@ while {true} do
 										};
 								};
 						};
-						if (isNil "positionStart") exitwith {diag_log "failed to find a good Start marker pos"};
+						if (isNil "positionStart") exitwith {diag_log "***failed to find a good Start marker pos"};
 						
 						/////////////////////////////////////////////////////////////////////////////////////
 						//--- create END point
@@ -113,7 +113,7 @@ while {true} do
 								};
 						if (DEBUG) then
 							{						
-								diag_log format ["_convoyPositionsArrayEND = %1",_convoyPositionsArrayEND];
+								diag_log format ["***_convoyPositionsArrayEND = %1",_convoyPositionsArrayEND];
 							};
 						for "_i" from 0 to (count _convoyPositionsArrayEND)-1 do
 						{ 
@@ -129,12 +129,12 @@ while {true} do
 											createMarkerLocal [_name,positionEND];
 											_name setMarkerType "mil_dot";
 											_name setMarkerText "   End POINT";
-											diag_log format ["positionEND = %1",positionEND];
+											diag_log format ["***positionEND = %1",positionEND];
 										};
 								
 								};
 						};
-						if (isNil "positionEND") exitwith {diag_log "Convoy failed to find a good END marker pos"};
+						if (isNil "positionEND") exitwith {diag_log "***Convoy failed to find a good END marker pos"};
 						
 						
 						_list = positionStart nearRoads _amount;
@@ -169,14 +169,14 @@ while {true} do
 					
 					if (_giveup) exitWith 
 						{
-							diag_log "Convoy Cant find a good convoy start position exit 2";
+							diag_log "***Convoy Cant find a good convoy start position exit 2";
 						};
 					_ConvoyGroup = createGroup Independent;
 					_x = 0;
 					_ConRandAmount = [2,3] call BIS_fnc_selectRandom;
 					if(DEBUG) then 
 						{
-							diag_log format ["_ConRandAmount = %1",_ConRandAmount];
+							diag_log format ["***_ConRandAmount = %1",_ConRandAmount];
 						};
 					//--- create lead vehicle
 						_Convoy_Vehicle = [getPos _road,0,(Conv_Heavy_Armour_vehicles + Conv_APC_vehicles + Conv_Armed_Cars call BIS_fnc_selectRandom),_ConvoyGroup] call BIS_fnc_spawnVehicle;
@@ -202,7 +202,7 @@ while {true} do
 							
 								if (isNil "_connectedRoad") exitwith 
 									{
-										diag_log "Convoy connected road Fail on nil";
+										diag_log "***Convoy connected road Fail on nil";
 									};
 									if !(_connectedRoad in _usedroads) then 
 										{
@@ -273,7 +273,7 @@ while {true} do
 						};
 					if(DEBUG) then
 						{
-							diag_log format ["_ConvoyGroup = %1",_ConvoyGroup];
+							diag_log format ["***_ConvoyGroup = %1",_ConvoyGroup];
 						};
 					///////////////////////////////////////////////////////////////////travel 
 					allConvoy = ConvoyUnits + ConvoyVehicles;
@@ -293,7 +293,7 @@ while {true} do
 					   publicVariable "ConvoyAlive";
 					   if(DEBUG) then
 							{
-								diag_log format ["All created ConvoyAlive = %1",ConvoyAlive];
+								diag_log format ["***All created ConvoyAlive = %1",ConvoyAlive];
 							};
 						
 							{
@@ -305,7 +305,7 @@ while {true} do
 						
 						 if(DEBUG) then
 							{
-							diag_log format ["Count Convoy Alive units = %1",count ConvoyUnits];
+							diag_log format ["***Count Convoy Alive units = %1",count ConvoyUnits];
 							};
 				}
 				else

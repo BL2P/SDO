@@ -1,5 +1,5 @@
-if (isServer) exitwith {diag_log "I was kicked from RHS_VA.sqf";};
-diag_log "////====****READING VA_RHS.SQF ****====////";
+if (isServer) exitwith {diag_log "***I was kicked from RHS_VA.sqf";};
+diag_log "***READING VA_RHS.SQF ****====////";
 
 /////////////////////////////////////////////////////////////////
 
@@ -105,7 +105,7 @@ if (PARAMS_ALLOW_RHS == 1) then
 					"rhs_200rnd_556x45_T_SAW",
 					"rhs_200rnd_556x45_B_SAW",
 					"rhsusf_100Rnd_556x45_soft_pouch",
-					"rhsusf_100Rnd_556x45_M200_soft_pouch",
+					//"rhsusf_100Rnd_556x45_M200_soft_pouch",
 					"rhsusf_200Rnd_556x45_soft_pouch",
 				//--- RHS 240 Ammo
 					"rhsusf_100Rnd_762x51",
@@ -134,15 +134,7 @@ if (PARAMS_ALLOW_RHS == 1) then
 					"rhsusf_mag_6Rnd_M433_HEDP",
 					"rhsusf_mag_6Rnd_M714_white",
 				//---RHS GL Flares and smokes
-				//	"rhs_mag_m4009",
-				//	"rhs_mag_m576",
-				//	"rhs_mag_M585_white",
-				//	"rhs_mag_m661_green",
-				//	"rhs_mag_m662_red",
-				//	"rhs_mag_m713_Red",
-				//	"rhs_mag_m714_White",
-				//	"rhs_mag_m715_Green",
-				//	"rhs_mag_m716_yellow",
+
 				//---RHS Pistol
 					"rhsusf_mag_7x45acp_MHP",
 					"rhsusf_mag_17Rnd_9x19_FMJ",
@@ -153,19 +145,7 @@ if (PARAMS_ALLOW_RHS == 1) then
 					"rhs_m136_hp_mag",
 					"rhs_fim92_mag",
 					"rhs_fgm148_magazine_AT"
-				//--- RHS Nades
-				//	"rhs_mag_m67",
-				//	"rhs_mag_mk84",
-				//	"rhs_mag_an_m8hc",
-				//	"rhs_mag_an_m14_th3",
-				//	"rhs_mag_m7a3_cs",
-				//	"rhs_mag_mk3a2",
-				//--- RHS Hand smokes
-				//	"rhs_mag_m18_smoke_base",
-				//	"rhs_mag_m18_green",
-				//	"rhs_mag_m18_purple",
-				//	"rhs_mag_m18_red",
-				//	"rhs_mag_m18_yellow"
+
 			];
 
 		RHS_Explosives =
@@ -328,7 +308,7 @@ ReconTLItems = ReconTLItems+
 MarksmanItems = MarksmanItems+
 	[
 		//--- RHS Supresors	
-			"rhsusf_acc_M2010S",
+		//	"rhsusf_acc_M2010S",
 			"rhsusf_acc_SR25S"
 	] + GENERAL_GLOBAL + RHS_Weapons_Snipers + RHS_Silencers + RHS_Scopes_Sniper;
 

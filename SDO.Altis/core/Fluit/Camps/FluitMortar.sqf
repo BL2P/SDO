@@ -186,7 +186,7 @@ random_mortar_camps = {
 	_amountofmortars	= if (count _this > 3) then {_this select 3} else { 2 }; // Amount of mortars in each camp
 	_spacing 			= if (count _this > 4) then {_this select 4} else { _radius / 10 };	// Distance between camps in meters
 	
-	diag_log format ["random_mortar_camps amount %1, location %2, radius %3, amountofmortars %4, spacing %5", _amount, _location,_radius, _amountofmortars, _spacing];
+	diag_log format ["***random_mortar_camps amount %1, location %2, radius %3, amountofmortars %4, spacing %5", _amount, _location,_radius, _amountofmortars, _spacing];
 	
 	if (count _location != 3) exitWith {false;};
 	
@@ -218,7 +218,7 @@ random_mortar_camps = {
 			
 			if (_created) exitWith {
 				_camplocations set [count _camplocations, _position];
-				diag_log format ["Mortar camp #%2 created with %1 tries left.", _triescamp, _y];
+				diag_log format ["***Mortar camp #%2 created with %1 tries left.", _triescamp, _y];
 				if (_debug) then {
 					_m = createMarker [format ["mortar %1 %2",_y, random 99999], _position];				
 					_m setMarkerType "o_mortar";
@@ -228,13 +228,13 @@ random_mortar_camps = {
 				};
 			};
 			if (_triescamp < 1 && !_created) exitWith {
-				diag_log format ["Mortar camp creation failed. Skipping camp #%1.", _y];
+				diag_log format ["***Mortar camp creation failed. Skipping camp #%1.", _y];
 				_created = true;
 			};
 			sleep 0.05;
 		};
 	};
-	diag_log format ["Created %1 of %2 mortar camps.", count _camplocations, _amount];
+	diag_log format ["***Created %1 of %2 mortar camps.", count _camplocations, _amount];
 	
 	_camplocations;
 };

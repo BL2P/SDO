@@ -209,7 +209,7 @@ if (!(rndBase == StadBase) && !(rndBase == HillBase1) && !(rndBase == CapBase) &
 				)
 				then 
 				{
-					_obj execVM "base\scripts\ClearCargo.sqf";
+					_m = [_obj,300,0] execVM "Base\scripts\vehicle.sqf";
 				};
 		
 }
@@ -370,6 +370,6 @@ else
 					)
 					then 
 					{
-						_obj execVM "base\scripts\ClearCargo.sqf";
+						_m = [_obj,300,0] execVM "Base\scripts\vehicle.sqf";
 					};
 };

@@ -2,7 +2,7 @@ private ["_canDeleteGroup","_group","_groups","_units"];
 while {true} do
 {
 	sleep 1200;
-	if (DEBUG) then {diag_log "========= Cleaning and deleting groups... ========";};
+	if (DEBUG) then {diag_log "***Cleaning and deleting groups... ========";};
 
 	_groups = allGroups;
 
@@ -20,5 +20,5 @@ while {true} do
 		if (_canDeleteGroup && !isNull _group) then { deleteGroup _group; };
 	};
 	
-	if (DEBUG) then {diag_log "============== Empty Groups deleated... ============";};
+	if (DEBUG) then {diag_log "***Empty Groups deleated... ============";};
 };

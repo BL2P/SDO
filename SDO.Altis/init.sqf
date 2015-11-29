@@ -38,7 +38,7 @@
 
 		if(DEBUG) then
 			{
-				diag_log format ["I am in the MAIN GLOBAL section of the init.sqf params are read and debug = %1",DEBUG];
+				diag_log format ["***I am in the MAIN GLOBAL section of the init.sqf params are read and debug = %1",DEBUG];
 			};
 
 /* =============================================== */
@@ -53,4 +53,4 @@
 /* =================== END ======================= */
 /* =============================================== */
 /* =============================================== */
-diag_log "FINISHED Reading main init.sqf";
+diag_log "***FINISHED Reading main init.sqf";

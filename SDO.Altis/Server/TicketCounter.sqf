@@ -1,4 +1,4 @@
-	diag_log "Reading TicketCounter.sqf";
+	diag_log "***Reading TicketCounter.sqf";
 //--- bl1p ticket counter for end game on zero tickets
 if (isServer) then
 {

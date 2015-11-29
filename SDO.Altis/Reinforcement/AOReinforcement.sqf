@@ -5,7 +5,7 @@ waitUntil {sleep 0.5; !(isNil "currentAOUp")};
 waitUntil {sleep 0.5; !(isNil "currentAO")};
 private ["_priorityMessageHelo", "_reinforcementsdead","_SERVERUNITSCHECKRE","_roadList","_road","_roadPos","_SERVERUNITSCHECKRE1","_SERVERUNITSCHECKREresistance", "_remainingunits", "_totalunits"];
 
-if (DEBUG) then {diag_log "===============Reading LIGHT reinforcements====================";};
+if (DEBUG) then {diag_log "***Reading LIGHT reinforcements====================";};
 
 Reinforced = false;
 //publicvariable "Reinforced";
@@ -37,12 +37,12 @@ while {true} do
 				sleep 1;
 				if(DEBUG) then
 							{
-								diag_log format ["Alowed amount of total east AI = %2 Current amount of east AI = %1",_SERVERUNITSCHECKRE1,PARAMS_TOTALMAXAI];
+								diag_log format ["***Alowed amount of total east AI = %2 Current amount of east AI = %1",_SERVERUNITSCHECKRE1,PARAMS_TOTALMAXAI];
 							};
 							
 				if(DEBUG) then
 					{
-						diag_log format ["_randReinfChance = %1 PARAMS_AOReinforcement = %2 (%1 <= %2 ?)",_randReinfChance,PARAMS_AOReinforcement];
+						diag_log format ["***_randReinfChance = %1 PARAMS_AOReinforcement = %2 (%1 <= %2 ?)",_randReinfChance,PARAMS_AOReinforcement];
 					};
 			};	
 			
@@ -59,8 +59,8 @@ while {true} do
 						{
 							if(DEBUG) then
 							{
-							diag_log "====================================starting infantry reinforcmenets==============================";
-							diag_log format ["Reinforce = %1",Reinforced];
+							diag_log "***starting infantry reinforcmenets==============================";
+							diag_log format ["***Reinforce = %1",Reinforced];
 							};
 							//random radius pos from ao center
 							_randomPos = [getMarkerPos currentAO, 2000] call SDO_fnc_randomPosbl1p;
@@ -82,7 +82,7 @@ while {true} do
 								} forEach units _spawnReInfGroup;
 								if(DEBUG) then
 								{
-								diag_log format ["reinforcement count = %1",count ReinforcementUnits];
+								diag_log format ["***reinforcement count = %1",count ReinforcementUnits];
 								};
 								
 								/// Create marker for debug
@@ -114,7 +114,7 @@ while {true} do
 							}
 							else
 							{
-							 diag_log "DID NOT CREATE INF REINF FAILED ON RANDPOS";
+							 diag_log "***DID NOT CREATE INF REINF FAILED ON RANDPOS";
 							};
 						};
 					};
@@ -129,8 +129,8 @@ while {true} do
 					{
 					if(DEBUG) then
 					{
-						diag_log "====================================starting CARS reinforcmenets==============================";
-						diag_log format ["Reinforce = %1",Reinforced];
+						diag_log "***starting CARS reinforcmenets==============================";
+						diag_log format ["***Reinforce = %1",Reinforced];
 					};	
 						//random radius pos from ao center
 						_Arm_Patrol = createGroup east;
@@ -168,7 +168,7 @@ while {true} do
 							} forEach units _Arm_Patrol;
 							if(DEBUG) then
 							{
-							diag_log format ["reinforcement count = %1",count ReinforcementUnits];
+							diag_log format ["***reinforcement count = %1",count ReinforcementUnits];
 							};
 							
 							/// Create marker for debug
@@ -201,7 +201,7 @@ while {true} do
 						}
 						else
 						{
-						diag_log "DID NOT CREATE CARS REINF FAILED ON RANDPOS";
+						diag_log "***DID NOT CREATE CARS REINF FAILED ON RANDPOS";
 						};
 					};
 				};
@@ -216,8 +216,8 @@ while {true} do
 					{
 						if(DEBUG) then
 						{
-						diag_log "====================================starting light arm reinforcmenets==============================";
-						diag_log format ["Reinforce = %1",Reinforced];
+						diag_log "***starting light arm reinforcmenets==============================";
+						diag_log format ["***Reinforce = %1",Reinforced];
 						};
 						//random radius pos from ao center
 						_randomPos = [getMarkerPos currentAO, 3000] call SDO_fnc_randomPosbl1p;
@@ -258,7 +258,7 @@ while {true} do
 							
 							if(DEBUG) then
 							{
-							diag_log format ["reinforcement count = %1",count ReinforcementUnits];
+							diag_log format ["***reinforcement count = %1",count ReinforcementUnits];
 							};
 							
 							/// Create marker for debug
@@ -291,13 +291,13 @@ while {true} do
 						}
 						else
 						{
-						diag_log "DID NOT CREATE ARMOUR REINF FAILED ON RANDPOS";
+						diag_log "***DID NOT CREATE ARMOUR REINF FAILED ON RANDPOS";
 						};
 					};
 				};
 				if(DEBUG) then
 				{
-				diag_log format ["TOTAL reinforcement count = %1",count ReinforcementUnits];
+				diag_log format ["***TOTAL reinforcement count = %1",count ReinforcementUnits];
 				};
                 _totalunits = count ReinforcementUnits;
 			} 
@@ -315,7 +315,7 @@ while {true} do
                 
                 if(DEBUG) then
 				{
-                    diag_log format ["Total Ref units %1   Remaining Ref units %2",_totalunits, _remainingunits];
+                    diag_log format ["***Total Ref units %1   Remaining Ref units %2",_totalunits, _remainingunits];
 				};
                 if (_totalunits > 0) then {
                     if ((_remainingunits / _totalunits) <= 0.5) then 

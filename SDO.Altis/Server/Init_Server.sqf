@@ -1,5 +1,5 @@
 //--- Rpt report
-diag_log "==============Init_Server Start==============";
+diag_log "***Init_Server Start==============";
 
 //--- Disable saving to save time
 	enableSaving [false, false];
@@ -13,7 +13,7 @@ diag_log "==============Init_Server Start==============";
 
 //--- Move base stuff
 	waituntil {!isNil "BaseCreated"};
-	diag_log format ["Move and init BaseCreated = %1",BaseCreated];
+	diag_log format ["***Move and init BaseCreated = %1",BaseCreated];
 	execvm "Base\MoveAndInitialise.sqf";
 	
 //--- Stop if difficulty Settings not correct
@@ -21,7 +21,7 @@ diag_log "==============Init_Server Start==============";
 	
 	if(DEBUG) then
 		{
-			diag_log "I am in the SERVER init.sqf";
+			diag_log "***I am in the SERVER init.sqf";
 		};
 	
 //--- bl1p read the defend function
@@ -66,7 +66,7 @@ diag_log "==============Init_Server Start==============";
 
 //--- Run AO and/or DEP victory scripts
 	if(isNil "PARAMS_AOTOGGLE") then {PARAMS_AOTOGGLE = 1};
-	diag_log format ["PARAMS_AOTOGGLE = %1 ",PARAMS_AOTOGGLE];
+	diag_log format ["***PARAMS_AOTOGGLE = %1 ",PARAMS_AOTOGGLE];
 	if (PARAMS_AOTOGGLE == 1) then 
 		{ 
 			_AO_UnitTypesM = execVM "Server\AO_UnitTypes_Main.sqf";
@@ -85,4 +85,4 @@ diag_log "==============Init_Server Start==============";
 		//set radio action on radiobox
 		[radiobox] spawn setRadiobox;
 		
-diag_log "=== END OF INIT_SERVER ===";
+diag_log "***END OF INIT_SERVER ===";

@@ -1,6 +1,6 @@
-if !(isServer) exitwith {diag_log "Exiting AO_UnitTypes_BIS.sqf not a server";};
+if !(isServer) exitwith {diag_log "***Exiting AO_UnitTypes_BIS.sqf not a server";};
 
-diag_log "==========Reading AO_UnitTypes_BIS.sqf============";
+diag_log "***Reading AO_UnitTypes_BIS.sqf============";
 
 
 /* =============================================== */
@@ -254,7 +254,7 @@ AO_Recon_Squad_Weapons =
  
  AO_UnitTypes = true;
  
- diag_log "==========Finished Reading AO_UnitTypes_BIS.sqf============";
+ diag_log "***Finished Reading AO_UnitTypes_BIS.sqf============";
  
  
  

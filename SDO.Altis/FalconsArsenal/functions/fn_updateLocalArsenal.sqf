@@ -1,3 +1,4 @@
+
 _specIndex = _this select 0;
 _obj = _this select 1;
 _specItems = _obj getVariable ["FalconsArsenal_specItems", []];
@@ -39,3 +40,4 @@ _action = _obj addaction [
 	"
 ];
 _obj setVariable ["bis_fnc_arsenal_action", _action];
+

@@ -33,6 +33,34 @@ if (!(rndBase == StadBase) && !(rndBase == HillBase1) && !(rndBase == CapBase) &
 				radiobox setPos (getPos Ammo_2_marker);
 				Ammo_1 setPos (getPos Ammo_1_marker);
 				sleep 0.05;
+				
+			//--- containers	
+				Ammo_cont setDir (getDir Ammo_cont_Mark);
+				Ammo_cont setPos (getPos Ammo_cont_Mark);
+				sleep 0.05;
+				Med_cont setDir (getDir Med_cont_Mark);
+				Med_cont setPos (getPos Med_cont_Mark);
+				sleep 0.05;
+				Rep_cont setDir (getDir Rep_cont_Mark);
+				Rep_cont setPos (getPos Rep_cont_Mark);
+				sleep 0.05;				
+				Fuel_cont setDir (getDir Fuel_cont_Mark);
+				Fuel_cont setPos (getPos Fuel_cont_Mark);
+				
+				sleep 0.05;
+				Ammo_cont_1 setDir (getDir Ammo_cont_Mark_1);
+				Ammo_cont_1 setPos (getPos Ammo_cont_Mark_1);
+				sleep 0.05;
+				Med_cont_1 setDir (getDir Med_cont_Mark_1);
+				Med_cont_1 setPos (getPos Med_cont_Mark_1);
+				sleep 0.05;
+				Rep_cont_1 setDir (getDir Rep_cont_Mark_1);
+				Rep_cont_1 setPos (getPos Rep_cont_Mark_1);			
+				sleep 0.05;
+				Fuel_cont_1 setDir (getDir Fuel_cont_Mark_1);
+				Fuel_cont_1 setPos (getPos Fuel_cont_Mark_1);
+				sleep 0.05;
+
 		//--- create object inits
 			//--- Signs
 			
@@ -157,10 +185,40 @@ if (!(rndBase == StadBase) && !(rndBase == HillBase1) && !(rndBase == CapBase) &
 				RepFac setDir (getDir Rep_Fac_Pad);
 				RepFac setPos (getPos Rep_Fac_Pad);
 				sleep 0.05;
+				
 			//--- Ammo boxes
 				radiobox setPos (getPos Ammo_2_marker);
 				Ammo_1 setPos (getPos Ammo_1_marker);
 				sleep 0.05;
+				//--- containers	
+				Ammo_cont setDir (getDir Ammo_cont_Mark);
+				Ammo_cont setPos (getPos Ammo_cont_Mark);
+				sleep 0.05;
+				Med_cont setDir (getDir Med_cont_Mark);
+				Med_cont setPos (getPos Med_cont_Mark);
+				sleep 0.05;
+				Rep_cont setDir (getDir Rep_cont_Mark);
+				Rep_cont setPos (getPos Rep_cont_Mark);
+				sleep 0.05;				
+				Fuel_cont setDir (getDir Fuel_cont_Mark);
+				Fuel_cont setPos (getPos Fuel_cont_Mark);
+				
+				sleep 0.05;
+				Ammo_cont_1 setDir (getDir Ammo_cont_Mark_1);
+				Ammo_cont_1 setPos (getPos Ammo_cont_Mark_1);
+				sleep 0.05;
+				Med_cont_1 setDir (getDir Med_cont_Mark_1);
+				Med_cont_1 setPos (getPos Med_cont_Mark_1);
+				sleep 0.05;
+				Rep_cont_1 setDir (getDir Rep_cont_Mark_1);
+				Rep_cont_1 setPos (getPos Rep_cont_Mark_1);			
+				sleep 0.05;
+				Fuel_cont_1 setDir (getDir Fuel_cont_Mark_1);
+				Fuel_cont_1 setPos (getPos Fuel_cont_Mark_1);
+				sleep 0.05;
+
+				
+				
 		//--- create object inits
 			//--- Signs
 			

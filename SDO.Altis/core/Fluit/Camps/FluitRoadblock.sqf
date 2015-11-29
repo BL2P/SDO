@@ -122,7 +122,7 @@ defensive_roadblocks = {
 	_location	= if (count _this > 2) then {_this select 2} else { [] }; 	// Location where to create the camps - if not set use random all over the map
 	_radius		= if (count _this > 3) then {_this select 3} else { 2000 }; // Radius of user defined location
 	
-	diag_log format ["defensive_roadblocks amount %1, spacing %2, location %3, radius %4", _amount, _spacing, _location, _radius];
+	diag_log format ["***defensive_roadblocks amount %1, spacing %2, location %3, radius %4", _amount, _spacing, _location, _radius];
 	
 	if (count _location != 3) exitWith {false;};
 	
@@ -157,7 +157,7 @@ defensive_roadblocks = {
 				
 				if (_created) exitWith {
 					_camplocations set [count _camplocations, _roadpos];
-					diag_log format ["Roadblock created with %1 tries left.", _triescamp];
+					diag_log format ["***Roadblock created with %1 tries left.", _triescamp];
 					if (_debug) then {
 						_m = createMarker [format ["camp%1",random 999], _roadpos];
 						_m setMarkerShape "ELLIPSE";
@@ -169,17 +169,17 @@ defensive_roadblocks = {
 					};
 				};
 				if (_triescamp <= 0) exitWith {
-					diag_log "Roadblock creation failed. Trying different location.";
+					diag_log "****Roadblock creation failed. Trying different location.";
 					_created = true;
 				};
 			};
 			if (_triesroad < 1) exitWith {
 				_giveup = true;
-				diag_log "Could not create all roadblocks...";
+				diag_log "****Could not create all roadblocks...";
 			};
 		};
 		if (_giveup) exitWith {};
 	};
-	diag_log format ["Created %1 of %2 roadblocks.", count _camplocations, _amount];
-	diag_log format ["Leaving defensive roadblock script with %1 tries left.", _triesroad];
+	diag_log format ["****Created %1 of %2 roadblocks.", count _camplocations, _amount];
+	diag_log format ["****Leaving defensive roadblock script with %1 tries left.", _triesroad];
 };

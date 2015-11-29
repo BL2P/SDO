@@ -1,6 +1,5 @@
-//--- Edited for Zargabad
-if (isServer) exitwith {diag_log "I was kicked from VA_BIS.sqf";};
-diag_log "////====****READING VA_BIS.SQF ****====////";
+if (isServer) exitwith {diag_log "***I was kicked from VA_BIS.sqf";};
+diag_log "***READING VA_BIS.SQF ****====////";
 
 /////////////////////////////////////////////////////////////////
 
@@ -21,7 +20,9 @@ diag_log "////====****READING VA_BIS.SQF ****====////";
 			[
 				"arifle_MX_SW_Black_F",
 				"LMG_Mk200_F",
-				"MMG_02_black_F"
+				"MMG_02_black_F",
+				"MMG_02_sand_F",
+				"MMG_02_camo_F"
 			];
 
 			Bis_Weapons_ATs =
@@ -227,7 +228,7 @@ GrenadierItems = GrenadierItems+
 /////////////////////////////////////////////////////////////////			
 AutoriflemanItems = AutoriflemanItems+
 	[
-	
+
 	] + GENERAL_GLOBAL + Bis_Weapons_ARs;
 
 /////////////////////////////////////////////////////////////////
@@ -335,3 +336,6 @@ RconExp = RconExp+
 	] + GENERAL_GLOBAL + Bis_Silencers + Bis_Weapons_Standard + Bis_Explosives;
 
 /////////////////////////////////////////////////////////////////
+
+
+VABISDONE = true;

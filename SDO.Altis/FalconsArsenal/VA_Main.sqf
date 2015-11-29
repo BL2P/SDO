@@ -1,6 +1,6 @@
-if (isServer) exitwith {diag_log "I was kicked from VA_MAIN.sqf";};
+if (isServer) exitwith {diag_log "***I was kicked from VA_MAIN.sqf";};
 if (isNil "PARAMS_ALLOW_BIS")  then  { waitUntil{!isNil "PARAMS_ALLOW_BIS"};};
-diag_log "////====****READING VA_MAIN.SQF ****====////";
+diag_log "***READING VA_MAIN.SQF ****====////";
 
 _target = sideUnknown;
 _restrictionDistance = 0;
@@ -75,6 +75,8 @@ RconMedic =  [];
 UAVItems =  [];
 RconExp = [];
 
+
+DangerAlowed = [];
 AllowedItems = [];
 
 /////////////////////////////////////////////////////////////////
@@ -157,10 +159,47 @@ _UAVItems_CLASS = ["B_soldier_UAV_F"];
 _RconExp_CLASS = ["B_recon_exp_F"];
 
 
+
+AllowdExtrasATDanger = 
+[
+"launch_RPG32_F",
+"launch_I_Titan_F",
+"launch_O_Titan_F",
+"launch_I_Titan_short_F",
+"launch_O_Titan_short_F"
+];
+
+AllowdExtrasGLDanger = 
+[
+"arifle_Katiba_GL_F",
+"arifle_Mk20_GL_F",
+"arifle_TRG21_GL_F"
+];
+
+AllowdExtrasSniperDanger =
+[
+"srifle_DMR_01_F",
+"srifle_GM6_F",
+"srifle_DMR_04_F",
+"srifle_DMR_04_Tan_F",
+"srifle_DMR_05_blk_F",
+"srifle_DMR_05_hex_F",
+"srifle_DMR_05_tan_f"
+];
+
+AllowdExtrasMGDanger =
+[
+"LMG_Zafir_F",
+"MMG_01_hex_F",
+"MMG_01_tan_F"
+];
+
+DangerAlowed = DangerAlowed + AllowdExtrasATDanger + AllowdExtrasGLDanger + AllowdExtrasSniperDanger + AllowdExtrasMGDanger;
+
 // Set the allowed items for the player
-if ((typeOf player) in _GrenadierItems_CLASS) 		then { AllowedItems = AllowedItems + GrenadierItems; }; 
-if ((typeOf player) in _AutoriflemanItems_CLASS) 	then { AllowedItems = AllowedItems + AutoriflemanItems; }; 
-if ((typeOf player) in _ATItems_CLASS) 				then { AllowedItems = AllowedItems + ATItems; }; 
+if ((typeOf player) in _GrenadierItems_CLASS) 		then { AllowedItems = AllowedItems + GrenadierItems + AllowdExtrasGLDanger; }; 
+if ((typeOf player) in _AutoriflemanItems_CLASS) 	then { AllowedItems = AllowedItems + AutoriflemanItems + AllowdExtrasMGDanger; }; 
+if ((typeOf player) in _ATItems_CLASS) 				then { AllowedItems = AllowedItems + ATItems + AllowdExtrasATDanger; }; 
 if ((typeOf player) in _MedicItems_CLASS) 			then { AllowedItems = AllowedItems + MedicItems; }; 
 if ((typeOf player) in _EODItems_CLASS) 			then { AllowedItems = AllowedItems + EODItems; }; 
 if ((typeOf player) in _PilotItems_CLASS) 			then { AllowedItems = AllowedItems + PilotItems; }; 
@@ -170,13 +209,63 @@ if ((typeOf player) in _CommanderItems_CLASS) 		then { AllowedItems = AllowedIte
 if ((typeOf player) in _SquadLeadItems_CLASS) 		then { AllowedItems = AllowedItems + SquadLeadItems; }; 
 if ((typeOf player) in _TeamLeadItems_CLASS) 		then { AllowedItems = AllowedItems + TeamLeadItems; }; 
 if ((typeOf player) in _ReconTeamLeadItems_CLASS)		then { AllowedItems = AllowedItems + ReconItems + TeamLeadItems; }; 
-if ((typeOf player) in _MarksmanItems_CLASS) 		then { AllowedItems = AllowedItems + MarksmanItems; }; 
+if ((typeOf player) in _MarksmanItems_CLASS) 		then { AllowedItems = AllowedItems + MarksmanItems + AllowdExtrasSniperDanger; }; 
 if ((typeOf player) in _ReconItems_CLASS) 			then { AllowedItems = AllowedItems + ReconItems; }; 
 if ((typeOf player) in _JTACItems_CLASS) 			then { AllowedItems = AllowedItems + JTACItems; };  
 if ((typeOf player) in _RconMedic_CLASS) 			then { AllowedItems = AllowedItems + RconMedic; }; 
 if ((typeOf player) in _UAVItems_CLASS) 			then { AllowedItems = AllowedItems + UAVItems; }; 
 if ((typeOf player) in _RconExp_CLASS) 				then { AllowedItems = AllowedItems + RconExp; }; 
-	
+
+
+AllowdExtrasGeneric = 
+[
+"arifle_Katiba_F",
+"arifle_Katiba_C_F",
+"arifle_Mk20_F",
+"arifle_Mk20C_F",
+"arifle_TRG21_F",
+"arifle_TRG20_F",
+"hgun_ACPC2_F",
+
+"hgun_P07_F",
+"hgun_Pistol_heavy_01_F",
+"hgun_Pistol_heavy_02_F",
+"hgun_Rook40_F",
+"hgun_PDW2000_F",
+"hgun_Pistol_Signal_F",
+"hgun_PDW2000_F",
+//--- Backpacks
+"B_AssaultPack_khk",
+"B_AssaultPack_dgtl",
+"B_AssaultPack_rgr",
+"B_AssaultPack_sgg",
+"B_AssaultPack_blk",
+"B_AssaultPack_cbr",
+"B_AssaultPack_mcamo",
+"B_Kitbag_mcamo",
+"B_Kitbag_sgg",
+"B_Kitbag_cbr",
+"B_Bergen_sgg",
+"B_Bergen_mcamo",
+"B_Bergen_rgr",
+"B_Bergen_blk",
+"B_FieldPack_blk",
+"B_FieldPack_ocamo",
+"B_FieldPack_oucamo",
+"B_FieldPack_cbr",
+"B_Carryall_ocamo",
+"B_Carryall_oucamo",
+"B_Carryall_mcamo",
+"B_Carryall_oli",
+"B_Carryall_khk",
+"B_Carryall_cbr",
+"B_OutdoorPack_blk",
+"B_OutdoorPack_tan",
+"B_OutdoorPack_blu",
+"B_HuntingBackpack"
+];
+AllowedItems = AllowedItems + AllowdExtrasGeneric;
+
 VA_MAIN = true;
 	
 _specItems = [GrenadierItems,AutoriflemanItems,ATItems,MedicItems,EODItems,PilotItems,RTOItems,RifelmanItems,CommanderItems,SquadLeadItems,TeamLeadItems,ReconTLItems,MarksmanItems,ReconItems,JTACItems,RconMedic,UAVItems,RconExp];

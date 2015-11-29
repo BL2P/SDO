@@ -1,4 +1,4 @@
-diag_log " * Fluit camps are initializing...";
+diag_log "***Fluit camps are initializing...";
 
 _scriptHandle = [] execVM "core\Fluit\Camps\FluitSAM.sqf"; 
 waitUntil {scriptDone _scriptHandle};
@@ -13,4 +13,4 @@ waitUntil {scriptDone _scriptHandle};
 _scriptHandle = [] execVM "core\Fluit\Camps\FluitRoadblock.sqf"; 
 waitUntil {scriptDone _scriptHandle};
 
-diag_log " * Done initializing Fluit camps!";
+diag_log "***Done initializing Fluit camps!";

@@ -1,9 +1,9 @@
-if (isServer || isDedicated || !hasInterFace) exitwith {diag_log "I was kicked from the Init_Client.sqf";};
+if (isServer || isDedicated || !hasInterFace) exitwith {diag_log "***I was kicked from the Init_Client.sqf";};
 
 //--- Wait until player is initialized
 	waitUntil {!isNull player && isPlayer player};
 	sidePlayer = side player;
-	diag_log "==============Init_client Start==============";
+	diag_log "***Init_client Start==============";
 
 
 //--- Move players to base start pos
@@ -41,9 +41,10 @@ if (isServer || isDedicated || !hasInterFace) exitwith {diag_log "I was kicked f
 	sleep 10;
 	420 cutText ["====      Loading complete...    ====","BLACK IN",2];
 	sleep 8;
-	[str("SDO - Altis") , str(date select 1) + "." + str(date select 2) + "." + str(date select 0), str(SDOmessage)] spawn BIS_fnc_infoText;
+	systemChat format ["%1",SDOmessage];
+	//[str("SDO - Altis") , str(date select 1) + "." + str(date select 2) + "." + str(date select 0), str(SDOmessage)] spawn BIS_fnc_infoText;
 	//[str (SDOmessage)] spawn BIS_fnc_infoText;
 	};
 Init_Client = true;
 
-diag_log "==============Init_client End==============";
+diag_log "***Init_client End==============";

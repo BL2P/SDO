@@ -1,7 +1,7 @@
 //--- wait for cleared zones then end mission
 //--- Not a loop but whatever
 
-	diag_log "====== READING DERVictory.sqf============";
+	diag_log "***READING DERVictory.sqf============";
 			waitUntil {!isNil "dep_ready"};
 			//_zones = [];
 			_zones = ['roadpop'];
@@ -18,7 +18,7 @@
 						if ((_x select 7)) then { _clear = _clear + 1; };
 					};
 				} forEach dep_locations;
-				diag_log format ["total %1 cleared %2 ", _total, _clear];
+				diag_log format ["***total %1 cleared %2 ", _total, _clear];
 				if (_clear == _total) then {_keeptrying = false; };
 				sleep 10;
 			};
@@ -27,4 +27,4 @@
 	DEPVICTORYDONE = true;publicVariable "DEPVICTORYDONE";
 	mps_mission_finished = "true"; publicvariable "mps_mission_finished";
 	
-	diag_log "====== FINISHED READING DERVictory.sqf============";
+	diag_log "***FINISHED READING DERVictory.sqf============";

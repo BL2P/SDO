@@ -1,5 +1,5 @@
 if (DEBUG) then {
-diag_log "***Reading AmmoTruck_Arsenal================";
+diag_log "***Reading Container_Arsenal ================";
 };
 if (isNil "PARAMS_ALLOW_3CB")  then  { waitUntil{!isNil "PARAMS_ALLOW_3CB"};};
 
@@ -228,14 +228,24 @@ if (PARAMS_ALLOW_3CB == 1) then
 	_AmmoTruckammo = 	_AmmoTruckammo + CB_AmmunitionTruck;
 	};
 
-
+	_Weapons_ATs =
+				[
+					"UK3CB_BAF_AT4_AT_Launcher",
+					"UK3CB_BAF_AT4_AP_Launcher",
+					"UK3CB_BAF_AT4_CS_AT_Launcher",  
+					"UK3CB_BAF_AT4_CS_AP_Launcher",
+					"UK3CB_BAF_NLAW_Launcher",
+					"UK3CB_BAF_Javelin_Launcher",
+					"UK3CB_BAF_Javelin_Slung_Tube"
+				];
 
 [_FALCONS_Box,[] + _AmmoTruckammo,true] call BIS_fnc_addVirtualMagazineCargo;
 	
-[_FALCONS_Box,[],true] call BIS_fnc_addVirtualWeaponCargo;
+[_FALCONS_Box,[] + _Weapons_ATs ,true] call BIS_fnc_addVirtualWeaponCargo;
 
 [_FALCONS_Box,[],true] call BIS_fnc_addVirtualItemCargo;
 
 [_FALCONS_Box,[],true] call BIS_fnc_addVirtualBackpackCargo;
-
-if (DEBUG) then {diag_log "***AmmoTruck_Arsenal FINISHED ================";};
+if (DEBUG) then {
+diag_log "***Finished Reading  Container_Arsenal================";
+};

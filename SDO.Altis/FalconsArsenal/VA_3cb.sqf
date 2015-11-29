@@ -1,5 +1,5 @@
-if (isServer) exitwith {diag_log "I was kicked from 3CB_VA.sqf";};
-diag_log "////====****READING VA_3CB.SQF ****====////";
+if (isServer) exitwith {diag_log "***I was kicked from 3CB_VA.sqf";};
+diag_log "***READING VA_3CB.SQF ****====////";
 
 /////////////////////////////////////////////////////////////////
 
@@ -118,16 +118,16 @@ diag_log "////====****READING VA_3CB.SQF ****====////";
 			
 		CB_Scopes_Sniper =
 			[
-				"UK3CB_BAF_SB31250",
-				"UK3CB_BAF_SB31250_Desert",
-				"UK3CB_BAF_SB31250_Desert_Ghillie",
-				"UK3CB_BAF_SB31250_Ghillie"
+			//	"UK3CB_BAF_SB31250",
+			//	"UK3CB_BAF_SB31250_Desert",
+			//	"UK3CB_BAF_SB31250_Desert_Ghillie",
+			//	"UK3CB_BAF_SB31250_Ghillie"
 			];
 				
 		CB_Silencers = 
 			[
-				"UK3CB_BAF_Silencer_L110",
-				"UK3CB_BAF_Silencer_L115A3",
+				//"UK3CB_BAF_Silencer_L110",
+				//"UK3CB_BAF_Silencer_L115A3",
 				"UK3CB_BAF_Silencer_L85",
 				"UK3CB_BAF_Silencer_L91A1",
 				"UK3CB_BAF_SFFH"

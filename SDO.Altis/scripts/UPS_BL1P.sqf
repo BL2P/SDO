@@ -28,11 +28,11 @@
 //
 // =========================================================================================================
 
-if (hasInterFace) exitWith {Diag_log "I was kicked from the UPS.sqf I am a client";};
+if (hasInterFace) exitWith {Diag_log "***I was kicked from the UPS.sqf I am a client";};
 
 if(DEBUG) then
 						{
-							Diag_log FORMAT ["======%1 is UPS====",_this select 0];
+							Diag_log FORMAT ["***%1 is UPS====",_this select 0];
 						};
 	
 // how far opfors should move away if they're under attack

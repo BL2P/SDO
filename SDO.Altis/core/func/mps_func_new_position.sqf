@@ -1,7 +1,7 @@
 //SHK_POS by Shuko 
 if (Debug) then 
 	{
-	Diag_log "I am in the MPS_FUNC_NEW_POSITION.SQF";
+	Diag_log "***I am in the MPS_FUNC_NEW_POSITION.SQF";
 	};
 
 

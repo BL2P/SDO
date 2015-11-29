@@ -1,3 +1,4 @@
+
 private ["_specIndex","_specSlots","_slotsArray","_objArray"];
 _target = _this select 0;
 _array = _this select 1;

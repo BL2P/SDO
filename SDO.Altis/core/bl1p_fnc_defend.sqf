@@ -75,7 +75,7 @@ bl1p_fnc_defend =
 				_distance = _distance - 100; //--- reduce distance each loop
 					if (DEBUG) then
 						{
-							diag_log format ["_AttackAmount = %1",_AttackAmount];
+							diag_log format ["***_AttackAmount = %1",_AttackAmount];
 						};
 				sleep 0.5;
 				
@@ -90,7 +90,7 @@ bl1p_fnc_defend =
 				GlobalHint = _WarningHint; publicVariable "GlobalHint"; hint parseText GlobalHint;
 				if (DEBUG) then
 						{
-						diag_log format ["===========_waveRuns = %1  _waves = %2==========",_waveRuns,_waves];
+						diag_log format ["***_waveRuns = %1  _waves = %2==========",_waveRuns,_waves];
 						};
 				//--- create the waves
 				for "_x" from 1 to _AttackAmount do 
@@ -137,7 +137,7 @@ bl1p_fnc_defend =
 						
 							if(DEBUG) then
 							{
-							diag_log "====================================Wave infantry Attack forces created==============================";
+							diag_log "***Wave infantry Attack forces created==============================";
 							};
 						}
 						else
@@ -182,7 +182,7 @@ bl1p_fnc_defend =
 							
 							if(DEBUG) then
 							{
-							diag_log "====================================Wave Motorised Attack forces created==============================";
+							diag_log "***Wave Motorised Attack forces created==============================";
 							};
 						};
 					
@@ -197,27 +197,27 @@ bl1p_fnc_defend =
 						} forEach units _inf_Patrol;
 						if(DEBUG) then
 						{
-						diag_log format ["Attack reinforcement count = %1",count AttackReinforcementUnits];
+						diag_log format ["***Attack reinforcement count = %1",count AttackReinforcementUnits];
 						};
 						sleep 1;
 					}
 					else
 					{
-					 diag_log "DID NOT CREATE INF REINF FAILED ON RANDPOS";
+					 diag_log "***DID NOT CREATE INF REINF FAILED ON RANDPOS";
 					};
 					sleep 1;
 				};
 				// CREATE AI End
 					if (DEBUG) then
 						{
-						diag_log "BEFORE _DEFENDSERVERUNITSCHECK > _PercentWave";
+						diag_log "***BEFORE _DEFENDSERVERUNITSCHECK > _PercentWave";
 						};
 				//--- wait for wave to be almost killed
 				_DEFENDSERVERUNITSCHECK = east countSide allunits;
 				_PercentWave = _DEFENDSERVERUNITSCHECK / 2;
 				if (DEBUG) then 
 				{
-				diag_log format ["_PercentWave = %1",_PercentWave];
+				diag_log format ["***_PercentWave = %1",_PercentWave];
 				};
 				if (_waveRuns >= _waves) then {_PercentWave = PARAMS_EnemyLeftThreshhold};
 				while {_DEFENDSERVERUNITSCHECK > _PercentWave} do 
@@ -225,22 +225,22 @@ bl1p_fnc_defend =
 						_DEFENDSERVERUNITSCHECK = east countSide allunits;
 						if (DEBUG) then 
 							{
-							diag_log format ["_DEFENDSERVERUNITSCHECK = %1",_DEFENDSERVERUNITSCHECK];
+							diag_log format ["***_DEFENDSERVERUNITSCHECK = %1",_DEFENDSERVERUNITSCHECK];
 							};
 							
 							ELAPSED_TIME = diag_tickTime - START_TIME;
 							publicVariable "ELAPSED_TIME";
 							if (DEBUG) then 
 							{
-							diag_log format ["ELAPSED_TIME = %1",ELAPSED_TIME];
+							diag_log format ["***ELAPSED_TIME = %1",ELAPSED_TIME];
 							};
-						if (ELAPSED_TIME >= 3600) exitwith {diag_log "====LEAVING DEFENCE WHILE LOOP because TIMER====";}; 
-						if (count list _dt2 < 1) exitwith {diag_log "====LEAVING DEFENCE WHILE LOOP because No alive west in zone====";}; 
+						if (ELAPSED_TIME >= 3600) exitwith {diag_log "***LEAVING DEFENCE WHILE LOOP because TIMER====";}; 
+						if (count list _dt2 < 1) exitwith {diag_log "***LEAVING DEFENCE WHILE LOOP because No alive west in zone====";}; 
 						sleep 5;
 					};
 					if (DEBUG) then
 						{
-						diag_log "AFTER _DEFENDSERVERUNITSCHECK > _PercentWave";
+						diag_log "***AFTER _DEFENDSERVERUNITSCHECK > _PercentWave";
 						};
 						
 					//--- clean the array ?---//
@@ -251,7 +251,7 @@ bl1p_fnc_defend =
 				_waveRuns = _waveRuns + 1;
 				if (DEBUG) then
 						{
-						diag_log format ["_waveRuns = %1  _waves = %2",_waveRuns,_waves];
+						diag_log format ["***_waveRuns = %1  _waves = %2",_waveRuns,_waves];
 						};
 						
 				//-- set some default vars		
@@ -264,7 +264,7 @@ bl1p_fnc_defend =
 				if ((_waveRuns > _waves) && (count list _dt2 >= 1)) then {_defend = false ;AttackWon = true;};
 					if (DEBUG) then
 						{
-						diag_log format ["AttackWon = %1  _defend = %2",AttackWon,_defend];
+						diag_log format ["***AttackWon = %1  _defend = %2",AttackWon,_defend];
 						};
 				sleep 2;
 			};
@@ -323,16 +323,16 @@ bl1p_fnc_defend =
 			if ((!isnil ("AttackReinforcementUnits")) && (count AttackReinforcementUnits > 0)) then {
 			if (DEBUG) then
 				{
-					diag_log format ["AttackReinforcementUnits = %1",AttackReinforcementUnits];
+					diag_log format ["***AttackReinforcementUnits = %1",AttackReinforcementUnits];
 				};
 			_arraystocleanup set [count _arraystocleanup, AttackReinforcementUnits]; 
 			};
 			sleep 0.5;
 			if (DEBUG) then
 					{
-					diag_log "===========DEFEND CLEAN UP================";
-					diag_log format ["_arraystocleanup = %1",_arraystocleanup];
-					diag_log format ["count of elements in _arraystocleanup = %1",count _arraystocleanup];
+					diag_log "***DEFEND CLEAN UP================";
+					diag_log format ["***_arraystocleanup = %1",_arraystocleanup];
+					diag_log format ["***count of elements in _arraystocleanup = %1",count _arraystocleanup];
 					};
 		
 				[_arraystocleanup] execVM "core\AOCleanup.sqf";

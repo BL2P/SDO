@@ -1,7 +1,7 @@
 
-if !(isServer) exitwith {diag_log "Exiting AOLoop.sqf not a server";};
+if !(isServer) exitwith {diag_log "***Exiting AOLoop.sqf not a server";};
 
-diag_log "==========Reading AOLoop.sqf============";
+diag_log "***Reading AOLoop.sqf============";
 
 private ["_position","_firstTarget","_validTarget","_targetsLeft","_flatPos","_targetStartText","_lastTarget","_targets","_dt","_enemiesArray","_enemiesArray2","_radioTowerDownText","_targetCompleteText","_null","_missionCompleteText","_SERVERUNITSCHECK","_debugCounter","_doneTargets","_allowedTargetAmount"];
 
@@ -135,7 +135,7 @@ _targets = [
     for "_i" from 1 to _cnt do {
         _initialTargets pushBack (_initialTargets deleteAt floor random _cnt);
     };
-	if (DEBUG) then {diag_log format ["Attempting %1 AO's", _number_ao];};
+	if (DEBUG) then {diag_log format ["***Attempting %1 AO's", _number_ao];};
 	while {(count _ao_list) < _number_ao && (_radius < 50000)} do
 		{
 			_found = false;
@@ -149,15 +149,15 @@ _targets = [
 						{
 							if ((_pos distance _previous) > 2000) then 
 							{
+								if (DEBUG) then {diag_log format ["***Dist from base = %1 ---///--- Dist from last AO = %2",(_pos distance _baselocation),(_pos distance _previous)];};
 								_found = true;
 								_ao_list = _ao_list + [_x];
 								_centerpos = _pos;
 								_radius = _startradius;
 								_previous = _pos;
-								if (DEBUG) then {diag_log format ["_found= %1 ---///--- AO added = %2",_found,_x];};
-								if (DEBUG) then {diag_log format ["Dist from base = %1 ---///--- Dist from last AO = %2",(_pos distance _baselocation),(_pos distance _previous)];};
-								if (DEBUG) then {diag_log format ["Ammount of AOs is now %1", count _ao_list];};
-								if (DEBUG) then {diag_log format ["AO list is  %1",_ao_list];};
+								if (DEBUG) then {diag_log format ["***_found= %1 ---///--- AO added = %2",_found,_x];};
+								if (DEBUG) then {diag_log format ["***Ammount of AOs is now %1", count _ao_list];};
+								if (DEBUG) then {diag_log format ["***AO list is  %1",_ao_list];};
 							};
 						};
 					};
@@ -172,7 +172,7 @@ _targets = [
 
 if (DEBUG) then {
 
-	diag_log format ["_ao_list = %1",_ao_list];
+	diag_log format ["***_ao_list = %1",_ao_list];
 	_y = 1;
 	{
 		_m = createMarker[format["temp%1", _x], getMarkerPos _x];
@@ -190,7 +190,7 @@ if (DEBUG) then {
 /* ================ RUN THE AO LOOP ============== */
 /* =============================================== */
 	{
-		diag_log "==============Init_Server Now running AO loop==============";
+		diag_log "***Server Now running AO loop==============";
 		sleep 10;
 		currentAO = _x;
 		
@@ -199,7 +199,7 @@ if (DEBUG) then {
 					
 					if (DEBUG) then
 						{
-						diag_log format["====================FINAL Selected  currentAO = %1  ====================",currentAO];
+						diag_log format["***FINAL Selected  currentAO = %1  ====================",currentAO];
 						};
 
 
@@ -230,7 +230,7 @@ if (DEBUG) then {
 		//--- bl1p Spawn AO AI
 			_enemiesArray = [currentAO] call SDO_fnc_spawnUnits;
 
-			if (DEBUG) then {diag_log "MAKING A TOWER ON SERVER";};
+			if (DEBUG) then {diag_log "***MAKING A TOWER ON SERVER";};
 			//Spawn radiotower
 			_position = [[[getMarkerPos currentAO, PARAMS_AOSize],dt],["water","out"]] call BIS_fnc_randomPos;
 			_flatPos = _position isFlatEmpty[3, 1, 0.7, 20, 0, false];
@@ -277,15 +277,15 @@ if (DEBUG) then {
 
 		
 		//--- bl1p radio tower check 
-			if (DEBUG) then {diag_log format ["Waiting for Radio tower and radioTowerAlive = %1",radioTowerAlive];};
+			if (DEBUG) then {diag_log format ["***Waiting for Radio tower and radioTowerAlive = %1",radioTowerAlive];};
 			waitUntil {sleep 0.5; radioTowerAlive};
 		//--- bl1p spawn tower defenders
 			
 			_enemiesArray2 = [radioTower] call BL_fnc_towerDefence;
 
-			if (DEBUG) then {diag_log format ["Radio tower should be up now radioTowerAlive = %1",radioTowerAlive];};
+			if (DEBUG) then {diag_log format ["***Radio tower should be up now radioTowerAlive = %1",radioTowerAlive];};
 			
-			if (DEBUG) then {diag_log format ["=========AOAICREATIONMAINDONE = %1 ==========",AOAICREATIONMAINDONE];};
+			if (DEBUG) then {diag_log format ["***AOAICREATIONMAINDONE = %1 ==========",AOAICREATIONMAINDONE];};
 			
 				"aoMarker" SetMarkerAlpha 1;
 				"radioMarker" SetMarkerAlpha 0;
@@ -319,9 +319,9 @@ if (DEBUG) then {
 		
 		if(DEBUG) then
 				{
-					diag_log "init.sqf waiting for target compleation";
-					diag_log "waitUntil {sleep 5; count list dt > PARAMS_EnemyLeftThreshhold};";
-					diag_log "waitUntil {sleep 0.5; !alive radioTower};";
+					diag_log "***init.sqf waiting for target compleation";
+					diag_log "***waitUntil {sleep 5; count list dt > PARAMS_EnemyLeftThreshhold};";
+					diag_log "***waitUntil {sleep 0.5; !alive radioTower};";
 				};
 
 		//--- bl1p wait
@@ -386,7 +386,7 @@ if (DEBUG) then {
 				//--- bl1p Server clean up units left over before next AO call
 					if(DEBUG) then
 							{
-								diag_log "===============STARTING CLEAN UP=====================";
+								diag_log "***STARTING CLEAN UP=====================";
 							};
 					
 					//upsmon_enabled = false; publicVariable "upsmon_enabled"; // Disable UPSMON
@@ -402,7 +402,7 @@ if (DEBUG) then {
 					
 						if (DEBUG) then
 							{
-								diag_log format ["====FIRST CHECK OF _Eastgroups=%1====",_Eastgroups];
+								diag_log format ["***FIRST CHECK OF _Eastgroups=%1====",_Eastgroups];
 							};
 					
 					[] spawn SDO_cleanGroups;
@@ -424,42 +424,42 @@ if (DEBUG) then {
 					if ((!isnil ("_enemiesArray")) && (count _enemiesArray > 0)) then {
 						if (DEBUG) then
 						{
-						diag_log format ["_enemiesArray = %1",_enemiesArray];
+						diag_log format ["***_enemiesArray = %1",_enemiesArray];
 						};
 						_arraystocleanup set [count _arraystocleanup, _enemiesArray]; 
 					};
 					if ((!isnil ("_enemiesArray2")) && (count _enemiesArray2 > 0)) then {
 						if (DEBUG) then
 						{
-						diag_log format ["_enemiesArray2 = %1",_enemiesArray2];
+						diag_log format ["***_enemiesArray2 = %1",_enemiesArray2];
 						};
 						_arraystocleanup set [count _arraystocleanup, _enemiesArray2]; 
 					};
 					if ((!isnil ("ReinforcementUnits")) && (count ReinforcementUnits > 0))  then {
 						if (DEBUG) then
 						{
-						diag_log format ["ReinforcementUnits = %1",ReinforcementUnits];
+						diag_log format ["***ReinforcementUnits = %1",ReinforcementUnits];
 						};
 						_arraystocleanup set [count _arraystocleanup, ReinforcementUnits]; 
 					};
 					if ((!isnil ("ReinforcementVehicles")) && (count ReinforcementVehicles > 0)) then {
 						if (DEBUG) then
 						{
-						diag_log format ["ReinforcementVehicles = %1",ReinforcementVehicles];
+						diag_log format ["***ReinforcementVehicles = %1",ReinforcementVehicles];
 						};
 						_arraystocleanup set [count _arraystocleanup, ReinforcementVehicles]; 
 					};
 					if ((!isnil ("HeavyReinforcementUnits")) && (count HeavyReinforcementUnits > 0)) then {
 						if (DEBUG) then
 						{
-						diag_log format ["HeavyReinforcementUnits = %1",HeavyReinforcementUnits];
+						diag_log format ["***HeavyReinforcementUnits = %1",HeavyReinforcementUnits];
 						};
 						_arraystocleanup set [count _arraystocleanup, HeavyReinforcementUnits]; 
 					};
 					if ((!isnil ("HeavyReVehicles")) && (count HeavyReVehicles > 0)) then {
 						if (DEBUG) then
 						{
-						diag_log format ["HeavyReVehicles = %1",HeavyReVehicles];
+						diag_log format ["***HeavyReVehicles = %1",HeavyReVehicles];
 						};
 						_arraystocleanup set [count _arraystocleanup, HeavyReVehicles]; 
 					};
@@ -468,16 +468,16 @@ if (DEBUG) then {
 					 if (count AO_Vehicles > 0)then {
 						if (DEBUG) then
 						{
-						diag_log format ["AO_Vehicles = %1",AO_Vehicles];
+						diag_log format ["***AO_Vehicles = %1",AO_Vehicles];
 						};
 						_arraystocleanup set [count _arraystocleanup, AO_Vehicles]; 
 					};
 					sleep 0.5;
 					if (DEBUG) then
 							{
-							diag_log "===========FINAL ARRAYS TO CLEAN UP================";
-							diag_log format ["_arraystocleanup = %1",_arraystocleanup];
-							diag_log format ["count of elements in _arraystocleanup = %1",count _arraystocleanup];
+							diag_log "***FINAL ARRAYS TO CLEAN UP================";
+							diag_log format ["***_arraystocleanup = %1",_arraystocleanup];
+							diag_log format ["***count of elements in _arraystocleanup = %1",count _arraystocleanup];
 							};
 					
 					_handleAOclean = [_arraystocleanup] execVM "core\AOCleanup.sqf";
@@ -488,7 +488,7 @@ if (DEBUG) then {
 					while {count _Eastgroups > 0} do
 					{
 						_finalArraysdebugcount = _finalArraysdebugcount + 1;
-						if (_finalArraysdebugcount > 10) exitwith {diag_log format ["_finalArraysdebugcount =%1 exiting loop ",_finalArraysdebugcount];};
+						if (_finalArraysdebugcount > 10) exitwith {diag_log format ["***_finalArraysdebugcount =%1 exiting loop ",_finalArraysdebugcount];};
 				//---second check of groups after cleaning
 							_Eastgroups=[];
 							{
@@ -544,8 +544,8 @@ if (DEBUG) then {
 								_createDefend = random 1;
 								if (DEBUG) then
 									{
-										diag_log "=========DEFENCE CHECKS START============";
-										diag_log format ["BASE _createDefend = %1",_createDefend];
+										diag_log "***DEFENCE CHECKS START============";
+										diag_log format ["***CreateDefend = %1",_createDefend];
 									};
 									
 								_doneTargetsForDefend = ((count (_initialTargets)) - (count (_targets)));
@@ -553,14 +553,14 @@ if (DEBUG) then {
 								if (DEBUG) then
 									{
 										//_createDefend = 1; // used to force defend missions
-										diag_log format ["_doneTargetsForDefend = %1",_doneTargetsForDefend];
-										diag_log format ["LASTDEFEND = %1",LASTDEFEND];
-										diag_log format ["AFTER ALTERATION _createDefend = %1 (+ 0.02 for each _doneTargetsForDefend - LASTDEFEND)",_createDefend];
+										diag_log format ["***_doneTargetsForDefend = %1",_doneTargetsForDefend];
+										diag_log format ["***LASTDEFEND = %1",LASTDEFEND];
+										diag_log format ["***AFTER ALTERATION _createDefend = %1 (+ 0.02 for each _doneTargetsForDefend - LASTDEFEND)",_createDefend];
 										if (_createDefend > 0.8) then
 										{
-											diag_log "_createDefend = Pass";
-										} else {diag_log "_createDefend = Fail";};
-										diag_log "=========DEFENCE CHECKS END============";
+											diag_log "***_createDefend = Pass";
+										} else {diag_log "***_createDefend = Fail";};
+										diag_log "***DEFENCE CHECKS END============";
 									};
 								if (_createDefend >= 0.8) then   //-- random chance
 								{
@@ -614,9 +614,9 @@ if (DEBUG) then {
 								_doneTargets = ((count (_initialTargets)) - (count (_targets)));
 								if (DEBUG) then 
 									{
-										diag_log "=========NUKE CHECKS START============";
-										diag_log format ["done targets = %1",_doneTargets];
-										diag_log format ["LASTNUKE = %1",LASTNUKE];
+										diag_log "***NUKE CHECKS START============";
+										diag_log format ["***done targets = %1",_doneTargets];
+										diag_log format ["***LASTNUKE = %1",LASTNUKE];
 										if (_doneTargets > LASTNUKE+5) then 
 										{
 											diag_log "(AO count = Pass)";
@@ -629,11 +629,11 @@ if (DEBUG) then {
 								publicVariable "players_online";
 								if (DEBUG) then 
 									{
-										diag_log format ["players_online = %1",players_online];
+										diag_log format ["***players_online = %1",players_online];
 									if (players_online >= 5) then
 									{
-										diag_log "players_online count = Pass";
-									} else {diag_log "players_online count = Fail";};
+										diag_log "***players_online count = Pass";
+									} else {diag_log "***players_online count = Fail";};
 									};
 								sleep 0.2;
 								
@@ -642,8 +642,8 @@ if (DEBUG) then {
 								{
 									if (!UnlockAssets) then
 										{
-										diag_log "UnlockedAssets = Pass";
-										} else {diag_log "UnlockedAssets = Fail";};
+										diag_log "***UnlockedAssets = Pass";
+										} else {diag_log "***UnlockedAssets = Fail";};
 								};
 								sleep 0.2;
 								
@@ -651,33 +651,33 @@ if (DEBUG) then {
 								_NukeRandom = random 1; //--- base random
 								if (DEBUG) then
 									{
-									diag_log format ["BASE _NukeRandom = %1",_NukeRandom];
+									diag_log format ["*** _NukeRandom = %1",_NukeRandom];
 									};
 								if (_doneTargets > LASTNUKE) then {_NukeRandom = _NukeRandom + 0.02 * (_doneTargets - LASTNUKE);}; 
 								if (DEBUG) then
 									{
-										diag_log format ["AFTER ALTERATION _NukeRandom = %1 (+ 0.02 for each _doneTargets - LASTNUKE)",_NukeRandom];
+										diag_log format ["***AFTER ALTERATION _NukeRandom = %1 (+ 0.02 for each _doneTargets - LASTNUKE)",_NukeRandom];
 										if (_NukeRandom > 0.8) then
 										{
-											diag_log "_NukeRandom = Pass";
-										} else {diag_log "_NukeRandom = Fail";};
+											diag_log "***_NukeRandom = Pass";
+										} else {diag_log "***_NukeRandom = Fail";};
 									};
 							//--- run check 
 								if ((!NUKEYES) && (_doneTargets > LASTNUKE+5) && (players_online >= 5) && (!UnlockAssets) && (_NukeRandom > 0.8)) then 
 								{
-									diag_log "====----NUKE CHECKS PASSED----====";
+									diag_log "***NUKE CHECKS PASSED----====";
 									NUKEYES = true;
 									publicVariable "NUKEYES";
 							//--- save how many targets where done on last nuke creation as LASTNUKE
 									LASTNUKE = _doneTargets;
 									publicVariable "LASTNUKE";
-									diag_log format ["LASTNUKE = %1",LASTNUKE];
+									diag_log format ["***LASTNUKE = %1",LASTNUKE];
 								}else {NUKEYES = false; publicVariable "NUKEYES";diag_log "====----NUKE CHECKS FAILED----====";};
 								
 								if (DEBUG) then
 								{
-								diag_log format ["====----NUKEYES = %1----====",NUKEYES];
-								diag_log "=========NUKE CHECKS END============";
+								diag_log format ["***NUKE YES = %1----====",NUKEYES];
+								diag_log "***NUKE CHECKS END============";
 								};
 								
 							//////////////////////////////////////////////////
@@ -722,7 +722,7 @@ if (DEBUG) then {
 
 	if(DEBUG) then
 				{
-					diag_log "OUT OF WHILE LOOP FOR AO CREATION";	
+					diag_log "***OUT OF WHILE LOOP FOR AO CREATION";	
 				};
 				
 	//--- bl1p server only	

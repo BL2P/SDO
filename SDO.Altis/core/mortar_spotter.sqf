@@ -10,14 +10,14 @@ _mortars = [_this, 1, [], [[]] ] call BIS_fnc_param;
 
 _typeOFunit = typeOf _spotter;
 
-if (backpack _spotter != "UK3CB_BAF_B_Bergen_MTP_Radio_H_A") exitwith {diag_log format ["///====LEAVING MORTAR SPOTTER SCRIT I DONT HAVE A RADIO %1",_spotter];};
+if (backpack _spotter != "UK3CB_BAF_B_Bergen_MTP_Radio_H_A") exitwith {diag_log format ["***LEAVING MORTAR SPOTTER SCRIT I DONT HAVE A RADIO %1",_spotter];};
 
 MortarsFiring = false;
 publicVariable "MortarsFiring";
 
 if (DEBUG) then 
 {
-	diag_log format ["========%1 is a MORTAR SPOTTER==========",_spotter];
+	diag_log format ["***%1 is a MORTAR SPOTTER==========",_spotter];
 };
 
 if ( isNull _spotter || { !((typeOf _spotter) isKindOf "MAN") } ) then { "You must supply a unit for the spotter" call BIS_fnc_error; };
@@ -42,7 +42,7 @@ while { { alive _x; }count _mortars > 0 } do
 		if(DEBUG) then
 		{
 			if (side _x in _sideToAttack && { alive _x && _spotter knowsAbout _x > 0 } ) then {
-				diag_log format ["MORTAR - %1 - %3 - knowsabout = %2",_spotter, (_spotter knowsAbout _x),_typeOFunit];
+				diag_log format ["***MORTAR - %1 - %3 - knowsabout = %2",_spotter, (_spotter knowsAbout _x),_typeOFunit];
 			};
 		};
 		
@@ -70,7 +70,7 @@ while { { alive _x; }count _mortars > 0 } do
 		
 		if (daytime > 19.5 || daytime < 4.5) then { _nighttime = true; };
 		if (DEBUG) then {
-			diag_log format ["daytime = %1",daytime];
+			diag_log format ["***daytime = %1",daytime];
 		};
 		
 		if (_knowsabout >= 2.7) then { 
@@ -91,12 +91,12 @@ while { { alive _x; }count _mortars > 0 } do
 		};
 		
 		if(DEBUG) then {
-			diag_log format ["%1 - %3 - _ChosentargetPos is = %2, _knowsabout = %4, nighttime = %5",_spotter, _ChosentargetPos, _typeOFunit, _knowsabout, _nighttime];
+			diag_log format ["***%1 - %3 - _ChosentargetPos is = %2, _knowsabout = %4, nighttime = %5",_spotter, _ChosentargetPos, _typeOFunit, _knowsabout, _nighttime];
 		};
 		
 		// Fire flares at night!
 		if (_nighttime && (_knowsabout < 3 || DEBUG)) then {
-			if(DEBUG) then {diag_log "firing flare before fire mission";};
+			if(DEBUG) then {diag_log "***firing flare before fire mission";};
 			[_ChosentargetPos, 6, "white"] spawn FlareClusters;
 			sleep 10;
 		};
@@ -105,7 +105,7 @@ while { { alive _x; }count _mortars > 0 } do
 		sleep (5 + (random (_salvos * 3))); // Simulate time to arm and align mortars for fire mission
 		for "_s" from 1 to _salvos do {
 			if(DEBUG) then {
-				diag_log format ["Mortars firing salvo %1 of %2",_s, _salvos];
+				diag_log format ["***Mortars firing salvo %1 of %2",_s, _salvos];
 			};
 			{
 				if (alive _x) then {
@@ -116,7 +116,7 @@ while { { alive _x; }count _mortars > 0 } do
 					_x commandArtilleryFire [_newpos, "8Rnd_82mm_Mo_shells", _rounds];
 					_x addMagazine "8Rnd_82mm_Mo_shells";
 					if(DEBUG) then {
-						diag_log format ["%1- %3 - fireing at = %2",_spotter, _newpos,_typeOFunit];
+						diag_log format ["***%1- %3 - fireing at = %2",_spotter, _newpos,_typeOFunit];
 					};
 					sleep (random 1); // Time in between each shell
 				};
@@ -128,7 +128,7 @@ while { { alive _x; }count _mortars > 0 } do
 		// Fire flares at night!
 		if (_nighttime && (_knowsabout < 3.5 || DEBUG)) then {
 			sleep 20;
-			if(DEBUG) then {diag_log "firing flare after fire mission";};
+			if(DEBUG) then {diag_log "***firing flare after fire mission";};
 			[_ChosentargetPos, 8, "white"] spawn FlareClusters;
 		};
 		sleep ((random 30) + 45); // Time in between each fire mission

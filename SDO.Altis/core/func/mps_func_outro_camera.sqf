@@ -4,10 +4,10 @@
 
 if (Debug) then 
 	{
-	Diag_log "I am in the MPS_FUNC_OUTRO_CAMERA.SQF";
+	Diag_log "***I am in the MPS_FUNC_OUTRO_CAMERA.SQF";
 	};
 
-if(isDedicated) exitWith{diag_log "I was kicked from MPS_FUNC_OUTRO_CAMERA.SQF";};
+if(isDedicated) exitWith{diag_log "***I was kicked from MPS_FUNC_OUTRO_CAMERA.SQF";};
 
 _object = _this select 0;
 _totaltime = _this select 1;

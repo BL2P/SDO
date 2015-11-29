@@ -6,7 +6,7 @@ waitUntil {sleep 0.5; !(isNil "currentAOUp")};
 waitUntil {sleep 0.5; !(isNil "currentAO")};
 private ["_priorityMessageJet","_Heavyreinforcementsdead","_SERVERUNITSCHECKHre","_randHeavyChance","_SERVERUNITSCHECKHreResistance","_SERVERUNITSCHECKHre1"];
 
-if (DEBUG) then {diag_log "===============Reading HEAVY reinforcements====================";};
+if (DEBUG) then {diag_log "***Reading HEAVY reinforcements====================";};
 
 ReinforcedPlane = false;
 //publicvariable "ReinforcedPlane";
@@ -41,11 +41,11 @@ if ((radioTowerAlive && !ReinforcedPlane && spottedPlane) || (radioTowerAlive &&
 		sleep 1;
 		if(DEBUG) then
 					{
-						diag_log format ["_SERVERUNITSCHECKHre1 (all east Units) = %1",_SERVERUNITSCHECKHre1];
+						diag_log format ["***_SERVERUNITSCHECKHre1 (all east Units) = %1",_SERVERUNITSCHECKHre1];
 					};
 			if(DEBUG) then
 					{
-						diag_log format ["_randHeavyChance = %1 PARAMS_HeavyReinforcement = %2  (%1 <= %2 ?)",_randHeavyChance,PARAMS_HeavyReinforcement];
+						diag_log format ["***_randHeavyChance = %1 PARAMS_HeavyReinforcement = %2  (%1 <= %2 ?)",_randHeavyChance,PARAMS_HeavyReinforcement];
 					};
 				
 	};			
@@ -85,8 +85,8 @@ if ((radioTowerAlive && !ReinforcedPlane && spottedPlane) || (radioTowerAlive &&
 						//publicvariable "ReinforcedPlane";
 						if(DEBUG) then
 						{
-						diag_log format ["====REINFORCEMENT Creating  = %1=====",_helo_Patrol];
-						diag_log format ["=== Reinf plane created variable ReinforcedPlane = %1  spottedPlane = %2 ====",ReinforcedPlane,spottedPlane];
+						diag_log format ["***REINFORCEMENT Creating  = %1=====",_helo_Patrol];
+						diag_log format ["***Reinf plane created variable ReinforcedPlane = %1  spottedPlane = %2 ====",ReinforcedPlane,spottedPlane];
 						};
 						/// Create marker for debug
 								if(DEBUG) then
@@ -130,7 +130,7 @@ if ((radioTowerAlive && !ReinforcedPlane && spottedPlane) || (radioTowerAlive &&
 							deleteVehicle _x;
 						} foreach _helo_crew;
 						
-						if (!isNil ("_upsZone")) then {if (DEBUG) then {diag_log "_upsZone was not nil removing";};deleteVehicle _upsZone;};
+						if (!isNil ("_upsZone")) then {if (DEBUG) then {diag_log "***_upsZone was not nil removing";};deleteVehicle _upsZone;};
 						//declare some variables
 						ReinforcedPlane = false;
 						//publicvariable "ReinforcedPlane";
@@ -140,8 +140,8 @@ if ((radioTowerAlive && !ReinforcedPlane && spottedPlane) || (radioTowerAlive &&
 						if(DEBUG) then
 						{
 						
-						diag_log format ["=== Reinf Plane Destroyed variable ReinforcedPlane = %1 ===",ReinforcedPlane];
-						diag_log format ["=== Reinf script reset spot var spottedPlane  = %1 ===",spottedPlane];
+						diag_log format ["***Reinf Plane Destroyed variable ReinforcedPlane = %1 ===",ReinforcedPlane];
+						diag_log format ["***Reinf script reset spot var spottedPlane  = %1 ===",spottedPlane];
 						};
 					};
 					//or this type
@@ -166,8 +166,8 @@ if ((radioTowerAlive && !ReinforcedPlane && spottedPlane) || (radioTowerAlive &&
 						//publicvariable "ReinforcedPlane";
 						if(DEBUG) then
 						{
-						diag_log format ["====REINFORCEMENT Creating  = %1=====",_helo_Patrol];
-						diag_log format ["=== Reinf plane created variable ReinforcedPlane = %1  spottedPlane = %2 ====",ReinforcedPlane,spottedPlane];
+						diag_log format ["***REINFORCEMENT Creating  = %1=====",_helo_Patrol];
+						diag_log format ["***Reinf plane created variable ReinforcedPlane = %1  spottedPlane = %2 ====",ReinforcedPlane,spottedPlane];
 						};
 						
 						/// Create marker for debug
@@ -222,8 +222,8 @@ if ((radioTowerAlive && !ReinforcedPlane && spottedPlane) || (radioTowerAlive &&
 						if(DEBUG) then
 						{
 
-						diag_log format ["=== Reinf Plane Destroyed variable ReinforcedPlane = %1 ===",ReinforcedPlane];
-						diag_log format ["=== Reinf script reset spot var spottedPlane  = %1 ===",spottedPlane];
+						diag_log format ["***Reinf Plane Destroyed variable ReinforcedPlane = %1 ===",ReinforcedPlane];
+						diag_log format ["***Reinf script reset spot var spottedPlane  = %1 ===",spottedPlane];
 						
 						};
 						
@@ -232,7 +232,7 @@ if ((radioTowerAlive && !ReinforcedPlane && spottedPlane) || (radioTowerAlive &&
 				}
 				else
 				{
-					diag_log "DID NOT CREATE REINFORCE PLANE NO RANDPOS";
+					diag_log "***DID NOT CREATE REINFORCE PLANE NO RANDPOS";
 				};
 			};
 		};
@@ -266,9 +266,9 @@ if ((radioTowerAlive && !ReinforcedPlane && spottedPlane) || (radioTowerAlive &&
 						//publicvariable "ReinforcedTank";
 						if(DEBUG) then
 						{
-						diag_log format ["====REINFORCEMENT Creating  = %1=====",_armour];
-						diag_log format ["=== Reinf Tanks created variable ReinforcedTank = %1  spottedTank = %2 === ",ReinforcedTank,spottedTank];
-						diag_log format ["_ReinfarmourGroup = %1",_ReinfarmourGroup];
+						diag_log format ["***REINFORCEMENT Creating  = %1=====",_armour];
+						diag_log format ["***Reinf Tanks created variable ReinforcedTank = %1  spottedTank = %2 === ",ReinforcedTank,spottedTank];
+						diag_log format ["***_ReinfarmourGroup = %1",_ReinfarmourGroup];
 						};
 						
 						/// Create marker for debug
@@ -319,8 +319,8 @@ if ((radioTowerAlive && !ReinforcedPlane && spottedPlane) || (radioTowerAlive &&
 				{
 					if(DEBUG) then
 					{
-					diag_log format ["=== Reinf Tank destroyed variable ReinforcedTank = %1 === ",ReinforcedTank];
-					diag_log format ["=== Reinf script reset spot var spottedTank  = %1 === ",spottedTank];
+					diag_log format ["***Reinf Tank destroyed variable ReinforcedTank = %1 === ",ReinforcedTank];
+					diag_log format ["***Reinf script reset spot var spottedTank  = %1 === ",spottedTank];
 					};	
 					HeavyReinforcementUnits = [];
 					//publicvariable "HeavyReinforcementUnits";

@@ -1,3 +1,4 @@
+
 if (!isDedicated) then {
 	waitUntil {!isNull player && time > 1};
 	_target = _this select 0;
