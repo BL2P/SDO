@@ -13,7 +13,7 @@ if (isServer || isDedicated || !hasInterFace) exitwith {diag_log "***I was kicke
 	player setDir _mPos;  
 	
 //--- Lets run stuff ONCE
-	_RunOnce = execVM "scripts\RunOnce.sqf";
+	_RunOnce = execVM "Client\Client_Scripts\RunOnce.sqf";
 	waitUntil{scriptDone _RunOnce}; 
 	
 //--- BL1P check for Mods on Client
@@ -21,17 +21,17 @@ if (isServer || isDedicated || !hasInterFace) exitwith {diag_log "***I was kicke
 
 	
 //--- bl1p blablabla
-	execVM "core\briefing.sqf";                                                         	
+	execVM "Client\Client_Scripts\briefing.sqf";                                                         	
 
 	if(DEBUG) then
 		{
-			_null=[] execVM "core\admin_uid.sqf";
+			_null=[] execVM "Client\Client_Scripts\admin_uid.sqf";
 		};
 			
 
 //--- BL1P player restrictions
-	execVM "core\Restrictions\naughtyThermal.sqf";
-	execVM "core\Restrictions\drivercheck.sqf";
+	execVM "Client\Client_Scripts\Restrictions\naughtyThermal.sqf";
+	execVM "Client\Client_Scripts\Restrictions\drivercheck.sqf";
 
 //--- Blackout OFF loading screen
 	if (hasinterface) then

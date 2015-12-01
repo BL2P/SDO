@@ -9,7 +9,7 @@ diag_log "***onPlayerRespawn Start==============";
 
 //--- Lets run stuff ONCE
 	RAN_ONCE = false;
-	_RunOnceOPS = execVM "scripts\RunOnce.sqf";
+	_RunOnceOPS = execVM "Client\Client_Scripts\RunOnce.sqf";
 	waitUntil{scriptDone _RunOnceOPS}; 
 
 

@@ -18,23 +18,25 @@ diag_log "***Reading AO_UnitTypes_BIS.sqf============";
 			"I_Truck_02_covered_F",
 			"I_Truck_02_transport_F"
 		];
+		
+	Conv_TransTruck  = 
+		[
+			"I_Truck_02_covered_F",
+			"I_Truck_02_transport_F"
+		];
 //---Support types
 	 Conv_Support_vehicles = 
 		[
-			"I_Truck_02_box_F",
 			"I_Truck_02_ammo_F",
 			"I_Truck_02_fuel_F",
-			"I_Truck_02_medical_F",
-			"I_UGV_01_rcws_F"
+			"I_Truck_02_medical_F"
 		];	
 //---Armed car types
 	 Conv_Armed_Cars = 
 		[
 			"I_G_Offroad_01_armed_F",
 			"I_MRAP_03_hmg_F",
-			
 			"I_MRAP_03_gmg_F",
-			
 			"I_APC_Wheeled_03_cannon_F"
 		];
  //---BMP types

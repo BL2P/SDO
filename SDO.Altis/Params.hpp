@@ -407,10 +407,10 @@ class AO_UNITS
 	//def 3
 	class ConvoyChance
 	{
-		title = "Random Convoys OFF or ON";
-		values[] = {0,1};
-		texts[] = {"OFF","ON"};
-		default = 1;
+		title = "Random Convoys OFF or ON (Not working. Still wip)";
+		values[] = {0};
+		texts[] = {"OFF"};
+		default = 0;
 	};
 	//def 0
 	class AirPatrol

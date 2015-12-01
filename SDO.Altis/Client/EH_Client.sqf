@@ -1,10 +1,10 @@
 diag_log "***Reading EH_Client.sqf";
 
 player removeAllEventHandlers "Take";
-player addEventHandler ["Take", {_null = [] execVM "core\Restrictions\restrictions.sqf";}];
+player addEventHandler ["Take", {_null = [] execVM "Client\Client_Scripts\Restrictions\restrictions.sqf";}];
 
 player removeAllEventHandlers "Put";
-player addEventHandler ["Put", {_null = [(str (_this select 1))] execVM "Scripts\clearItemsPut.sqf";}];
+player addEventHandler ["Put", {_null = [(str (_this select 1))] execVM "Client\Client_Scripts\clearItemsPut.sqf";}];
 
 player setVariable [ "VAcatch", [ "VAcatch", "onEachFrame", 
 { 
@@ -19,7 +19,7 @@ player setVariable [ "VAcatch", [ "VAcatch", "onEachFrame",
 						//--- Set unit insignia
 							[_this, "Falcons"] call BIS_fnc_setUnitInsignia;
 						//--- Call weapon restrictions script
-					_null = [] execVM "core\Restrictions\restrictions.sqf";
+					_null = [] execVM "Client\Client_Scripts\Restrictions\restrictions.sqf";
 			_this setVariable [ "VAcatch", "VAcatch" ]; 
 		}; 
     };  

@@ -68,7 +68,7 @@ class Mission
 	randomSeed=8346727;
 	class Intel
 	{
-		briefingName="TEST 0.3.5 Altis";
+		briefingName="TEST 0.3.6 Altis";
 		overviewText="Shoot The bad guys... Win... What could possibly go wrong ?";
 		resistanceWest=0;
 		resistanceEast=1;
@@ -1542,7 +1542,7 @@ class Mission
 					{
 						"m1"
 					};
-					init="_thread = this execvm ""Base\randomBaseStart.sqf"";";
+					init="_thread = this execvm ""Server\Base\randomBaseStart.sqf"";";
 					syncId=4;
 					synchronizations[]={5,7,6,11,9,10,8,18,13,14,19,17,15,12,16};
 				};
@@ -1934,7 +1934,7 @@ class Mission
 			vehicle="Land_Pallet_MilBoxes_F";
 			skill=0.60000002;
 			text="Ammo_1";
-			init="_Ammo = [this] execVM ""FalconsArsenal\VA_Main.sqf""";
+			init="_Ammo = [this] execVM ""Client\FalconsArsenal\VA_Main.sqf""";
 		};
 		class Item2
 		{
@@ -2809,7 +2809,7 @@ class Mission
 		};
 		class Item67
 		{
-			position[]={28191.756,23.205664,25453.717};
+			position[]={28131.383,33.919987,25255.75};
 			name="Convoy_1";
 			type="Empty";
 			colorName="ColorRed";

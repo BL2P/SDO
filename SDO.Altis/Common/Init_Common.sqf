@@ -1,19 +1,33 @@
 diag_log "***Init_Common Start==============";
 
+//--- bl1p Determine which machine is running this init script
+	SDO_IsHostedServer = if (isServer && !isDedicated) then {true} else {false};
+	SDO_IsServer = if (isDedicated || SDO_IsHostedServer) then {true} else {false};
+	SDO_IsClient = if ((SDO_IsHostedServer || !isDedicated) && (hasInterface)) then {true} else {false};
+	SDO_IsHeadless = if !(hasInterface || isDedicated) then {true} else {false};
+
+//--- write to rpts who is who
+	diag_log format ["***SDO_IsHostedServer = %1",SDO_IsHostedServer];
+	diag_log format ["***SDO_IsServer = %1",SDO_IsServer];
+	diag_log format ["***SDO_IsClient = %1",SDO_IsClient];
+	diag_log format ["***SDO_IsHeadless = %1",SDO_IsHeadless];
+
+
+
 //--- Arty
 	enableEngineArtillery false;
 
 
 //--- Fluit's functions!!
-	_fluitFunctions = [] execVM "core\Fluit\FluitInit.sqf"; 
+	_fluitFunctions = [] execVM "Common\Common_Scripts\Fluit\FluitInit.sqf"; 
 	waitUntil {scriptDone _fluitFunctions};
 
 //--- SDO_functions
-	_SDOfunctions = execVM "scripts\SDO_functions.sqf";
+	_SDOfunctions = execVM "Common\Common_Scripts\SDO_functions.sqf";
 	waitUntil{scriptDone _SDOfunctions};
 	
 //--- Check if player is a SDO member or friend ran by player and server
-	_SDONFriends = execVM "core\SDO_N_Friends.sqf";
+	_SDONFriends = execVM "Common\Common_Scripts\SDO_N_Friends.sqf";
 	//waitUntil{scriptDone _SDONFriends};
 
 	
@@ -126,17 +140,7 @@ diag_log "***Init_Common Start==============";
 		((_this select 1) select 0) addScore ((_this select 1) select 1);
 	};
 
-//--- bl1p Determine which machine is running this init script
-	SDO_IsHostedServer = if (isServer && !isDedicated) then {true} else {false};
-	SDO_IsServer = if (isDedicated || SDO_IsHostedServer) then {true} else {false};
-	SDO_IsClient = if ((SDO_IsHostedServer || !isDedicated) && (hasInterface)) then {true} else {false};
-	SDO_IsHeadless = if !(hasInterface || isDedicated) then {true} else {false};
 
-//--- write to rpts who is who
-	diag_log format ["***SDO_IsHostedServer = %1",SDO_IsHostedServer];
-	diag_log format ["***SDO_IsServer = %1",SDO_IsServer];
-	diag_log format ["***SDO_IsClient = %1",SDO_IsClient];
-	diag_log format ["***SDO_IsHeadless = %1",SDO_IsHeadless];
 	
 //--- kick client from script to init client
 	if (SDO_IsClient) exitwith

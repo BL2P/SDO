@@ -1,23 +1,23 @@
 //-- hud remover
-showHUD[] = {true,false,false,false,false,false,false,true};
+showHUD[] = {true,true,true,true,true,true,false,true};
 
 //--- FORCE ROTATTHINGY
 	forceRotorLibSimulation = 1;
 
 //--- com slot only 
-	#include "core\Debriefing.hpp"
+	#include "Common\Common_Scripts\Debriefing.hpp"
 
 //--- Kegetys Spectator Script
-	#include "spectator\spectating.hpp"
+	#include "Client\spectator\spectating.hpp"
 
 //--- VAS includes
-	#include "Base\VVS\menu.h"
+	#include "Server\Base\VVS\menu.h"
 
 class CfgFunctions
 	{
-		#include "Base\VVS\Functions.h"
-		#include "Base\Base_functions.h"
-		#include "FalconsArsenal\CfgFunctions.hpp"
+		#include "Server\Base\VVS\Functions.h"
+		#include "Server\Base\Base_functions.h"
+		#include "Client\FalconsArsenal\CfgFunctions.hpp"
 	};
 
 class Header
@@ -100,6 +100,7 @@ class CfgNotifications
 		color[] = {1,1,1,1};
 		priority = 9;
 	};
+	
 	class NewSub
 	{
 		title = "NEW SUB-OBJECTIVE";

@@ -55,7 +55,7 @@ if (PARAMS_DEP_MARKERS == 1) then
 	} else {
 		dep_zone_markers = [];
 	};
-dep_unit_init   = "[_this] execVM ""scripts\unitinit.sqf""; ";
+dep_unit_init   = "[_this] execVM ""Server\Server_Scripts\unitinit.sqf""; ";
 
 //if(PARAMS_DEPHeadless == 1 || PARAMS_DEPHeadless == 3) then {dep_useheadless = true} else {dep_useheadless = false};
 
