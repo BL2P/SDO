@@ -68,7 +68,7 @@ class Mission
 	randomSeed=8346727;
 	class Intel
 	{
-		briefingName="TEST 0.3.6 Altis";
+		briefingName="TEST 0.3.7 Altis";
 		overviewText="Shoot The bad guys... Win... What could possibly go wrong ?";
 		resistanceWest=0;
 		resistanceEast=1;
@@ -749,7 +749,7 @@ class Mission
 				class Item0
 				{
 					position[]={15360.725,0,15180.268};
-					azimut=0.45902234;
+					azimut=0.45902199;
 					class args
 					{
 						items=1;
@@ -1032,10 +1032,10 @@ class Mission
 				class Item0
 				{
 					position[]={15361.577,0,15225.6};
-					azimut=0.45902234;
+					azimut=0.45902199;
 					class args
 					{
-						items=3;
+						items=4;
 						class Item0
 						{
 							value="1";
@@ -1053,6 +1053,12 @@ class Mission
 							value="1";
 							parentCls="ACE_ModuleHearing";
 							typeName="enabledForZeusUnits";
+						};
+						class Item3
+						{
+							value="1";
+							parentCls="ACE_ModuleHearing";
+							typeName="autoAddEarplugsToUnits";
 						};
 					};
 					id=43;
@@ -1073,7 +1079,7 @@ class Mission
 				class Item0
 				{
 					position[]={15462.245,0,15225.855};
-					azimut=0.45902234;
+					azimut=0.45902199;
 					class args
 					{
 						items=3;
@@ -1117,7 +1123,7 @@ class Mission
 					azimut=0.45902199;
 					class args
 					{
-						items=5;
+						items=6;
 						class Item0
 						{
 							value="1";
@@ -1147,6 +1153,12 @@ class Mission
 							value="0";
 							parentCls="ACE_ModuleMap";
 							typeName="MapShowCursorCoordinates";
+						};
+						class Item5
+						{
+							value="-1";
+							parentCls="ACE_ModuleMap";
+							typeName="DefaultChannel";
 						};
 					};
 					id=45;
@@ -1231,7 +1243,7 @@ class Mission
 				class Item0
 				{
 					position[]={15314.099,0,15182.652};
-					azimut=0.45902234;
+					azimut=0.45902199;
 					class args
 					{
 						items=4;

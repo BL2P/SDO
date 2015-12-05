@@ -58,7 +58,7 @@ _newpos = [_newpos, 7, _dir + 90] call BIS_fnc_relPos;
 _prop = "Land_CncBarrier_stripes_F" createVehicle _newpos;
 _prop setDir _dir;
 
-/*
+
 _newpos = [_gate, 9, _dir + 180] call BIS_fnc_relPos;
 _newpos = [_newpos, 4, _dir + 90] call BIS_fnc_relPos;
 _prop = "Land_Razorwire_F" createVehicle _newpos;
@@ -68,7 +68,7 @@ _newpos = [_gate, 9, _dir + 180] call BIS_fnc_relPos;
 _newpos = [_newpos, 13, _dir - 90] call BIS_fnc_relPos;
 _prop = "Land_Razorwire_F" createVehicle _newpos;
 _prop setDir _dir;
-*/
+
 _newpos = [_gate, 4, _dir + 180] call BIS_fnc_relPos;
 _newpos = [_newpos, 5, _dir + 90] call BIS_fnc_relPos;
 _prop = (["Land_LampShabby_F","Land_TTowerSmall_1_F","Land_FieldToilet_F"] call BIS_fnc_selectRandom) createVehicle _newpos;

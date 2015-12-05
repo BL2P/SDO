@@ -228,8 +228,11 @@ if (PARAMS_ALLOW_3CB == 1) then
 	_AmmoTruckammo = 	_AmmoTruckammo + CB_AmmunitionTruck;
 	};
 
-	_Weapons_ATs =
+	_Weapons_ATsBOTH =
 				[
+					"launch_B_Titan_F",
+					"launch_B_Titan_short_F",
+					"launch_NLAW_F",
 					"UK3CB_BAF_AT4_AT_Launcher",
 					"UK3CB_BAF_AT4_AP_Launcher",
 					"UK3CB_BAF_AT4_CS_AT_Launcher",  
@@ -238,14 +241,45 @@ if (PARAMS_ALLOW_3CB == 1) then
 					"UK3CB_BAF_Javelin_Launcher",
 					"UK3CB_BAF_Javelin_Slung_Tube"
 				];
+				
+	_Weapons_ATsBIS =
+				[
+							"launch_B_Titan_F",
+							"launch_B_Titan_short_F",
+							"launch_NLAW_F"
+				];
+				
+	_Weapons_ATs3CB =
+				[
+					"UK3CB_BAF_AT4_AT_Launcher",
+					"UK3CB_BAF_AT4_AP_Launcher",
+					"UK3CB_BAF_AT4_CS_AT_Launcher",  
+					"UK3CB_BAF_AT4_CS_AP_Launcher",
+					"UK3CB_BAF_NLAW_Launcher",
+					"UK3CB_BAF_Javelin_Launcher",
+					"UK3CB_BAF_Javelin_Slung_Tube"
+				];			
+				
 
 [_FALCONS_Box,[] + _AmmoTruckammo,true] call BIS_fnc_addVirtualMagazineCargo;
-	
-[_FALCONS_Box,[] + _Weapons_ATs ,true] call BIS_fnc_addVirtualWeaponCargo;
 
+if (PARAMS_SELECT_Launchers == 0) then
+	{
+		[_FALCONS_Box,[] + _Weapons_ATsBOTH ,true] call BIS_fnc_addVirtualWeaponCargo;
+	};
+if (PARAMS_SELECT_Launchers == 1) then
+	{
+		[_FALCONS_Box,[] + _Weapons_ATsBIS ,true] call BIS_fnc_addVirtualWeaponCargo;
+	};
+if (PARAMS_SELECT_Launchers == 2) then
+	{
+		[_FALCONS_Box,[] + _Weapons_ATs3CB ,true] call BIS_fnc_addVirtualWeaponCargo;
+	};
+	
 [_FALCONS_Box,[],true] call BIS_fnc_addVirtualItemCargo;
 
 [_FALCONS_Box,[],true] call BIS_fnc_addVirtualBackpackCargo;
+
 if (DEBUG) then {
 diag_log "***Finished Reading  Container_Arsenal================";
 };
